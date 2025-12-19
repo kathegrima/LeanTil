@@ -1,7 +1,7 @@
 // LeanTil Static Site - Main JavaScript
 
 // Current language state
-let currentLang = 'it';
+let currentLang = 'en';
 
 // Initialize the site
 document.addEventListener('DOMContentLoaded', function() {
