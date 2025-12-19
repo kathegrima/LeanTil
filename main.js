@@ -18,7 +18,11 @@ function initLanguageSelector() {
       setLanguage(lang);
     });
   });
+
+  // Imposta subito l'inglese all'apertura
+  setLanguage('en');
 }
+
 
 function setLanguage(lang) {
   currentLang = lang;
