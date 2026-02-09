@@ -911,9 +911,15 @@ button {
   color: var(--background);
 }
 
-.footer-copyright {
-  color: hsl(0, 0%, 100%, 0.5);
-  font-size: 0.875rem;
+.footer-copyright a {
+  color: hsl(0, 0%, 100%, 0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-copyright a:hover {
+  color: hsl(0, 0%, 100%, 0.9);
+  text-decoration: underline;
 }
 
 /* ===== Responsive Tweaks ===== */
