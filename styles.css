@@ -887,7 +887,7 @@ button {
 .footer-logo {
   height: 2.5rem;
   width: auto;
-  filter: invert(1);
+  filter: none;
 }
 
 .footer-tagline {
