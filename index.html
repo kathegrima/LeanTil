@@ -23,92 +23,166 @@
   <link rel="canonical" href="https://leantil.com" />
   <link rel="icon" type="image/png" href="favicon.png" />
   
-  <!-- Cookie Consent Banner Styles -->
-  <style>
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #fff;
-      border-top: 1px solid #e0e0e0;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-      padding: 20px;
-      z-index: 10000;
-      font-family: 'Montserrat', sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .cookie-content { margin-bottom: 15px; font-size: 14px; line-height: 1.5; }
-    .cookie-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn-cookie { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; font-size: 14px; transition: all 0.2s; }
-    .btn-accept { background: #4a9e90; color: white; }
-    .btn-accept:hover { background: #3a8a7d; }
-    .btn-decline { background: transparent; color: #666; border: 1px solid #ddd; }
-    .btn-decline:hover { background: #f5f5f5; }
-    .cookie-hidden { display: none !important; }
-    @media (max-width: 768px) { .cookie-banner { padding: 15px; } .cookie-buttons { flex-direction: column; } }
-  </style>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Google Consent Mode v2 + GA4 with Privacy Compliance -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1WJG24H9T"></script>
+  <!-- Google Consent Mode v2 - DEVE essere prima di gtag -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     
-    // Google Consent Mode v2 (obbligatorio UE/GDPR)
+    // Default consent: negato fino a scelta utente
     gtag('consent', 'default', {
       'ad_storage': 'denied',
-      'analytics_storage': 'denied',
+      'ad_user_data': 'denied',
       'ad_personalization': 'denied',
-      'ad_user_data': 'denied'
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
     });
-    
-    gtag('js', new Date());
-    
-    // Funzioni per gestire consenso
-    window.updateConsent = function(consent) {
-      gtag('consent', 'update', {
-        'ad_storage': consent ? 'granted' : 'denied',
-        'analytics_storage': consent ? 'granted' : 'denied',
-        'ad_personalization': consent ? 'granted' : 'denied',
-        'ad_user_data': consent ? 'granted' : 'denied'
-      });
-    };
-    
-    // Carica GA4 solo dopo consenso (risolve warning incompleto)
-    function loadGA4() {
-      gtag('config', 'G-S1WJG24H9T', {
-        'wait_for_privacy_consent': true,
-        'cookie_flags': 'SameSite=None;Secure'
-      });
-    }
   </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1WJG24H9T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S1WJG24H9T', {
+      'anonymize_ip': true
+    });
+  </script>
+
+  <!-- Cookie Banner Styles -->
+  <style>
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: hsl(240, 5%, 10%);
+      color: hsl(0, 0%, 95%);
+      padding: 1.5rem;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+      z-index: 9999;
+      display: none;
+      animation: slideUp 0.4s ease;
+    }
+    
+    .cookie-banner.show {
+      display: block;
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .cookie-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    
+    .cookie-text p {
+      margin: 0 0 0.5rem 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .cookie-text a {
+      color: hsl(168, 45%, 65%);
+      text-decoration: underline;
+    }
+    
+    .cookie-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    
+    .cookie-btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .cookie-btn-accept {
+      background: hsl(168, 45%, 50%);
+      color: white;
+      border-color: hsl(168, 45%, 50%);
+    }
+    
+    .cookie-btn-accept:hover {
+      background: hsl(168, 45%, 45%);
+      transform: translateY(-1px);
+    }
+    
+    .cookie-btn-decline {
+      background: transparent;
+      color: hsl(0, 0%, 95%);
+      border-color: hsl(0, 0%, 40%);
+    }
+    
+    .cookie-btn-decline:hover {
+      border-color: hsl(0, 0%, 60%);
+      background: hsl(0, 0%, 15%);
+    }
+    
+    @media (max-width: 768px) {
+      .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .cookie-actions {
+        width: 100%;
+      }
+      
+      .cookie-btn {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  </style>
   
 </head>
 
 <body>
-  <!-- Cookie Consent Banner (GDPR Compliant) -->
+  <!-- Cookie Consent Banner -->
   <div id="cookieBanner" class="cookie-banner">
     <div class="cookie-content">
-      <strong>🍪 Utilizziamo i cookie</strong><br>
-      Questo sito usa i cookie di Google Analytics per migliorare l'esperienza utente e analizzare il traffico (anonimizzato). <a href="/privacy-policy" style="color: #4a9e90;">Maggiori info</a>.
-    </div>
-    <div class="cookie-buttons">
-      <button class="btn-cookie btn-accept" onclick="acceptCookies()">Accetto</button>
-      <button class="btn-cookie btn-decline" onclick="declineCookies()">Rifiuto</button>
+      <div class="cookie-text">
+        <p><strong data-it="🍪 Cookie e Privacy" data-en="🍪 Cookies & Privacy">🍪 Cookie e Privacy</strong></p>
+        <p data-it="Utilizziamo Google Analytics per migliorare l'esperienza sul sito. I dati sono anonimi e ci aiutano a capire come viene utilizzato il sito." data-en="We use Google Analytics to improve your experience. Data is anonymized and helps us understand how the site is used.">
+          Utilizziamo Google Analytics per migliorare l'esperienza sul sito. I dati sono anonimi e ci aiutano a capire come viene utilizzato il sito.
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()" data-it="Accetta" data-en="Accept">Accetta</button>
+        <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()" data-it="Rifiuta" data-en="Decline">Rifiuta</button>
+      </div>
     </div>
   </div>
 
   <!-- Hero Section -->
   <section class="hero-section">
-    <!-- Contenuto invariato... resto del body identico all'originale -->
     <div class="hero-bg"></div>
     
     <!-- Navigation -->
@@ -120,8 +194,47 @@
       </div>
     </nav>
 
-    <!-- ... resto del contenuto body identico fino a </body> ... -->
-    
+    <div class="hero-content">
+      <div class="hero-grid">
+        <!-- Text Content -->
+        <div class="hero-text animate-fade-in">
+          <div class="hero-headlines">
+            <h1 class="hero-title">
+              <span data-it="Più energia," data-en="Less slouching,">Più energia,</span>
+              <br />
+              <span class="hero-title-accent" data-it="anche a fine giornata. ⚡" data-en="more energy. ⚡">anche a fine giornata. ⚡</span>
+            </h1>
+          </div>
+
+          <div class="hero-subheadlines">
+            <p class="hero-description" data-it="LeanTil è la soluzione intelligente che ti aiuta a mantenere una postura corretta mentre lavori, migliorando il tuo benessere e, di riflesso, la tua produttività." data-en="LeanTil is the intelligent solution that helps you stay in a healthy posture while you work, boosting your wellbeing and, as a result, your productivity.">
+              LeanTil è la soluzione intelligente che ti aiuta a mantenere una postura corretta mentre lavori, migliorando il tuo benessere e, di riflesso, la tua produttività.
+            </p>
+          </div>
+
+          <!-- CTAs -->
+          <div class="hero-ctas">
+            <a href="mailto:info@leantil.com" class="btn btn-primary" data-it="Contattaci" data-en="Contact us">Contattaci</a>
+            <button class="btn btn-outline" onclick="scrollToSection('how-it-works')" data-it="Come funziona?" data-en="How does it work?">Come funziona?</button>
+          </div>
+
+          <!-- Transparency line -->
+          <div class="hero-transparency">
+            <p data-it="Stiamo costruendo LeanTil. 🔗" data-en="We're building LeanTil. 🔗">Stiamo costruendo LeanTil. 🔗</p>
+          </div>
+        </div>
+
+        <!-- Illustration -->
+        <div class="hero-illustration animate-fade-in delay-1">
+          <div class="illustration-wrapper">
+            <img src="hero-illustration.png" alt="Illustrazione di persona seduta su sedia ergonomica" class="illustration-img" />
+            <div class="illustration-blob-1"></div>
+            <div class="illustration-blob-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Scroll Indicator -->
     <div class="scroll-indicator">
       <button onclick="scrollToSection('what-is')" class="scroll-btn" aria-label="Scorri verso il basso">
@@ -133,50 +246,330 @@
     </div>
   </section>
 
-  <!-- Tutte le altre sezioni identiche... (What Is, Benefits, How It Works, MVP, FAQ, Contact, Footer) -->
+  <!-- What Is Section -->
+  <section id="what-is" class="section section-card">
+    <div class="container">
+      <div class="what-is-grid">
+        <!-- Abstract Illustration -->
+        <div class="what-is-illustration">
+          <div class="svg-wrapper">
+            <svg viewBox="0 0 400 400" class="posture-svg">
+              <circle cx="200" cy="200" r="180" fill="hsl(168, 40%, 92%)" opacity="0.5" />
+              <path d="M200 80 Q220 150, 200 200 Q180 250, 200 320" stroke="hsl(240, 5%, 10%)" stroke-width="8" fill="none" stroke-linecap="round"/>
+              <path d="M200 80 L200 320" stroke="hsl(240, 5%, 10%)" stroke-width="2" stroke-dasharray="10,10" opacity="0.3"/>
+              <circle cx="200" cy="60" r="25" fill="hsl(240, 5%, 10%)" opacity="0.8" />
+              <ellipse cx="200" cy="120" rx="60" ry="15" fill="hsl(35, 35%, 88%)" />
+              <rect x="150" y="280" width="100" height="15" rx="5" fill="hsl(240, 5%, 10%)" opacity="0.6" />
+              <path d="M280 180 L250 200 L280 220" stroke="hsl(240, 5%, 10%)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
 
-  <!-- ... [incolla qui tutto il resto del body originale fino a prima di </body>] ... -->
+        <!-- Text Content -->
+        <div class="what-is-text">
+          <h2 class="section-title" data-it="Cos'è LeanTil?" data-en="What is LeanTil?">Cos'è LeanTil?</h2>
+          
+          <p class="section-description" data-it="LeanTil è pensata per chi passa molte ore alla scrivania. Rileva come ti siedi e ti aiuta a tornare in una posizione più sana ogni volta che inizi a incurvarti." data-en="LeanTil is designed for people who spend long hours at their desk. It detects how you sit and gently helps you return to a healthier posture whenever you start to slouch.">
+            LeanTil è pensata per chi passa molte ore alla scrivania. Rileva come ti siedi e ti aiuta a tornare in una posizione più sana ogni volta che inizi a incurvarti.
+          </p>
 
-  <script src="main.js"></script>
-  
-  <!-- Cookie Consent Script (GDPR Compliant) -->
+          <!-- Benefits -->
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p data-it="Ti avvisa quando ti stai incurvando." data-en="Notifies you when you're starting to slouch.">Ti avvisa quando ti stai incurvando.</p>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p data-it="Ti aiuta a creare abitudini posturali migliori giorno dopo giorno." data-en="Helps you build better posture habits day by day.">Ti aiuta a creare abitudini posturali migliori giorno dopo giorno.</p>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p data-it="Pensata per il tuo benessere, con un impatto diretto su energia e concentrazione." data-en="Designed for your wellbeing, with a direct impact on your energy and focus.">Pensata per il tuo benessere, con un impatto diretto su energia e concentrazione.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section section-accent">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title-large">
+          <span data-it="Benessere prima di tutto." data-en="Wellness first.">Benessere prima di tutto.</span>
+          <br />
+          <span class="text-muted" data-it="La produttività arriva dopo." data-en="Productivity follows.">La produttività arriva dopo.</span>
+        </h2>
+      </div>
+
+      <div class="benefits-cards">
+        <div class="benefit-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </div>
+          <h3 data-it="Meno tensione, più leggerezza" data-en="Less tension, more ease">Meno tensione, più leggerezza</h3>
+          <p data-it="Riducendo le posture scorrette prolungate, allevi tensioni su schiena e collo e ti senti meno 'scarico' a fine giornata." data-en="By reducing prolonged poor posture, you ease tension on your back and neck and feel less drained at the end of the day.">Riducendo le posture scorrette prolungate, allevi tensioni su schiena e collo e ti senti meno 'scarico' a fine giornata.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
+          </div>
+          <h3 data-it="Più energia mentale" data-en="More mental energy">Più energia mentale</h3>
+          <p data-it="Una postura migliore aiuta respirazione e ossigenazione: ti aiuta a restare più lucido mentre lavori." data-en="Better posture supports breathing and oxygenation, helping you stay clearer and sharper while you work.">Una postura migliore aiuta respirazione e ossigenazione: ti aiuta a restare più lucido mentre lavori.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+          </div>
+          <h3 data-it="Abitudini che durano" data-en="Habits that last">Abitudini che durano</h3>
+          <p data-it="LeanTil ti accompagna ogni giorno, trasformando piccoli aggiustamenti in una nuova normalità per il tuo corpo." data-en="LeanTil supports you every day, turning small adjustments into a new normal for your body.">LeanTil ti accompagna ogni giorno, trasformando piccoli aggiustamenti in una nuova normalità per il tuo corpo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="section section-card">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title-large">
+          <span data-it="Come funziona" data-en="How it works">Come funziona</span>
+          <br />
+          <span class="text-muted text-smaller" data-it="(senza complicarti la vita)" data-en="(without complicating things)">(senza complicarti la vita)</span>
+        </h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-connector"></div>
+          <div class="step-content">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <div class="step-icon-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M5 18v2"/><path d="M19 18v2"/></svg>
+              </div>
+            </div>
+            <h3 data-it="Ti siedi normalmente" data-en="You sit as usual">Ti siedi normalmente</h3>
+            <p data-it="Ti siedi sulla tua LeanTil come su una normale sedia da lavoro." data-en="You sit on your LeanTil just like on a regular work chair.">Ti siedi sulla tua LeanTil come su una normale sedia da lavoro.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-connector"></div>
+          <div class="step-content">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <div class="step-icon-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+            </div>
+            <h3 data-it="LeanTil rileva la tua postura" data-en="LeanTil tracks your posture">LeanTil rileva la tua postura</h3>
+            <p data-it="I sensori rilevano come distribuisci il peso e capiscono quando inizi a inclinarti male." data-en="Sensors detect how you distribute your weight and recognize when you start leaning the wrong way.">I sensori rilevano come distribuisci il peso e capiscono quando inizi a inclinarti male.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-content">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <div class="step-icon-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+              </div>
+            </div>
+            <h3 data-it="Ti aiuta a rimetterti dritto" data-en="It helps you get back upright">Ti aiuta a rimetterti dritto</h3>
+            <p data-it="Quando serve, LeanTil ti dà un feedback leggero che ti ricorda di rientrare in una posizione più sana." data-en="When needed, LeanTil gives you a gentle nudge to remind you to return to a healthier position.">Quando serve, LeanTil ti dà un feedback leggero che ti ricorda di rientrare in una posizione più sana.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MVP / Early Access Section -->
+  <section class="section section-gradient">
+    <div class="container">
+      <div class="mvp-wrapper">
+        <div class="badge" data-it="🚀 Early access" data-en="🚀 Early access">🚀 Accesso anticipato</div>
+        
+        <h2 class="section-title-large" data-it="Unisciti a noi ✨" data-en="Join us ✨">Unisciti a noi ✨</h2>
+
+        <div class="mvp-card">
+          <p class="mvp-intro" data-it="LeanTil non è ancora sul mercato: ma lo sarà presto. Unisciti alla nostra lista d'attesa per:" data-en="LeanTil is not on the market yet: but it will be soon. Join our waitlist to:">LeanTil non è ancora sul mercato: ma lo sarà presto. Unisciti alla nostra lista d'attesa per:</p>
+
+          <div class="mvp-benefits">
+            <div class="mvp-benefit">
+              <div class="mvp-benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              </div>
+              <p data-it="ci aiuti a capire quante persone lo vorrebbero davvero" data-en="help us understand how many people truly want this">ci aiuti a capire quante persone lo vorrebbero davvero</p>
+            </div>
+            <div class="mvp-benefit">
+              <div class="mvp-benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+              </div>
+              <p data-it="puoi influenzare le prossime scelte di design e funzionalità" data-en="can influence future design and features">puoi influenzare le prossime scelte di design e funzionalità</p>
+            </div>
+            <div class="mvp-benefit">
+              <div class="mvp-benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+              </div>
+              <p data-it="sarai tra i primi a sapere quando sarà possibile provarla o acquistarla" data-en="will be among the first to know when you can try or buy it">sarai tra i primi a sapere quando sarà possibile provarla o acquistarla</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section section-card">
+    <div class="container">
+      <div class="faq-wrapper">
+        <div class="section-header">
+          <h2 class="section-title-large">FAQ</h2>
+          <p class="text-muted" data-it="Domande frequenti" data-en="Frequently asked questions">Domande frequenti</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFaq(this)">
+              <span data-it="Quando sarà disponibile LeanTil?" data-en="When will LeanTil be available?">Quando sarà disponibile LeanTil?</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <p data-it="Stiamo lavorando alla prima versione. Contattaci per rimanere aggiornato sulla data di lancio e su eventuali inviti per i test." data-en="We're working on the first version. Get in touch to stay updated on the launch date and potential testing invites.">Stiamo lavorando alla prima versione. Contattaci per rimanere aggiornato sulla data di lancio e su eventuali inviti per i test.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFaq(this)">
+              <span data-it="Devo cambiare tutta la mia postazione?" data-en="Do I have to change my entire setup?">Devo cambiare tutta la mia postazione?</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <p data-it="No. LeanTil è pensata per integrarsi facilmente nella tua routine alla scrivania, senza stravolgere il modo in cui lavori." data-en="No. LeanTil is designed to easily fit into your daily desk routine, without forcing you to change how you work.">No. LeanTil è pensata per integrarsi facilmente nella tua routine alla scrivania, senza stravolgere il modo in cui lavori.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" onclick="toggleFaq(this)">
+              <span data-it="Come funziona LeanTil?" data-en="How does LeanTil work?">Come funziona LeanTil?</span>
+              <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-content">
+              <p data-it="LeanTil ti aiuta a mantenere una postura sana in modo sottile, quasi invisibile. Finisci la giornata con più energia, senza pensarci." data-en="LeanTil helps you maintain a healthy posture in a subtle, almost invisible way. You finish the day with more energy, without even thinking about it.">LeanTil ti aiuta a mantenere una postura sana in modo sottile, quasi invisibile. Finisci la giornata con più energia, senza pensarci.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section section-accent">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="section-header">
+          <h2 class="section-title-large" data-it="Vuoi saperne di più?" data-en="Want to know more?">Vuoi saperne di più?</h2>
+          <p data-it="Contattaci per qualsiasi domanda o per rimanere aggiornato su LeanTil." data-en="Get in touch with any questions or to stay updated on LeanTil.">Contattaci per qualsiasi domanda o per rimanere aggiornato su LeanTil.</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icons">
+            <div class="contact-icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <a href="https://www.linkedin.com/company/leantil" target="_blank" rel="noopener noreferrer" class="contact-icon-circle contact-icon-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+          
+          <h3 data-it="Contattaci" data-en="Get in touch">Contattaci</h3>
+          
+          <div class="contact-links">
+            <a href="mailto:info@leantil.com" class="contact-link">info@leantil.com</a>
+            <span class="contact-separator">•</span>
+            <a href="https://www.linkedin.com/company/leantil" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <img src="leantil-logo.png" alt="LeanTil" class="footer-logo" />
+        
+        <p class="footer-tagline" data-it="Più energia, anche a fine giornata. ⚡" data-en="Less slouching, more energy. ⚡">Più energia, anche a fine giornata. ⚡</p>
+
+        <div class="footer-right">
+          <a href="https://www.linkedin.com/company/leantil" target="_blank" rel="noopener noreferrer" class="footer-social">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <p class="footer-copyright">© 2026 LeanTil</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Script -->
   <script>
-    function getCookie(name) {
-      let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
-      return matches ? decodeURIComponent(matches[1]) : undefined;
-    }
-    
-    function setCookie(name, value, days = 365) {
-      let expires = "";
-      if (days) {
-        let date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-      }
-      document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
-    }
-    
-    function acceptCookies() {
-      setCookie('cookie_consent', 'accepted', 365);
-      window.updateConsent(true);
-      loadGA4();
-      document.getElementById('cookieBanner').classList.add('cookie-hidden');
-    }
-    
-    function declineCookies() {
-      setCookie('cookie_consent', 'declined', 365);
-      window.updateConsent(false);
-      document.getElementById('cookieBanner').classList.add('cookie-hidden');
-    }
-    
-    // Controlla consenso al caricamento
-    window.addEventListener('DOMContentLoaded', function() {
-      if (getCookie('cookie_consent') === 'accepted') {
-        loadGA4();
-      } else {
-        document.getElementById('cookieBanner').style.display = 'block';
+    // Controllo consenso cookie al caricamento
+    window.addEventListener('load', function() {
+      const consent = localStorage.getItem('cookie_consent');
+      
+      if (!consent) {
+        // Mostra banner se non c'è consenso salvato
+        setTimeout(() => {
+          document.getElementById('cookieBanner').classList.add('show');
+        }, 1000);
+      } else if (consent === 'accepted') {
+        // Attiva analytics se già accettato
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
       }
     });
+
+    function acceptCookies() {
+      localStorage.setItem('cookie_consent', 'accepted');
+      document.getElementById('cookieBanner').classList.remove('show');
+      
+      // Aggiorna consenso e attiva GA4
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted'
+      });
+      
+      // Track evento consenso
+      gtag('event', 'cookie_consent', {
+        'consent_action': 'accepted'
+      });
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookie_consent', 'declined');
+      document.getElementById('cookieBanner').classList.remove('show');
+      
+      // Mantieni analytics_storage negato
+      gtag('consent', 'update', {
+        'analytics_storage': 'denied'
+      });
+      
+      // Non tracciare nulla
+    }
   </script>
+
+  <script src="main.js"></script>
 </body>
 </html>
