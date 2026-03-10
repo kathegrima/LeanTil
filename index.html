@@ -163,7 +163,7 @@
 
           <!-- CTAs -->
           <div class="hero-ctas">
-            <a href="#beta" class="btn btn-primary" data-it="Partecipa alla Beta" data-en="Join the Beta" onclick="event.preventDefault(); document.getElementById('beta').scrollIntoView({behavior:'smooth'})">Partecipa alla Beta</a>
+            <a href="https://tally.so/r/jaMJGx" target="_blank" class="btn btn-primary" data-it="Contattaci" data-en="Contact us">Contattaci</a>
             <button class="btn btn-outline" onclick="scrollToSection('how-it-works')" data-it="Come funziona?" data-en="How does it work?">Come funziona?</button>
           </div>
 
@@ -521,18 +521,6 @@
       });
       
       // Non tracciare nulla
-    }
-  </script>
-
-  
-  <!-- Tally Embed Script -->
-  <script>
-    var d=document,w="https://tally.so/widgets/embed.js",
-    v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():
-    d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
-    if("undefined"!=typeof Tally)v();
-    else if(d.querySelector('script[src="'+w+'"]')===null){
-      var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);
     }
   </script>
 
