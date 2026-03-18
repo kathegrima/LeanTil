@@ -1,73 +1,32 @@
-# Welcome to your Lovable project
+# LeanTil – Landing Page
 
-## Project info
+Sito web ufficiale di [LeanTil](https://leantil.com), il dispositivo intelligente per il monitoraggio della postura.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## Struttura del progetto
 
-There are several ways of editing your application.
+Il sito è una landing page **statica in HTML/CSS/JS puro**, migrata da una versione precedente in React (Lovable + Vite). I file di configurazione React/Vite rimasti nel repository sono **legacy e non vengono usati dal sito live**.
 
-**Use Lovable**
+### File attivi (il sito live)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+| File | Ruolo |
+|---|---|
+| `index.html` | Landing page principale (541 righe) — tutta la struttura, i contenuti e le sezioni |
+| `privacy.html` | Pagina Privacy Policy, linkata dal footer e dal cookie banner |
+| `styles.css` | Foglio di stile principale, collegato nell'`<head>` di `index.html` |
+| `main.js` | Script JavaScript: gestione lingua IT/EN, scroll, animazioni, FAQ accordion |
+| `favicon.png` | Icona del sito (tab del browser) |
+| `leantil-logo.png` | Logo nella navbar |
+| `LeanTil_white_logo.png` | Logo bianco nel footer |
+| `hero-illustration.png` | Illustrazione nella sezione hero |
+| `CNAME` | Dominio custom per GitHub Pages (`leantil.com`) |
 
-Changes made via Lovable will be committed automatically to this repo.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Contatti
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **Email:** info@leantil.com  
+- **LinkedIn:** [linkedin.com/company/leantil](https://www.linkedin.com/company/leantil)  
+- **Sito:** [leantil.com](https://leantil.com)
