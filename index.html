@@ -3,329 +3,597 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LeanTil – Upright today, unstoppable tomorrow</title>
-  <meta name="description" content="LeanTil sente quando ti incurvi e ti riporta in posizione, in silenzio, senza interrompere il tuo lavoro." />
+
+  <!-- ══ SEO PRIMARIO ══ -->
+  <title>LeanTil – La tua schiena ti ringrazia alle 18:00</title>
+  <meta name="description" content="LeanTil è il cuscino intelligente che rileva la tua postura in tempo reale e ti riporta in posizione senza interrompere il lavoro. Unisciti alla beta." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.leantil.com/" />
+
+  <!-- ══ HREFLANG IT / EN ══ -->
+  <link rel="alternate" hreflang="it" href="https://www.leantil.com/" />
+  <link rel="alternate" hreflang="en" href="https://www.leantil.com/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.leantil.com/" />
+
+  <!-- ══ OPEN GRAPH ══ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.leantil.com/" />
+  <meta property="og:title"       content="LeanTil – La tua schiena ti ringrazia alle 18:00" />
+  <meta property="og:description" content="Il cuscino intelligente che rileva la tua postura e ti riporta in posizione, in silenzio. Unisciti alla beta gratuita." />
+  <meta property="og:image"       content="https://www.leantil.com/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="it_IT" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name"   content="LeanTil" />
+
+  <!-- ══ TWITTER CARD ══ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="LeanTil – La tua schiena ti ringrazia alle 18:00" />
+  <meta name="twitter:description" content="Il cuscino intelligente che rileva la tua postura e ti riporta in posizione, in silenzio." />
+  <meta name="twitter:image"       content="https://www.leantil.com/og-image.png" />
+
+  <!-- ══ STRUCTURED DATA JSON-LD ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.leantil.com/#organization",
+        "name": "LeanTil",
+        "url": "https://www.leantil.com/",
+        "logo": "https://www.leantil.com/leantil-logo.png",
+        "sameAs": ["https://www.linkedin.com/company/leantil"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@leantil.com",
+          "contactType": "customer support"
+        },
+        "founder": [
+          { "@type": "Person", "name": "Caterina", "url": "https://www.linkedin.com/in/caterina-grimaldi/" },
+          { "@type": "Person", "name": "Giuseppe" }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.leantil.com/#website",
+        "url": "https://www.leantil.com/",
+        "name": "LeanTil",
+        "publisher": { "@id": "https://www.leantil.com/#organization" },
+        "inLanguage": ["it", "en"]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://www.leantil.com/#product",
+        "name": "LeanTil",
+        "description": "Cuscino intelligente per la postura che rileva in tempo reale la distribuzione del peso sulla seduta e invia un segnale visivo discreto quando la postura diventa scorretta.",
+        "brand": { "@id": "https://www.leantil.com/#organization" },
+        "category": "Ergonomic seating / Posture correction device",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/PreOrder",
+          "priceCurrency": "EUR",
+          "description": "Gratuito per i beta tester"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quando sarà disponibile LeanTil?",
+            "acceptedAnswer": { "@type": "Answer", "text": "LeanTil è in fase di beta testing con un primo gruppo di early adopter. Iscriviti tramite il form e ti contatteremo direttamente." }
+          },
+          {
+            "@type": "Question",
+            "name": "Come funziona LeanTil?",
+            "acceptedAnswer": { "@type": "Answer", "text": "LeanTil è un cuscino che si adatta a qualsiasi sedia. Rileva in tempo reale come distribuisci il peso sulla seduta. Quando riconosce una postura scorretta prolungata, invia un segnale visivo discreto per ricordarti di tornare in posizione." }
+          },
+          {
+            "@type": "Question",
+            "name": "Devo cambiare tutta la mia postazione?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. LeanTil si adatta a qualsiasi sedia e non richiede modifiche alla postazione." }
+          },
+          {
+            "@type": "Question",
+            "name": "Come viene alimentato LeanTil?",
+            "acceptedAnswer": { "@type": "Answer", "text": "LeanTil ha una batteria ricaricabile integrata. I dettagli sull'autonomia verranno comunicati ai beta tester durante il programma." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" href="https://www.leantil.com/leantil-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- ══ GA4 + CONSENT MODE v2 ══ -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('consent', 'default', { analytics_storage:'denied', ad_storage:'denied', wait_for_update:500 });
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1WJG24H9T"></script>
+  <script>
+    gtag('config', 'G-S1WJG24H9T', { anonymize_ip:true, send_page_view:true });
+  </script>
+
   <style>
-    /* ── RESET ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 
-    /* ── TOKENS ── */
     :root {
-      --bg:      #0A0A0C;
-      --card:    #141416;
-      --bd:      rgba(255,255,255,.07);
-      --bd2:     rgba(255,255,255,.13);
-      --tx:      #F0F0F2;
-      --muted:   #6B6B74;
-      --dim:     #38383F;
-      --p1:      #6B3FA0;
-      --p2:      #9B6FD0;
-      --glow:    rgba(107,63,160,.4);
-      --grad:    linear-gradient(135deg,#6B3FA0 0%,#9B6FD0 100%);
-      --f:       'Plus Jakarta Sans', system-ui, sans-serif;
-      --r:       14px;
+      --bg:   #0A0A0C;
+      --card: #141416;
+      --bd:   rgba(255,255,255,.07);
+      --bd2:  rgba(255,255,255,.13);
+      --tx:   #F0F0F2;
+      --muted:#8A8A96;
+      --dim:  #58585F;
+      --p1:   #6B3FA0;
+      --p2:   #9B6FD0;
+      --glow: rgba(107,63,160,.4);
+      --grad: linear-gradient(135deg,#6B3FA0 0%,#9B6FD0 100%);
+      --f:    'Plus Jakarta Sans', system-ui, sans-serif;
+      --r:    14px;
     }
 
-    /* ── BASE ── */
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior:smooth; }
     body {
-      background: var(--bg);
-      color: var(--tx);
-      font-family: var(--f);
-      font-size: 16px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      background:var(--bg); color:var(--tx);
+      font-family:var(--f); font-size:16px; line-height:1.65;
+      -webkit-font-smoothing:antialiased; overflow-x:hidden;
     }
-    a { text-decoration: none; }
-    img { display: block; }
+    a { text-decoration:none; }
+    img { display:block; }
+    .W { max-width:1080px; margin:0 auto; padding:0 28px; }
+    :focus-visible { outline:2px solid var(--p2); outline-offset:3px; border-radius:4px; }
 
-    /* ── LAYOUT ── */
-    .W { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
-
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
     }
     @keyframes blink {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50%      { opacity: .2; transform: scale(1.55); }
+      0%,100% { opacity:1; transform:scale(1); }
+      50%     { opacity:.2; transform:scale(1.55); }
     }
 
-    /* ── COOKIE ── */
+    /* ── COOKIE BANNER ── */
     #ck {
-      position: fixed; bottom: 20px; left: 50%;
-      transform: translateX(-50%);
-      z-index: 900;
-      background: #1D1D21;
-      border: 1px solid var(--bd2);
-      border-radius: 12px;
-      padding: 14px 18px;
-      display: flex; align-items: center; gap: 16px;
-      font-size: 13px; color: var(--muted);
-      max-width: 520px; width: calc(100% - 32px);
-      box-shadow: 0 8px 48px rgba(0,0,0,.6);
-      transition: opacity .3s, transform .3s;
+      position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+      z-index:900; background:#1D1D21; border:1px solid var(--bd2);
+      border-radius:12px; padding:14px 18px;
+      display:flex; align-items:center; gap:16px;
+      font-size:13px; color:var(--muted);
+      max-width:540px; width:calc(100% - 32px);
+      box-shadow:0 8px 48px rgba(0,0,0,.6);
+      transition:opacity .3s, transform .3s;
     }
-    #ck.hide { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(16px); }
-    #ck a { color: var(--p2); }
-    #ck a:hover { text-decoration: underline; }
-    .ck-btns { display: flex; gap: 8px; flex-shrink: 0; }
+    #ck.hide { opacity:0; pointer-events:none; transform:translateX(-50%) translateY(16px); }
+    #ck a { color:var(--p2); }
+    #ck a:hover { text-decoration:underline; }
+    .ck-btns { display:flex; gap:8px; flex-shrink:0; }
     .ck-btn {
-      padding: 6px 14px; border-radius: 100px;
-      border: 1px solid var(--bd2);
-      background: transparent; color: var(--tx);
-      font-family: var(--f); font-size: 12.5px; cursor: pointer;
-      transition: background .15s;
+      padding:6px 14px; border-radius:100px; border:1px solid var(--bd2);
+      background:transparent; color:var(--tx);
+      font-family:var(--f); font-size:12.5px; cursor:pointer; transition:background .15s;
     }
-    .ck-btn:hover { background: rgba(255,255,255,.07); }
-    .ck-yes { background: var(--grad) !important; border-color: transparent !important; }
+    .ck-btn:hover { background:rgba(255,255,255,.07); }
+    .ck-yes { background:var(--grad) !important; border-color:transparent !important; }
+    .ck-reset-btn {
+      background:none; border:none; color:var(--muted); font-family:var(--f);
+      font-size:13.5px; cursor:pointer; transition:color .2s;
+      display:inline-flex; align-items:center; gap:5px;
+    }
+    .ck-reset-btn:hover { color:var(--tx); }
 
     /* ── HEADER ── */
     #hdr {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(10,10,12,.9);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--bd);
-      transition: box-shadow .3s;
+      position:sticky; top:0; z-index:200;
+      background:rgba(10,10,12,.9);
+      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--bd); transition:box-shadow .3s;
     }
-    .hdr-row {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 66px;
-    }
-    .logo img { height: 40px; }
-    .hdr-r { display: flex; align-items: center; gap: 10px; }
+    .hdr-row { display:flex; align-items:center; justify-content:space-between; height:66px; }
 
+    /* FIX 1 — logo proporzioni (header) */
+    .logo img { height:40px; width:auto; object-fit:contain; }
+
+    .hdr-r { display:flex; align-items:center; gap:10px; }
     .btn-lang {
-      padding: 6px 14px; border-radius: 8px;
-      border: 1px solid var(--bd2);
-      background: var(--card); color: var(--muted);
-      font-family: var(--f); font-size: 13px; font-weight: 600;
-      cursor: pointer; transition: border-color .2s, color .2s;
+      padding:6px 14px; border-radius:8px; border:1px solid var(--bd2);
+      background:var(--card); color:var(--muted);
+      font-family:var(--f); font-size:13px; font-weight:600;
+      cursor:pointer; transition:border-color .2s, color .2s;
     }
-    .btn-lang:hover { border-color: rgba(255,255,255,.24); color: var(--tx); }
-
+    .btn-lang:hover { border-color:rgba(255,255,255,.24); color:var(--tx); }
     .btn-sm {
-      display: inline-flex; align-items: center;
-      background: var(--grad); color: #fff;
-      font-family: var(--f); font-size: 14px; font-weight: 700;
-      padding: 10px 22px; border-radius: 100px;
-      border: none; cursor: pointer;
-      transition: box-shadow .2s, transform .15s;
+      display:inline-flex; align-items:center;
+      background:var(--grad); color:#fff;
+      font-family:var(--f); font-size:14px; font-weight:700;
+      padding:10px 22px; border-radius:100px; border:none; cursor:pointer;
+      transition:box-shadow .2s, transform .15s;
     }
-    .btn-sm:hover { transform: translateY(-1px); box-shadow: 0 4px 22px var(--glow); }
+    .btn-sm:hover { transform:translateY(-1px); box-shadow:0 4px 22px var(--glow); }
 
     /* ── HERO ── */
     .hero {
-      min-height: 88vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 80px 0 72px;
-      position: relative; overflow: hidden;
+      min-height:88vh; display:flex; align-items:center; justify-content:center;
+      text-align:center; padding:80px 0 72px; position:relative; overflow:hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute; top: -160px; left: 50%; transform: translateX(-50%);
-      width: 960px; height: 680px; border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(107,63,160,.14) 0%, transparent 60%);
-      pointer-events: none;
+      content:''; position:absolute; top:-160px; left:50%; transform:translateX(-50%);
+      width:960px; height:680px; border-radius:50%;
+      background:radial-gradient(ellipse,rgba(107,63,160,.14) 0%,transparent 60%);
+      pointer-events:none;
     }
-    .hero > .W { position: relative; z-index: 1; }
-
+    .hero > .W { position:relative; z-index:1; }
     .badge {
-      display: inline-flex; align-items: center; gap: 9px;
-      background: rgba(107,63,160,.14);
-      border: 1px solid rgba(107,63,160,.32);
-      border-radius: 100px;
-      padding: 5px 16px;
-      font-size: 13px; font-weight: 600; color: #fff;
-      margin-bottom: 32px;
-      animation: fadeUp .6s ease both;
+      display:inline-flex; align-items:center; gap:9px;
+      background:rgba(107,63,160,.14); border:1px solid rgba(107,63,160,.32);
+      border-radius:100px; padding:5px 16px;
+      font-size:13px; font-weight:600; color:#fff; margin-bottom:32px;
+      animation:fadeUp .6s ease both;
     }
-    .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #fff; flex-shrink: 0;
-      animation: blink 2.2s ease infinite;
-    }
-
+    .dot { width:7px; height:7px; border-radius:50%; background:#fff; flex-shrink:0; animation:blink 2.2s ease infinite; }
     .hero h1 {
-      font-size: clamp(42px, 7vw, 82px);
-      font-weight: 800; line-height: 1.06; letter-spacing: -.026em;
-      max-width: 780px; margin: 0 auto 22px;
-      animation: fadeUp .7s .1s ease both;
+      font-size:clamp(42px,7vw,82px); font-weight:800; line-height:1.06;
+      letter-spacing:-.026em; max-width:780px; margin:0 auto 22px;
+      animation:fadeUp .7s .1s ease both;
     }
     .hero-sub {
-      font-size: clamp(16px, 1.9vw, 19px);
-      color: var(--muted); max-width: 500px;
-      margin: 0 auto 44px;
-      font-weight: 400; line-height: 1.65;
-      animation: fadeUp .7s .2s ease both;
+      font-size:clamp(16px,1.9vw,19px); color:var(--muted); max-width:500px;
+      margin:0 auto 44px; line-height:1.65; animation:fadeUp .7s .2s ease both;
     }
-    .cta-group {
-      display: flex; flex-direction: column; align-items: center; gap: 14px;
-      animation: fadeUp .7s .3s ease both;
-    }
+    .cta-group { display:flex; flex-direction:column; align-items:center; gap:14px; animation:fadeUp .7s .3s ease both; }
     .btn-lg {
-      display: inline-flex; align-items: center;
-      background: var(--grad); color: #fff;
-      font-family: var(--f); font-size: 17px; font-weight: 700;
-      padding: 16px 40px; border-radius: 100px;
-      border: none; cursor: pointer;
-      box-shadow: 0 0 36px var(--glow);
-      transition: box-shadow .25s, transform .2s;
+      display:inline-flex; align-items:center;
+      background:var(--grad); color:#fff;
+      font-family:var(--f); font-size:17px; font-weight:700;
+      padding:16px 40px; border-radius:100px; border:none; cursor:pointer;
+      box-shadow:0 0 36px var(--glow); transition:box-shadow .25s, transform .2s;
     }
-    .btn-lg:hover { transform: translateY(-2px); box-shadow: 0 6px 48px var(--glow); }
-    .micro { font-size: 13px; color: var(--muted); }
+    .btn-lg:hover { transform:translateY(-2px); box-shadow:0 6px 48px var(--glow); }
+    .micro { font-size:13px; color:var(--muted); }
+    .social-proof { display:flex; align-items:center; gap:10px; margin-top:4px; }
+    .avatar-stack { display:flex; }
+    .avatar {
+      width:26px; height:26px; border-radius:50%; border:2px solid var(--bg);
+      display:flex; align-items:center; justify-content:center;
+      font-size:11px; font-weight:700; color:#fff; margin-right:-8px;
+    }
+    .avatar:last-child { margin-right:0; }
+    .proof-text { font-size:13px; color:var(--muted); }
+    .proof-text strong { color:var(--p2); font-weight:700; }
+
+    /* ── PRODUCT RENDER STRIP ── */
+    .render-strip { padding:0 0 72px; }
+
+    .render-header {
+      text-align:center;
+      margin-bottom:32px;
+    }
+    .render-eyebrow {
+      display:block;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--p2);
+      margin-bottom:10px;
+    }
+    .render-title {
+      font-size:clamp(22px,3vw,34px);
+      font-weight:800;
+      letter-spacing:-.02em;
+      color:var(--tx);
+      line-height:1.1;
+    }
+    .render-card {
+      position:relative;
+      max-width:760px;
+      margin:0 auto;
+      border-radius:28px;
+      background:var(--card);
+      border:1px solid rgba(155,111,208,.28);
+      box-shadow:0 0 0 1px rgba(107,63,160,.08), 0 32px 80px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.04);
+      padding:48px 40px 36px;
+      overflow:hidden;
+    }
+    .render-card::before {
+      content:'';
+      position:absolute;
+      top:-80px; left:50%; transform:translateX(-50%);
+      width:80%; height:320px; border-radius:50%;
+      background:radial-gradient(ellipse, rgba(107,63,160,.12) 0%, transparent 65%);
+      pointer-events:none;
+    }
+    .render-card::after {
+      content:'';
+      position:absolute;
+      bottom:0; left:10%; right:10%; height:1px;
+      background:linear-gradient(90deg, transparent, rgba(155,111,208,.3), transparent);
+    }
+    .render-img {
+      position:relative;
+      width:100%;
+      max-width:560px;
+      height:auto;
+      display:block;
+      margin:0 auto;
+      mix-blend-mode:screen;
+      filter:drop-shadow(0 20px 56px rgba(107,63,160,.3));
+      z-index:1;
+    }
+
+    /* ── FOR WHO STRIP ── */
+    .forwho-strip { padding:0 0 48px; }
+
+    /* FIX 2 — titoletto per chi è rivolto */
+    .forwho-title {
+      text-align:center;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--dim);
+      margin-bottom:16px;
+    }
+
+    .forwho-chips { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+    .forwho-chip {
+      display:inline-flex; align-items:center; gap:7px;
+      background:var(--card); border:1px solid var(--bd2);
+      border-radius:100px; padding:8px 18px;
+      font-size:13.5px; font-weight:600; color:var(--muted);
+      transition:border-color .2s, color .2s;
+    }
+    .forwho-chip:hover { border-color:var(--p2); color:var(--tx); }
 
     /* ── PROBLEM ── */
-    .problem { padding: 110px 0 72px; }
+    .problem { padding:110px 0 80px; }
     .prob-big {
-      font-size: clamp(28px, 4.8vw, 56px);
-      font-weight: 800; line-height: 1.12; letter-spacing: -.02em;
-      max-width: 880px; margin: 0 auto 72px; text-align: center;
+      font-size:clamp(28px,4.8vw,56px); font-weight:800; line-height:1.12;
+      letter-spacing:-.02em; max-width:880px; margin:0 auto 72px; text-align:center;
     }
-    .prob-big .dim { color: var(--muted); }
+    .prob-big .dim { color:var(--muted); }
 
     /* ── CARDS ── */
-    .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
     .card {
-      background: var(--card);
-      border: 1px solid var(--bd);
-      border-radius: var(--r);
-      padding: 32px 26px;
-      transition: border-color .25s, transform .25s, box-shadow .25s;
+      background:var(--card); border:1px solid var(--bd); border-radius:var(--r);
+      padding:32px 26px; transition:border-color .25s, transform .25s, box-shadow .25s;
     }
-    .card:hover {
-      border-color: rgba(107,63,160,.52);
-      transform: translateY(-4px);
-      box-shadow: 0 0 24px rgba(107,63,160,.14), 0 8px 28px rgba(0,0,0,.3);
-    }
-    .card-ico {
-      width: 42px; height: 42px; border-radius: 10px;
-      background: rgba(107,63,160,.16);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
-    }
-    .card-ico svg { width: 20px; height: 20px; stroke: var(--p2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
-    .card p  { font-size: 14.5px; color: var(--muted); line-height: 1.65; }
+    .card:hover { border-color:rgba(107,63,160,.52); transform:translateY(-4px); box-shadow:0 0 24px rgba(107,63,160,.14),0 8px 28px rgba(0,0,0,.3); }
+    .card-ico { width:42px; height:42px; border-radius:10px; background:rgba(107,63,160,.16); display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+    .card-ico svg { width:20px; height:20px; stroke:var(--p2); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .card h3 { font-size:17px; font-weight:700; margin-bottom:10px; }
+    .card p  { font-size:14.5px; color:var(--muted); line-height:1.65; }
 
-    /* ── HOW ── */
-    .how { padding: 110px 0; }
-    .how-hdr { text-align: center; margin-bottom: 72px; }
-    .how-hdr h2 { font-size: clamp(28px, 4vw, 46px); font-weight: 800; letter-spacing: -.02em; }
-    .how-hdr p  { font-size: 16px; color: var(--muted); margin-top: 10px; }
-
-    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
-    .step {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .55s ease, transform .55s ease;
+    /* ── ILLUSTRATION GIF ── */
+    .illus { padding:72px 0 0; text-align:center; }
+    .illus-label { font-size:11px; color:var(--muted); letter-spacing:.09em; text-transform:uppercase; font-weight:600; margin-bottom:20px; }
+    .illus-wrap { max-width:480px; margin:0 auto; background:var(--card); border:1px solid var(--bd); border-radius:18px; overflow:hidden; }
+    .illus-gif { display:block; width:100%; height:auto; mix-blend-mode:screen; }
+    .illus-steps { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; padding:14px 16px 18px; border-top:1px solid var(--bd); }
+    .illus-pill {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(107,63,160,.1); border:1px solid rgba(107,63,160,.22);
+      border-radius:100px; padding:5px 14px;
+      font-size:12px; font-weight:600; color:var(--p2); white-space:nowrap;
     }
-    .step.show { opacity: 1; transform: translateY(0); }
-    .step:nth-child(1).show { transition-delay: 0s; }
-    .step:nth-child(2).show { transition-delay: .14s; }
-    .step:nth-child(3).show { transition-delay: .28s; }
-    /* fallback: if JS disabled, show all steps */
-    .no-js .step { opacity: 1; transform: none; }
+    .illus-pill.green { background:rgba(151,196,89,.08); border-color:rgba(151,196,89,.22); color:#97C459; }
+    .illus-pill-dot { width:6px; height:6px; border-radius:50%; background:currentColor; flex-shrink:0; }
 
-    .step-n {
-      font-size: clamp(54px, 7vw, 86px);
-      font-weight: 800; color: var(--dim); line-height: 1;
-      margin-bottom: 18px; letter-spacing: -.03em;
-      transition: color .4s ease;
+    /* ── HOW IT WORKS ── */
+    .how { padding:110px 0; }
+    .how-hdr { text-align:center; margin-bottom:72px; }
+    .how-hdr h2 { font-size:clamp(28px,4vw,46px); font-weight:800; letter-spacing:-.02em; }
+    .how-hdr p  { font-size:16px; color:var(--muted); margin-top:10px; }
+
+    /* steps grid — desktop */
+    .steps {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:40px;
+      position:relative;
     }
-    .step.show .step-n { color: rgba(107,63,160,.48); }
-    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-    .step p  { font-size: 14.5px; color: var(--muted); line-height: 1.65; }
+
+    .step { opacity:0; transform:translateY(28px); transition:opacity .55s ease, transform .55s ease; }
+    .step.show { opacity:1; transform:translateY(0); }
+    .step:nth-child(2).show { transition-delay:.14s; }
+    .step:nth-child(3).show { transition-delay:.28s; }
+    .step-n { font-size:clamp(54px,7vw,86px); font-weight:800; color:var(--dim); line-height:1; margin-bottom:18px; letter-spacing:-.03em; transition:color .4s ease; }
+    .step.show .step-n { color:rgba(107,63,160,.48); }
+    .step h3 { font-size:18px; font-weight:700; margin-bottom:10px; }
+    .step p  { font-size:14.5px; color:var(--muted); line-height:1.65; }
 
     /* ── JOIN ── */
-    .join { padding: 80px 0 110px; }
+    .join { padding:80px 0 110px; }
     .join-box {
-      background: var(--card);
-      border: 1px solid var(--bd2);
-      border-radius: 24px;
-      padding: 72px 48px; text-align: center;
-      position: relative; overflow: hidden;
+      background:var(--card); border:1px solid var(--bd2); border-radius:24px;
+      padding:72px 48px; text-align:center; position:relative; overflow:hidden;
     }
     .join-box::before {
-      content: '';
-      position: absolute; top: -110px; left: 50%; transform: translateX(-50%);
-      width: 580px; height: 380px; border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(107,63,160,.12) 0%, transparent 65%);
-      pointer-events: none;
+      content:''; position:absolute; top:-110px; left:50%; transform:translateX(-50%);
+      width:580px; height:380px; border-radius:50%;
+      background:radial-gradient(ellipse,rgba(107,63,160,.12) 0%,transparent 65%);
+      pointer-events:none;
     }
-    .join-box h2 {
-      font-size: clamp(32px, 5vw, 58px);
-      font-weight: 800; letter-spacing: -.024em; margin-bottom: 8px;
-      position: relative;
+    .join-box h2 { font-size:clamp(32px,5vw,58px); font-weight:800; letter-spacing:-.024em; margin-bottom:8px; position:relative; }
+    .join-sub { font-size:17px; color:var(--muted); margin-bottom:36px; position:relative; }
+    .perks { display:flex; justify-content:center; gap:36px; flex-wrap:wrap; margin-bottom:44px; list-style:none; position:relative; }
+    .perks li { display:flex; align-items:center; gap:8px; font-size:14.5px; color:var(--muted); }
+    .perks li svg { width:16px; height:16px; stroke:var(--p2); fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+    .join-note { font-size:12.5px; color:var(--dim); margin-top:14px; position:relative; }
+
+    /* ── FOUNDER STRIP ── */
+    .founder-strip { padding:0 0 72px; }
+    .founder-strip-title {
+      font-size:13px; font-weight:600; color:var(--dim);
+      letter-spacing:.08em; text-transform:uppercase;
+      margin-bottom:20px; text-align:center;
     }
-    .join-sub { font-size: 17px; color: var(--muted); margin-bottom: 36px; position: relative; }
-    .perks {
-      display: flex; justify-content: center; gap: 36px;
-      flex-wrap: wrap; margin-bottom: 44px;
-      list-style: none; position: relative;
+    .founders-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .founder-card-single {
+      background:var(--card); border:1px solid var(--bd); border-radius:16px;
+      padding:28px 28px 24px; display:flex; align-items:flex-start; gap:16px;
+      position:relative;
     }
-    .perks li {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 14.5px; color: var(--muted);
+
+    /* FIX 4 — quote mark decorativo */
+    .founder-card-single::before {
+      content:'\201C';
+      position:absolute;
+      top:18px; right:22px;
+      font-size:52px;
+      line-height:1;
+      color:rgba(155,111,208,.18);
+      font-family:Georgia, serif;
+      pointer-events:none;
+      user-select:none;
     }
-    .perks li svg { width: 16px; height: 16px; stroke: var(--p2); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    .founder-avatar {
+      width:44px; height:44px; border-radius:50%; background:var(--grad);
+      display:flex; align-items:center; justify-content:center;
+      font-size:16px; font-weight:800; color:#fff; flex-shrink:0; margin-top:2px;
+    }
+    .founder-text { flex:1; min-width:0; }
+    .founder-text strong { font-size:14px; font-weight:600; color:var(--tx); display:block; margin-bottom:8px; }
+
+    /* citazione con virgolette tipografiche inline */
+    .founder-quote {
+      font-size:13.5px;
+      color:var(--muted);
+      line-height:1.65;
+      font-style:italic;
+    }
+    .founder-quote::before { content:'\201C'; color:var(--p2); font-style:normal; margin-right:1px; }
+    .founder-quote::after  { content:'\201D'; color:var(--p2); font-style:normal; margin-left:1px; }
+    .founder-quote a { color:var(--p2); font-style:normal; }
+    .founder-quote a:hover { text-decoration:underline; }
+
+    /* ── MICRO-CTA STRIP (tra founder e FAQ) ── */
+    .micro-cta-strip {
+      padding:0 0 72px;
+      text-align:center;
+    }
+    .micro-cta-link {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:15px;
+      font-weight:700;
+      color:var(--p2);
+      border-bottom:1px solid rgba(155,111,208,.3);
+      padding-bottom:2px;
+      transition:color .2s, border-color .2s;
+    }
+    .micro-cta-link:hover {
+      color:#fff;
+      border-color:rgba(255,255,255,.4);
+    }
 
     /* ── FAQ ── */
-    .faq { padding: 80px 0 110px; }
-    .faq h2 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 800; letter-spacing: -.02em; margin-bottom: 48px; text-align: center; }
-    .faq-list { max-width: 700px; margin: 0 auto; }
-    .faq-item { border-bottom: 1px solid var(--bd); }
+    .faq { padding:80px 0 110px; }
+    .faq h2 { font-size:clamp(26px,3.5vw,40px); font-weight:800; letter-spacing:-.02em; margin-bottom:48px; text-align:center; }
+    .faq-list { max-width:700px; margin:0 auto; }
+    .faq-item { border-bottom:1px solid var(--bd); }
     .faq-btn {
-      width: 100%; background: none; border: none; padding: 22px 0;
-      font-size: 16px; font-weight: 600; font-family: var(--f); color: var(--tx);
-      cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
-      text-align: left; transition: color .18s;
+      width:100%; background:none; border:none; padding:22px 0;
+      font-size:16px; font-weight:600; font-family:var(--f); color:var(--tx);
+      cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px;
+      text-align:left; transition:color .18s;
     }
-    .faq-btn:hover { color: #fff; }
-    .chev { width: 18px; height: 18px; flex-shrink: 0; stroke: var(--muted); fill: none; stroke-width: 2; stroke-linecap: round; transition: transform .3s; }
-    .faq-item.open .chev { transform: rotate(180deg); }
-    .faq-body { overflow: hidden; max-height: 0; transition: max-height .35s ease; }
-    .faq-body p { padding-bottom: 22px; font-size: 15px; color: var(--muted); line-height: 1.72; }
-    .faq-item.open .faq-body { max-height: 300px; }
+    .faq-btn:hover { color:#fff; }
+    .chev { width:18px; height:18px; flex-shrink:0; stroke:var(--muted); fill:none; stroke-width:2; stroke-linecap:round; transition:transform .3s; }
+    .faq-item.open .chev { transform:rotate(180deg); }
+    .faq-body { overflow:hidden; max-height:0; transition:max-height .35s ease; }
+    .faq-body p { padding-bottom:22px; font-size:15px; color:var(--muted); line-height:1.72; }
+    .faq-item.open .faq-body { max-height:300px; }
 
     /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--bd); padding: 48px 0 36px; }
-    .foot-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
-    .foot-logo img { height: 32px; opacity: .85; }
-    .foot-motto { font-size: 13px; color: var(--muted); font-style: italic; }
-    .foot-links { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
-    .foot-links a {
-      color: var(--muted); font-size: 13.5px;
-      display: inline-flex; align-items: center; gap: 5px;
-      transition: color .2s;
-    }
-    .foot-links a:hover { color: var(--tx); }
-    .foot-links svg { width: 14px; height: 14px; flex-shrink: 0; }
-    .foot-copy { font-size: 12.5px; color: var(--dim); margin-top: 28px; text-align: center; }
+    footer { border-top:1px solid var(--bd); padding:48px 0 36px; }
+    .foot-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
 
-    /* ── REVEAL ── */
-    .rv { opacity: 0; transform: translateY(26px); transition: opacity .65s ease, transform .65s ease; }
-    .rv.on { opacity: 1; transform: translateY(0); }
+    /* FIX 1 — logo footer: proporzioni corrette */
+    .foot-logo img { height:auto; width:auto; max-height:32px; max-width:120px; object-fit:contain; display:block; opacity:.85; }
+
+    .foot-motto { font-size:13px; color:var(--muted); font-style:italic; }
+    .foot-links { display:flex; gap:22px; align-items:center; flex-wrap:wrap; }
+    .foot-links a { color:var(--muted); font-size:13.5px; display:inline-flex; align-items:center; gap:5px; transition:color .2s; }
+    .foot-links a:hover { color:var(--tx); }
+    .foot-links svg { width:14px; height:14px; flex-shrink:0; }
+    .foot-copy { font-size:12.5px; color:var(--dim); margin-top:28px; text-align:center; }
+
+    /* ── SCROLL REVEAL ── */
+    .rv { opacity:0; transform:translateY(26px); transition:opacity .65s ease, transform .65s ease; }
+    .rv.on { opacity:1; transform:translateY(0); }
+
+    /* ── EXIT INTENT MODAL ── */
+    #exit-overlay {
+      position:fixed; inset:0; z-index:9999;
+      background:rgba(0,0,0,.78);
+      backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; pointer-events:none; transition:opacity .25s ease;
+    }
+    #exit-overlay.visible { opacity:1; pointer-events:all; }
+    .exit-modal {
+      background:#1A1A1E; border:1px solid var(--bd2); border-radius:22px;
+      padding:48px 44px 40px; max-width:420px; width:calc(100% - 40px);
+      text-align:center; position:relative;
+      transform:translateY(20px); transition:transform .3s ease;
+    }
+    #exit-overlay.visible .exit-modal { transform:translateY(0); }
+    .exit-close {
+      position:absolute; top:16px; right:18px; background:none; border:none;
+      color:var(--muted); font-size:22px; cursor:pointer; line-height:1;
+      font-family:var(--f); transition:color .15s;
+    }
+    .exit-close:hover { color:var(--tx); }
+    .exit-icon { font-size:36px; margin-bottom:16px; line-height:1; }
+    .exit-modal h3 { font-size:22px; font-weight:800; color:var(--tx); margin-bottom:10px; line-height:1.2; }
+    .exit-modal p  { font-size:14.5px; color:var(--muted); line-height:1.65; margin-bottom:28px; }
+    .exit-modal .btn-lg { font-size:15px; padding:14px 32px; }
+    .exit-skip { display:block; margin-top:14px; font-size:13px; color:var(--dim); cursor:pointer; transition:color .15s; background:none; border:none; font-family:var(--f); }
+    .exit-skip:hover { color:var(--muted); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 820px) {
-      .cards { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr; gap: 48px; }
-      .perks { flex-direction: column; align-items: center; gap: 14px; }
-      .join-box { padding: 52px 24px; }
-      .foot-row { flex-direction: column; align-items: flex-start; }
+    @media (max-width:820px) {
+      .cards { grid-template-columns:1fr; }
+      .steps { grid-template-columns:1fr; gap:0; }
+      /* su mobile: nasconde connettore orizzontale e aggiunge separatore verticale tra step */
+      .steps::before { display:none; }
+      .step { padding-bottom:40px; }
+      .step:not(:last-child) {
+        border-bottom:1px solid var(--bd);
+        margin-bottom:40px;
+      }
+      .perks { flex-direction:column; align-items:center; gap:14px; }
+      .join-box { padding:52px 24px; }
+      .foot-row { flex-direction:column; align-items:flex-start; }
+      .founders-grid { grid-template-columns:1fr; }
+      .render-card { padding:32px 20px 24px; }
+      .render-img { max-width:420px; }
     }
-    @media (max-width: 540px) {
-      .hero { min-height: auto; padding: 72px 0 56px; }
-      .W { padding: 0 20px; }
-      .hdr-row { height: 58px; }
-      .logo img { height: 34px; }
+    @media (max-width:540px) {
+      .hero { min-height:auto; padding:72px 0 56px; }
+      .W { padding:0 20px; }
+      .hdr-row { height:58px; }
+      .logo img { height:34px; }
+      .exit-modal { padding:36px 24px 28px; }
+      .illus-steps { gap:6px; }
+      .illus-pill { font-size:11px; padding:4px 10px; }
+      .founder-card-single { padding:20px; }
+      .forwho-chip { font-size:12.5px; padding:7px 14px; }
+      .render-strip { padding:0 0 40px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
     }
   </style>
 </head>
@@ -333,10 +601,22 @@
 
 <!-- COOKIE BANNER -->
 <div id="ck" role="dialog" aria-label="Cookie e Privacy">
-  <p data-k="ck_txt">Usiamo Google Analytics per migliorare il sito. <a href="privacy.html">Privacy Policy</a></p>
+  <p data-k="ck_txt">Raccogliamo dati anonimi di navigazione tramite Google Analytics. <a href="privacy.html">Privacy Policy</a></p>
   <div class="ck-btns">
     <button class="ck-btn" onclick="hideCk(0)" data-k="ck_no">Rifiuta</button>
     <button class="ck-btn ck-yes" onclick="hideCk(1)" data-k="ck_yes">Accetta</button>
+  </div>
+</div>
+
+<!-- EXIT INTENT OVERLAY -->
+<div id="exit-overlay" role="dialog" aria-modal="true" aria-labelledby="exit-title">
+  <div class="exit-modal">
+    <button class="exit-close" id="exit-x" aria-label="Chiudi">&#215;</button>
+    <div class="exit-icon" aria-hidden="true">&#127919;</div>
+    <h3 id="exit-title" data-k="exit_h">Aspetta: rimani aggiornato</h3>
+    <p data-k="exit_p">La beta si chiude presto. Lascia la mail e ti avvisiamo prima degli altri. Zero spam.</p>
+    <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-lg" id="exit-cta" data-k="exit_cta">Avvisami al lancio &#8594;</a>
+    <button class="exit-skip" id="exit-skip" data-k="exit_skip">No grazie, continuo a guardare</button>
   </div>
 </div>
 
@@ -344,11 +624,11 @@
 <header id="hdr">
   <div class="W hdr-row">
     <a href="/" class="logo" aria-label="LeanTil home">
-      <img src="LeanTil_white_logo.png" alt="LeanTil" />
+      <img src="LeanTil_white_logo.png" alt="LeanTil" width="120" height="40" />
     </a>
     <div class="hdr-r">
       <button class="btn-lang" id="langBtn" aria-label="Cambia lingua">EN</button>
-      <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-sm" data-k="hcta">Entra nella beta →</a>
+      <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-sm" data-k="hcta">Entra nella beta &#8594;</a>
     </div>
   </div>
 </header>
@@ -358,41 +638,84 @@
   <div class="W">
     <div class="badge">
       <span class="dot" aria-hidden="true"></span>
-      <span data-k="badge">Beta privata &nbsp;·&nbsp; Posti limitati</span>
+      <span data-k="badge">Beta privata &nbsp;&middot;&nbsp; Posti limitati</span>
     </div>
     <h1 data-k="h1">La tua schiena ti ringrazia alle 18:00</h1>
-    <p class="hero-sub" data-k="sub">LeanTil sente quando ti incurvi e ti riporta in posizione, in silenzio, senza interrompere il tuo lavoro.</p>
+    <p class="hero-sub" data-k="sub">LeanTil ti tiene in posizione tutto il giorno, senza che tu debba pensarci.</p>
     <div class="cta-group">
-      <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-lg" data-k="hero_cta">Inizia ora — è gratuito</a>
-      <span class="micro" data-k="micro">Gratuito per i beta tester. Solo 2 minuti.</span>
+      <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-lg" id="hero-cta" data-k="hero_cta">Inizia ora, &egrave; gratuito</a>
+      <span class="micro" data-k="micro">Gratuito per i beta tester. 3 domande, 2 minuti.</span>
+      <div class="social-proof" aria-label="Persone in lista beta">
+        <div class="avatar-stack" aria-hidden="true">
+          <div class="avatar" style="background:linear-gradient(135deg,#9B6FD0,#6B3FA0);">M</div>
+          <div class="avatar" style="background:linear-gradient(135deg,#6B9FD0,#3F60A0);">S</div>
+          <div class="avatar" style="background:linear-gradient(135deg,#D06B9B,#A03F6B);">L</div>
+        </div>
+        <span class="proof-text"><strong id="sp-count">47</strong> <span data-k="proof_txt">persone gi&agrave; in lista beta</span></span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PROBLEM + BENEFITS -->
+<!-- PRODUCT RENDER STRIP -->
+<div class="render-strip rv">
+  <div class="W">
+    <div class="render-header">
+      <span class="render-eyebrow" data-k="render_eyebrow">Il prodotto</span>
+      <p class="render-title" data-k="render_title">Cuscino intelligente per la postura</p>
+    </div>
+    <div class="render-card">
+      <img
+        src="render.png"
+        alt="LeanTil — cuscino intelligente per la postura"
+        class="render-img"
+        loading="eager"
+        decoding="async"
+        width="560"
+        height="420"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- FOR WHO STRIP -->
+<div class="forwho-strip rv">
+  <div class="W">
+    <!-- FIX 2 — titoletto sezione -->
+    <p class="forwho-title" data-k="forwho_title">Per chi &egrave; pensato</p>
+    <div class="forwho-chips">
+      <span class="forwho-chip" data-k="fw1">💻 Developer &amp; designer</span>
+      <span class="forwho-chip" data-k="fw2">✍️ Freelance &amp; remote worker</span>
+      <span class="forwho-chip" data-k="fw3">🏢 Chi lavora 6+ ore alla scrivania</span>
+      <span class="forwho-chip" data-k="fw4">🎮 Gamer e creator</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM + BENEFIT CARDS -->
 <section class="problem">
   <div class="W">
     <p class="prob-big rv">
-      <span data-k="pa">8 ore seduto al giorno:</span><span class="dim" data-k="pb"> la postura scorretta non fa solo male alla schiena, ti prosciuga l'energia.</span>
+      <span data-k="pa">8 ore seduto al giorno:</span><span class="dim" data-k="pb">&nbsp;la postura scorretta non fa solo male alla schiena, ti prosciuga l&rsquo;energia.</span>
     </p>
     <div class="cards">
       <div class="card rv">
         <div class="card-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l7 3v6c0 5-3.5 9.3-7 10.5C8.5 20.3 5 16 5 11V5l7-3z"/></svg>
         </div>
         <h3 data-k="b1t">Meno tensione</h3>
         <p data-k="b1b">Riduci il carico su collo e spalle correggendo i piccoli slouch prima che diventino dolore.</p>
       </div>
       <div class="card rv">
         <div class="card-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
-        <h3 data-k="b2t">Più energia mentale</h3>
-        <p data-k="b2b">Una postura aperta migliora l'ossigenazione e la concentrazione nelle sessioni di deep work.</p>
+        <h3 data-k="b2t">Pi&ugrave; energia mentale</h3>
+        <p data-k="b2b">Una postura aperta migliora l&rsquo;ossigenazione e la concentrazione nelle sessioni di deep work.</p>
       </div>
       <div class="card rv">
         <div class="card-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 2v10m0 0l-3-3m3 3l3-3M5 17a7 7 0 0014 0"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
         </div>
         <h3 data-k="b3t">Abitudini durature</h3>
         <p data-k="b3b">LeanTil allena il tuo corpo a riconoscere la posizione corretta in modo naturale, col tempo.</p>
@@ -406,34 +729,55 @@
   <div class="W">
     <div class="how-hdr rv">
       <h2 data-k="how_h">Come funziona</h2>
-      <p data-k="how_s">Tre passi. Zero complessità.</p>
+      <p data-k="how_s">Tre passi. Zero complessit&agrave;.</p>
     </div>
     <div class="steps" id="stepsEl">
       <div class="step">
         <div class="step-n" aria-hidden="true">01</div>
         <h3 data-k="s1h">Ti siedi normalmente</h3>
-        <p data-k="s1b">Posiziona LeanTil sulla tua sedia. Non serve nessuna configurazione.</p>
+        <p data-k="s1b">Posiziona LeanTil sulla tua sedia e segui le istruzioni.</p>
       </div>
       <div class="step">
         <div class="step-n" aria-hidden="true">02</div>
         <h3 data-k="s2h">Rileva la postura</h3>
-        <p data-k="s2b">I sensori monitorano l'allineamento della colonna in tempo reale.</p>
+        <p data-k="s2b">Il cuscino rileva in tempo reale come distribuisci il peso sulla seduta mentre l'app traccia i tuoi progressi settimana dopo settimana, così vedi con i tuoi occhi se stai migliorando.</p>
       </div>
       <div class="step">
         <div class="step-n" aria-hidden="true">03</div>
         <h3 data-k="s3h">Feedback visivo</h3>
-        <p data-k="s3b">Un segnale visivo discreto ti ricorda di tornare in posizione, senza distrarti.</p>
+        <p data-k="s3b">Quando rileva una postura scorretta prolungata, LeanTil ti manda un segnale senza distrarti.</p>
       </div>
     </div>
+
+    <!-- ILLUSTRATION GIF — chiude visivamente la sezione -->
+    <div class="illus rv">
+      <p class="illus-label" data-k="illus_label">Come LeanTil percepisce la postura</p>
+      <div class="illus-wrap">
+        <img src="seduta.gif" alt="Animazione: persona seduta con postura scorretta rilevata da LeanTil" class="illus-gif" loading="lazy" decoding="async" width="480" height="360" />
+        <div class="illus-steps" role="list">
+          <span class="illus-pill" role="listitem">
+            <span class="illus-pill-dot" aria-hidden="true"></span>
+            <span data-k="pill1">Rileva l&rsquo;incurvamento</span>
+          </span>
+          <span class="illus-pill" role="listitem">
+            <span class="illus-pill-dot" aria-hidden="true"></span>
+            <span data-k="pill2">LeanTil ti avverte</span>
+          </span>
+          <span class="illus-pill green" role="listitem">
+            <span class="illus-pill-dot" aria-hidden="true"></span>
+            <span data-k="pill3">Torni in posizione</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
-
-<!-- JOIN BETA -->
 <section class="join">
   <div class="W">
     <div class="join-box rv">
-      <h2 data-k="jh">Unisciti alla beta.</h2>
-      <p class="join-sub" data-k="js">Influenza il prodotto.</p>
+      <h2 data-k="jh">Unisciti alla beta</h2>
+      <p class="join-sub" data-k="js">Aiutaci a costruire qualcosa che funzioni davvero</p>
       <ul class="perks">
         <li>
           <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -441,17 +785,62 @@
         </li>
         <li>
           <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span data-k="p2">Influenzi design e funzionalità</span>
+          <span data-k="p2">Influenzi design e funzionalit&agrave;</span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           <span data-k="p3">Accesso prioritario al lancio</span>
         </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-k="p4">Pensato per chi lavora 6+ ore al giorno alla scrivania</span>
+        </li>
       </ul>
-      <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-lg" data-k="jcta">Riserva il tuo posto →</a>
+      <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-lg" data-k="jcta">Riserva il tuo posto &#8594;</a>
+      <p class="join-note" data-k="join_note">Gratuito per i beta tester! 3 domande, 2 minuti. Ti risponderemo entro 48h.</p>
     </div>
   </div>
 </section>
+
+<!-- FOUNDER STRIP — DUE CO-FOUNDER -->
+<section class="founder-strip rv">
+  <div class="W">
+    <p class="founder-strip-title" data-k="founders_title">Chi c&rsquo;&egrave; dietro LeanTil</p>
+    <div class="founders-grid">
+
+      <div class="founder-card-single">
+        <div class="founder-avatar" style="padding:0;overflow:hidden;">
+          <img src="foto-caterina.jpeg" alt="Caterina" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+        </div>
+        <div class="founder-text">
+          <strong data-k="founder_strong_1">Caterina, Founder</strong>
+          <!-- FIX 4 — virgolette tipografiche via ::before / ::after sulla classe -->
+          <p class="founder-quote" data-k="founder_p_1">Stare ore davanti allo schermo senza muoversi è diventato normale. Il risultato? Schiena a pezzi. Durante il COVID mi sono trovata esattamente in questa situazione e ho capito che non poteva essere la normalit&agrave;. Da l&igrave; &egrave; nata LeanTil. Parliamone su <a href="https://www.linkedin.com/in/caterina-grimaldi/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+        </div>
+      </div>
+
+      <div class="founder-card-single">
+        <div class="founder-avatar" style="padding:0;overflow:hidden;">
+          <img src="foto-giuseppe.jpg" alt="Giuseppe" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+        </div>
+        <div class="founder-text">
+          <strong data-k="founder_strong_2">Giuseppe, Co-Founder</strong>
+          <p class="founder-quote" data-k="founder_p_2">Passiamo gran parte della giornata seduti, ma quasi mai nel modo giusto. Negli anni, lavorando sui sistemi di seduta per il settore automotive, ho visto quanto l'ergonomia possa fare la differenza. Con LeanTil portiamo quell'attenzione nella vita di tutti i giorni.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MICRO-CTA tra founder strip e FAQ -->
+<div class="micro-cta-strip rv">
+  <div class="W">
+    <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="micro-cta-link" data-k="micro_cta">
+      Unisciti anche tu &#8594;
+    </a>
+  </div>
+</div>
 
 <!-- FAQ -->
 <section class="faq">
@@ -461,11 +850,11 @@
 
       <div class="faq-item">
         <button class="faq-btn" aria-expanded="false">
-          <span data-k="q1">Quando sarà disponibile LeanTil?</span>
+          <span data-k="q1">Quando sar&agrave; disponibile LeanTil?</span>
           <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-body">
-          <p data-k="a1">LeanTil è in fase di beta testing con un primo gruppo di early adopter. Se vuoi partecipare, iscriviti tramite il form e ti contatteremo direttamente.</p>
+        <div class="faq-body" role="region">
+          <p data-k="a1">LeanTil &egrave; in fase di beta testing con un primo gruppo di early adopter. Se vuoi partecipare, iscriviti tramite il form e ti contatteremo direttamente.</p>
         </div>
       </div>
 
@@ -474,8 +863,8 @@
           <span data-k="q2">Come posso partecipare alla beta?</span>
           <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-body">
-          <p data-k="a2">Clicca su "Riserva il tuo posto" e compila il form. Ti contatteremo noi direttamente con tutte le istruzioni.</p>
+        <div class="faq-body" role="region">
+          <p data-k="a2">Clicca su &ldquo;Riserva il tuo posto&rdquo; e compila il form. Ti contatteremo direttamente con tutte le istruzioni entro 48 ore.</p>
         </div>
       </div>
 
@@ -484,7 +873,7 @@
           <span data-k="q3">Devo cambiare tutta la mia postazione?</span>
           <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-body">
+        <div class="faq-body" role="region">
           <p data-k="a3">No. LeanTil si integra facilmente nella tua routine alla scrivania, senza stravolgere il modo in cui lavori.</p>
         </div>
       </div>
@@ -494,8 +883,18 @@
           <span data-k="q4">Come funziona LeanTil?</span>
           <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-body">
-          <p data-k="a4">LeanTil è integrata nella seduta della sedia e rileva in tempo reale come distribuisci il peso. Quando riconosce una postura scorretta prolungata, invia un segnale visivo discreto per ricordarti di tornare in posizione.</p>
+        <div class="faq-body" role="region">
+          <p data-k="a4">LeanTil &egrave; un cuscino che si adatta a qualsiasi sedia. Rileva in tempo reale come distribuisci il peso sulla seduta. Quando riconosce una postura scorretta prolungata, invia un segnale visivo discreto per ricordarti di tornare in posizione.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span data-k="q5">Come viene alimentato LeanTil?</span>
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-body" role="region">
+          <p data-k="a5">LeanTil ha una batteria ricaricabile integrata. I dettagli sull&rsquo;autonomia verranno comunicati ai beta tester durante il programma.</p>
         </div>
       </div>
 
@@ -508,9 +907,10 @@
   <div class="W">
     <div class="foot-row">
       <div class="foot-logo">
+        <!-- FIX 1 — width/height rimossi, controllo via CSS max-height + object-fit -->
         <img src="LeanTil_white_logo.png" alt="LeanTil" />
       </div>
-      <p class="foot-motto">Upright today, unstoppable tomorrow. ⚡</p>
+      <p class="foot-motto">Upright today, unstoppable tomorrow. &#9889;</p>
       <nav class="foot-links" aria-label="Footer links">
         <a href="mailto:info@leantil.com">info@leantil.com</a>
         <a href="https://www.linkedin.com/company/leantil" target="_blank" rel="noopener">
@@ -518,100 +918,125 @@
           LinkedIn
         </a>
         <a href="privacy.html" data-k="priv">Privacy</a>
+        <button class="ck-reset-btn" onclick="resetCookies()" aria-label="Gestisci preferenze cookie" data-k="manage_cookies">Gestisci cookie</button>
       </nav>
     </div>
-    <p class="foot-copy">© 2026 LeanTil</p>
+    <p class="foot-copy">&copy; 2026 LeanTil</p>
   </div>
 </footer>
 
 <script>
-/* ── COPY ── */
+/* ══ COPY IT / EN ══ */
 var C = {
   it: {
-    ck_txt:   'Usiamo Google Analytics per migliorare il sito. <a href="privacy.html">Privacy Policy</a>',
-    ck_no:    'Rifiuta',    ck_yes:  'Accetta',
-    hcta:     'Entra nella beta \u2192',
-    badge:    'Beta privata \u00a0\u00b7\u00a0 Posti limitati',
-    h1:       'La tua schiena ti ringrazia alle 18:00',
-    sub:      'LeanTil sente quando ti incurvi e ti riporta in posizione, in silenzio, senza interrompere il tuo lavoro.',
-    hero_cta: 'Inizia ora \u2014 \u00e8 gratuito',
-    micro:    'Gratuito per i beta tester. Solo 2 minuti.',
-    pa:       '8 ore seduto al giorno:',
-    pb:       ' la postura scorretta non fa solo male alla schiena, ti prosciuga l\u2019energia.',
-    b1t: 'Meno tensione',
-    b1b: 'Riduci il carico su collo e spalle correggendo i piccoli slouch prima che diventino dolore.',
-    b2t: 'Pi\u00f9 energia mentale',
-    b2b: 'Una postura aperta migliora l\u2019ossigenazione e la concentrazione nelle sessioni di deep work.',
-    b3t: 'Abitudini durature',
-    b3b: 'LeanTil allena il tuo corpo a riconoscere la posizione corretta in modo naturale, col tempo.',
-    how_h: 'Come funziona',
-    how_s: 'Tre passi. Zero complessit\u00e0.',
-    s1h: 'Ti siedi normalmente',
-    s1b: 'Posiziona LeanTil sulla tua sedia. Non serve nessuna configurazione.',
-    s2h: 'Rileva la postura',
-    s2b: 'I sensori monitorano l\u2019allineamento della colonna in tempo reale.',
-    s3h: 'Feedback visivo',
-    s3b: 'Un segnale visivo discreto ti ricorda di tornare in posizione, senza distrarti.',
-    jh: 'Unisciti alla beta.',
-    js: 'Influenza il prodotto.',
-    p1: 'Sei tra i primi a provarlo',
-    p2: 'Influenzi design e funzionalit\u00e0',
-    p3: 'Accesso prioritario al lancio',
-    jcta: 'Riserva il tuo posto \u2192',
-    fq: 'Domande frequenti',
-    q1: 'Quando sar\u00e0 disponibile LeanTil?',
-    a1: 'LeanTil \u00e8 in fase di beta testing con un primo gruppo di early adopter. Se vuoi partecipare, iscriviti tramite il form e ti contatteremo direttamente.',
-    q2: 'Come posso partecipare alla beta?',
-    a2: 'Clicca su \u201cRiserva il tuo posto\u201d e compila il form. Ti contatteremo noi direttamente con tutte le istruzioni.',
-    q3: 'Devo cambiare tutta la mia postazione?',
-    a3: 'No. LeanTil si integra facilmente nella tua routine alla scrivania, senza stravolgere il modo in cui lavori.',
-    q4: 'Come funziona LeanTil?',
-    a4: 'LeanTil \u00e8 integrata nella seduta della sedia e rileva in tempo reale come distribuisci il peso. Quando riconosce una postura scorretta prolungata, invia un segnale visivo discreto per ricordarti di tornare in posizione.',
-    priv: 'Privacy',
-    lang: 'EN'
+    ck_txt:'Raccogliamo dati anonimi di navigazione tramite Google Analytics. <a href="privacy.html">Privacy Policy</a>',
+    ck_no:'Rifiuta', ck_yes:'Accetta',
+    hcta:'Entra nella beta \u2192',
+    badge:'Beta privata \u00a0\u00b7\u00a0 Posti limitati',
+    h1:'La tua schiena ti ringrazia alle 18:00',
+    sub:'LeanTil ti tiene in posizione tutto il giorno, senza che tu debba pensarci.',
+    hero_cta:'Inizia ora \u00e8 gratuito',
+    micro:'Gratuito per i beta tester. 3 domande, 2 minuti.',
+    proof_txt:'persone gi\u00e0 in lista beta',
+    render_eyebrow:'Il prodotto',
+    render_title:'Cuscino intelligente per la postura',
+    forwho_title:'Per chi \u00e8 pensato',
+    fw1:'💻 Developer &amp; designer',
+    fw2:'✍️ Freelance &amp; remote worker',
+    fw3:'🏢 Chi lavora 6+ ore alla scrivania',
+    fw4:'🎮 Gamer e creator',
+    illus_label:'Come LeanTil percepisce la postura',
+    pill1:'Rileva l\u2019incurvamento',
+    pill2:'LeanTil ti avverte',
+    pill3:'Torni in posizione',
+    pa:'8 ore seduto al giorno:',
+    pb:'\u00a0la postura scorretta non fa solo male alla schiena, ti prosciuga l\u2019energia.',
+    b1t:'Meno tensione', b1b:'Riduci il carico su collo e spalle correggendo i piccoli slouch prima che diventino dolore.',
+    b2t:'Pi\u00f9 energia mentale', b2b:'Una postura aperta migliora l\u2019ossigenazione e la concentrazione nelle sessioni di deep work.',
+    b3t:'Abitudini durature', b3b:'LeanTil allena il tuo corpo a riconoscere la posizione corretta in modo naturale, col tempo.',
+    how_h:'Come funziona', how_s:'Tre passi. Zero complessit\u00e0.',
+    s1h:'Ti siedi normalmente', s1b:'Posiziona LeanTil sulla tua sedia. Non serve nessuna configurazione.',
+    s2h:'Rileva la postura', s2b:'LeanTil monitora la tua sessione in tempo reale, mentre l\'app tiene traccia dei tuoi progressi settimana dopo settimana: verifica se stai migliorando.',
+    s3h:'Feedback visivo', s3b:'Un segnale visivo discreto ti ricorda di tornare in posizione, senza distrarti.',
+    jh:'Unisciti alla beta', js:'Creiamo qualcosa che funzioni davvero',
+    p1:'Sei tra i primi a provarlo',
+    p2:'Influenzi design e funzionalit\u00e0',
+    p3:'Accesso prioritario al lancio',
+    p4:'Pensato per chi lavora 6+ ore al giorno alla scrivania',
+    jcta:'Riserva il tuo posto \u2192',
+    join_note:'Gratuito per i beta tester \u2014 3 domande, 2 minuti. Ti risponderemo entro 48h.',
+    founders_title:'Chi c\u2019\u00e8 dietro LeanTil',
+    micro_cta:'Unisciti anche tu \u2192',
+    founder_strong_1:'Caterina, Founder',
+    founder_p_1:'Stare ore davanti allo schermo senza muoversi \u00e8 diventato normale. Il risultato? Schiena a pezzi. Durante il COVID mi sono trovata esattamente in questa situazione e ho capito che non poteva essere la normalit\u00e0. Da l\u00ec \u00e8 nata LeanTil. Parliamone su <a href="https://www.linkedin.com/in/caterina-grimaldi/" target="_blank" rel="noopener">LinkedIn</a>.',
+    founder_strong_2:'Giuseppe, Co-Founder',
+    founder_p_2:'Passiamo gran parte della giornata seduti, ma quasi mai nel modo giusto. Negli anni, lavorando sui sistemi di seduta per il settore automotive, ho visto quanto l\'ergonomia possa fare la differenza. Con LeanTil portiamo quell\'attenzione nella vita di tutti i giorni.',
+    fq:'Domande frequenti',
+    q1:'Quando sar\u00e0 disponibile LeanTil?', a1:'LeanTil \u00e8 in fase di beta testing con un primo gruppo di early adopter. Se vuoi partecipare, iscriviti tramite il form e ti contatteremo direttamente.',
+    q2:'Come posso partecipare alla beta?', a2:'Clicca su \u201cRiserva il tuo posto\u201d e compila il form. Ti contatteremo direttamente con tutte le istruzioni entro 48 ore.',
+    q3:'Devo cambiare tutta la mia postazione?', a3:'No. LeanTil si integra facilmente nella tua routine alla scrivania, senza stravolgere il modo in cui lavori.',
+    q4:'Come funziona LeanTil?', a4:'LeanTil \u00e8 un cuscino che si adatta a qualsiasi sedia. Rileva in tempo reale come distribuisci il peso sulla seduta. Quando riconosce una postura scorretta prolungata, invia un segnale visivo discreto per ricordarti di tornare in posizione.',
+    q5:'Come viene alimentato LeanTil?', a5:'LeanTil ha una batteria ricaricabile integrata. I dettagli sull\u2019autonomia verranno comunicati ai beta tester durante il programma.',
+    priv:'Privacy', lang:'EN', manage_cookies:'Gestisci cookie',
+    exit_h:'Aspetta \u2014 rimani aggiornato',
+    exit_p:'La beta si chiude presto. Lascia la mail e ti avvisiamo prima degli altri. Zero spam.',
+    exit_cta:'Avvisami al lancio \u2192',
+    exit_skip:'No grazie, continuo a guardare'
   },
   en: {
-    ck_txt:   'We use Google Analytics to improve the site. <a href="privacy.html">Privacy Policy</a>',
-    ck_no:    'Decline',    ck_yes:  'Accept',
-    hcta:     'Join the beta \u2192',
-    badge:    'Private Beta \u00a0\u00b7\u00a0 Limited spots',
-    h1:       'Your back thanks you at 6 PM',
-    sub:      'LeanTil senses when you slouch and brings you back, silently, without interrupting your work.',
-    hero_cta: 'Start now \u2014 it\'s free',
-    micro:    'Free for beta testers. Takes 2 minutes.',
-    pa:       '8 hours sitting a day:',
-    pb:       ' poor posture doesn\'t just hurt your back, it drains your energy.',
-    b1t: 'Less tension',
-    b1b: 'Reduce the load on your neck and shoulders by correcting micro-slouches before they turn into pain.',
-    b2t: 'More mental energy',
-    b2b: 'An open posture improves oxygenation and focus during deep work sessions.',
-    b3t: 'Lasting habits',
-    b3b: 'LeanTil trains your body to recognize the correct position naturally over time.',
-    how_h: 'How it works',
-    how_s: 'Three steps. Zero complexity.',
-    s1h: 'Sit normally',
-    s1b: 'Place LeanTil on your chair. No setup required.',
-    s2h: 'Detects posture',
-    s2b: 'Sensors monitor your spinal alignment in real-time.',
-    s3h: 'Visual feedback',
-    s3b: 'A subtle visual signal reminds you to sit back up, without breaking your focus.',
-    jh: 'Join the beta.',
-    js: 'Shape the product.',
-    p1: 'Be among the first to try it',
-    p2: 'Shape design and features',
-    p3: 'Priority launch access',
-    jcta: 'Reserve your spot \u2192',
-    fq: 'Frequently asked questions',
-    q1: 'When will LeanTil be available?',
-    a1: 'LeanTil is currently in beta testing with a first group of early adopters. If you want to join, sign up through the form and we\'ll contact you directly.',
-    q2: 'How can I join the beta?',
-    a2: 'Click "Reserve your spot" and fill out the form. We\'ll reach out directly with all the details.',
-    q3: 'Do I need to change my entire workstation?',
-    a3: 'No. LeanTil fits seamlessly into your existing desk setup, without changing how you work.',
-    q4: 'How does LeanTil work?',
-    a4: 'LeanTil is built into the chair seat and detects how you distribute your weight in real-time. When it recognizes prolonged poor posture, it sends a subtle visual signal to remind you to get back to a healthy position.',
-    priv: 'Privacy',
-    lang: 'IT'
+    ck_txt:'We collect anonymous browsing data via Google Analytics. <a href="privacy.html">Privacy Policy</a>',
+    ck_no:'Decline', ck_yes:'Accept',
+    hcta:'Join the beta \u2192',
+    badge:'Private Beta \u00a0\u00b7\u00a0 Limited spots',
+    h1:'Your back thanks you at 6 PM',
+    sub:'LeanTil keeps you in position all day, without you having to think about it.',
+    hero_cta:'Start now, it\'s free',
+    micro:'Free for beta testers. 3 questions, 2 minutes.',
+    proof_txt:'people already on the beta list',
+    render_eyebrow:'The product',
+    render_title:'Intelligent posture cushion',
+    forwho_title:'Who it\'s for',
+    fw1:'💻 Developers &amp; designers',
+    fw2:'✍️ Freelancers &amp; remote workers',
+    fw3:'🏢 Anyone working 6+ hours at a desk',
+    fw4:'🎮 Gamers &amp; creators',
+    illus_label:'How LeanTil detects posture',
+    pill1:'Detects the slouch',
+    pill2:'LeanTil alerts you',
+    pill3:'You sit back up',
+    pa:'8 hours sitting a day:',
+    pb:'\u00a0poor posture doesn\'t just hurt your lower back, it drains your energy.',
+    b1t:'Less tension', b1b:'Reduce the load on your neck and shoulders by correcting micro-slouches before they turn into pain.',
+    b2t:'More mental energy', b2b:'An open posture improves oxygenation and focus during deep work sessions.',
+    b3t:'Lasting habits', b3b:'LeanTil trains your body to recognise the correct position naturally over time.',
+    how_h:'How it works', how_s:'Three steps. Zero complexity.',
+    s1h:'Sit normally', s1b:'Place LeanTil on your chair and follow the instructions.',
+    s2h:'Detects posture', s2b:'LeanTil tracks your session in real time, while the app tracks your progress week by week: see if you\'re improving.',
+    s3h:'Visual feedback', s3b:'When LeanTil detects prolonged poor posture, it sends you a signal without distracting you.',
+    jh:'Join the beta', js:'Shape with us — build something that really works',
+    p1:'Be among the first to try it',
+    p2:'Shape design and features',
+    p3:'Priority launch access',
+    p4:'Made for people who spend 6+ hours a day at a desk',
+    jcta:'Reserve your spot \u2192',
+    join_note:'Free for beta testers \u2014 3 questions, 2 minutes. We\'ll reply within 48h.',
+    founders_title:'The people behind LeanTil',
+    micro_cta:'Join us too \u2192',
+    founder_strong_1:'Caterina, Founder',
+    founder_p_1:'Spending hours in front of a screen without moving has become normal. The result? A wrecked back. During COVID, I found myself in that exact situation and realized it shouldn\'t be the norm. That\'s how LeanTil was born. Stay in touch on <a href="https://www.linkedin.com/in/caterina-grimaldi/" target="_blank" rel="noopener">LinkedIn</a>.',
+    founder_strong_2:'Giuseppe, Co-Founder',
+    founder_p_2:'We spend most of our day sitting, but rarely in the right way. Over the years, working on seating systems in the automotive industry, I\'ve seen how much ergonomics can make a difference. With LeanTil, we bring that same attention into everyday life.',
+    fq:'Frequently asked questions',
+    q1:'When will LeanTil be available?', a1:'LeanTil is currently in beta testing with a first group of early adopters. Sign up through the form and we\'ll contact you directly.',
+    q2:'How can I join the beta?', a2:'Click \u201cReserve your spot\u201d and fill out the form. We\'ll reach out with all the details within 48 hours.',
+    q3:'Do I need to change my entire workstation?', a3:'No. LeanTil fits seamlessly into your existing desk setup, without changing how you work.',
+    q4:'How does LeanTil work?', a4:'LeanTil is a cushion that adapts to any chair. It detects in real-time how you distribute your weight on the seat. When it recognises prolonged poor posture, it sends a subtle visual signal to remind you to get back into position.',
+    q5:'How is LeanTil powered?', a5:'LeanTil has a built-in rechargeable battery. Autonomy details will be shared with beta testers during the programme.',
+    priv:'Privacy', lang:'IT', manage_cookies:'Manage cookies',
+    exit_h:'Wait \u2014 stay in the loop',
+    exit_p:'The beta is closing soon. Drop your email and we\'ll notify you before everyone else. No spam.',
+    exit_cta:'Notify me at launch \u2192',
+    exit_skip:'No thanks, I\'ll keep looking'
   }
 };
 
@@ -629,75 +1054,339 @@ function setLang(l) {
 }
 
 document.getElementById('langBtn').addEventListener('click', function() {
-  setLang(curLang === 'it' ? 'en' : 'it');
+  var next = curLang === 'it' ? 'en' : 'it';
+  gtag('event', 'language_switch', { event_category:'engagement', new_lang:next });
+  setLang(next);
 });
 
-/* ── COOKIE ── */
+/* ══ COOKIE ══ */
 (function() {
   try {
-    if (localStorage.getItem('lt_ck') !== null) {
+    var v = localStorage.getItem('lt_ck');
+    if (v !== null) {
       document.getElementById('ck').classList.add('hide');
+      if (v === '1') gtag('consent', 'update', { analytics_storage:'granted' });
     }
   } catch(e) {}
 })();
 
 function hideCk(v) {
-  try { localStorage.setItem('lt_ck', v); } catch(e) {}
+  try { localStorage.setItem('lt_ck', String(v)); } catch(e) {}
   document.getElementById('ck').classList.add('hide');
+  if (v === 1) {
+    gtag('consent', 'update', { analytics_storage:'granted' });
+    gtag('event', 'cookie_accept');
+  } else {
+    gtag('event', 'cookie_reject');
+  }
 }
 
-/* ── HEADER SHADOW ── */
-window.addEventListener('scroll', function() {
-  document.getElementById('hdr').style.boxShadow =
-    window.scrollY > 8 ? '0 2px 28px rgba(0,0,0,.5)' : 'none';
-}, { passive: true });
+function resetCookies() {
+  try { localStorage.removeItem('lt_ck'); } catch(e) {}
+  document.getElementById('ck').classList.remove('hide');
+  gtag('event', 'cookie_reset', { event_category:'engagement' });
+}
 
-/* ── SCROLL REVEAL (.rv elements) ── */
-if ('IntersectionObserver' in window) {
-  var rv = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.classList.add('on'); rv.unobserve(e.target); }
+/* ══ GA4 — UTM tracking ══ */
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var utmData = {};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
+    if (params.get(k)) utmData[k] = params.get(k);
+  });
+  if (Object.keys(utmData).length) {
+    gtag('event', 'utm_session', Object.assign({ event_category:'acquisition' }, utmData));
+  }
+})();
+
+/* ══ GA4 — CTA clicks (tally.so) ══ */
+document.querySelectorAll('a[href*="tally.so"]').forEach(function(el) {
+  el.addEventListener('click', function() {
+    var key = this.getAttribute('data-k') || 'cta';
+    var sec;
+    // micro-CTA strip non è dentro <section>, usiamo label esplicito
+    if (key === 'micro_cta') {
+      sec = 'founder_microcta';
+    } else {
+      var secEl = this.closest('section');
+      sec = secEl ? secEl.className.replace(/\brv\b/g,'').trim().split(/\s+/)[0] : 'header';
+    }
+    gtag('event', 'cta_click', {
+      event_category: 'conversion',
+      cta_section: sec,
+      cta_label: key,
+      language: curLang
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.rv').forEach(function(el) { rv.observe(el); });
-} else {
-  document.querySelectorAll('.rv').forEach(function(el) { el.classList.add('on'); });
+  });
+});
+
+/* ══ GA4 — Tempo al primo click CTA hero ══ */
+var heroStart = Date.now();
+var heroCta = document.getElementById('hero-cta');
+if (heroCta) {
+  heroCta.addEventListener('click', function() {
+    gtag('event', 'cta_time_to_click', {
+      event_category: 'conversion',
+      seconds: Math.round((Date.now() - heroStart) / 1000)
+    });
+  }, { once:true });
 }
 
-/* ── STEP STAGGER ── */
-var sg = document.getElementById('stepsEl');
-if (sg && 'IntersectionObserver' in window) {
-  var so = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        var steps = document.querySelectorAll('.step');
-        steps.forEach(function(s, i) {
-          setTimeout(function() { s.classList.add('show'); }, i * 140);
-        });
-        so.unobserve(e.target);
+/* ══ GA4 — Section views ══ */
+(function() {
+  if (!('IntersectionObserver' in window)) return;
+  var map = {
+    problem:        'section_problem',
+    how:            'section_how',
+    join:           'section_join',
+    faq:            'section_faq',
+    'founder-strip':'section_founder'
+  };
+  // aggiunto: render strip e forwho strip
+  var extras = [
+    { sel: '.render-strip',  name: 'section_render'  },
+    { sel: '.forwho-strip',  name: 'section_forwho'  },
+    { sel: '.micro-cta-strip', name: 'section_microcta' }
+  ];
+  Object.keys(map).forEach(function(cls) {
+    var el = document.querySelector('.' + cls);
+    if (!el) return;
+    var obs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        gtag('event', 'section_view', { event_category:'engagement', section:map[cls] });
+        obs.disconnect();
+      }
+    }, { threshold:0.35 });
+    obs.observe(el);
+  });
+  extras.forEach(function(item) {
+    var el = document.querySelector(item.sel);
+    if (!el) return;
+    var obs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        gtag('event', 'section_view', { event_category:'engagement', section:item.name });
+        obs.disconnect();
+      }
+    }, { threshold:0.3 });
+    obs.observe(el);
+  });
+})();
+
+/* ══ GA4 — Scroll depth ══ */
+(function() {
+  var done = {};
+  window.addEventListener('scroll', function() {
+    var pct = Math.round(((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100);
+    [25,50,75,100].forEach(function(m) {
+      if (pct >= m && !done[m]) {
+        done[m] = true;
+        gtag('event', 'scroll_depth', { event_category:'engagement', depth_percent:m });
       }
     });
-  }, { threshold: 0.15 });
-  so.observe(sg);
-} else {
-  document.querySelectorAll('.step').forEach(function(s) { s.classList.add('show'); });
-}
+  }, { passive:true });
+})();
 
-/* ── FAQ ── */
+/* ══ GA4 — Time on page ══ */
+[30,60,120,300].forEach(function(s) {
+  setTimeout(function() {
+    gtag('event', 'time_on_page', { event_category:'engagement', seconds:s });
+  }, s * 1000);
+});
+
+/* ══ GA4 — Page visibility (distingue tab in background) ══ */
+(function() {
+  var hiddenAt = null;
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      hiddenAt = Date.now();
+    } else {
+      if (hiddenAt) {
+        var away = Math.round((Date.now() - hiddenAt) / 1000);
+        gtag('event', 'tab_return', { event_category:'engagement', seconds_away: away });
+        hiddenAt = null;
+      }
+    }
+  });
+})();
+
+/* ══ GA4 — Outbound clicks (granulari) ══ */
+document.querySelectorAll('a[href^="http"]').forEach(function(el) {
+  if (el.hostname === window.location.hostname) return;
+  el.addEventListener('click', function() {
+    var href     = this.href;
+    var isTally  = href.includes('tally.so');
+    if (isTally) return; // già coperto da cta_click
+
+    var linkType;
+    if (href.includes('linkedin.com/in/caterina')) {
+      linkType = 'linkedin_caterina';
+    } else if (href.includes('linkedin.com/company/leantil')) {
+      linkType = 'linkedin_leantil_footer';
+    } else if (href.includes('linkedin')) {
+      linkType = 'linkedin_other';
+    } else {
+      linkType = 'other';
+    }
+
+    gtag('event', 'outbound_click', {
+      event_category: 'engagement',
+      destination: href,
+      link_type: linkType
+    });
+  });
+});
+
+/* ══ GA4 — Email footer click ══ */
+document.querySelectorAll('a[href^="mailto"]').forEach(function(el) {
+  el.addEventListener('click', function() {
+    gtag('event', 'contact_email_click', {
+      event_category: 'engagement',
+      destination: 'email_footer'
+    });
+  });
+});
+
+/* ══ GA4 — Card hover ══ */
+document.querySelectorAll('.card').forEach(function(el) {
+  var fired = false;
+  el.addEventListener('mouseenter', function() {
+    if (fired) return; fired = true;
+    gtag('event', 'card_hover', {
+      event_category: 'engagement',
+      card_title: (this.querySelector('h3') || {}).textContent || ''
+    });
+  });
+});
+
+/* ══ GA4 — FAQ open ══ */
 document.querySelectorAll('.faq-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
     var item = this.closest('.faq-item');
     var isOpen = item.classList.contains('open');
+    var k = this.querySelector('[data-k]');
+    if (k && !isOpen) {
+      gtag('event', 'faq_open', { event_category:'engagement', faq_key:k.getAttribute('data-k') });
+    }
     document.querySelectorAll('.faq-item').forEach(function(i) {
       i.classList.remove('open');
-      i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      i.querySelector('.faq-btn').setAttribute('aria-expanded','false');
     });
-    if (!isOpen) {
-      item.classList.add('open');
-      this.setAttribute('aria-expanded', 'true');
-    }
+    if (!isOpen) { item.classList.add('open'); this.setAttribute('aria-expanded','true'); }
   });
 });
+
+/* ══ GA4 — Chip forwho click ══ */
+document.querySelectorAll('.forwho-chip').forEach(function(el) {
+  el.addEventListener('click', function() {
+    gtag('event', 'chip_click', {
+      event_category: 'engagement',
+      chip_label: this.textContent.trim()
+    });
+  });
+});
+
+/* ══ HEADER SHADOW ══ */
+window.addEventListener('scroll', function() {
+  document.getElementById('hdr').style.boxShadow = window.scrollY > 8 ? '0 2px 28px rgba(0,0,0,.5)' : 'none';
+}, { passive:true });
+
+/* ══ SCROLL REVEAL ══ */
+if ('IntersectionObserver' in window) {
+  var rvObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('on'); rvObs.unobserve(e.target); }
+    });
+  }, { threshold:0.08 });
+  document.querySelectorAll('.rv').forEach(function(el) { rvObs.observe(el); });
+} else {
+  document.querySelectorAll('.rv').forEach(function(el) { el.classList.add('on'); });
+}
+
+/* ══ STEPS STAGGER ══ */
+var sg = document.getElementById('stepsEl');
+if (sg && 'IntersectionObserver' in window) {
+  var stepObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.step').forEach(function(s,i) {
+          setTimeout(function() { s.classList.add('show'); }, i * 140);
+        });
+        stepObs.unobserve(e.target);
+      }
+    });
+  }, { threshold:0.15 });
+  stepObs.observe(sg);
+} else {
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.add('show'); });
+}
+
+/* ══ EXIT INTENT ══ */
+(function() {
+  var overlay  = document.getElementById('exit-overlay');
+  var exitX    = document.getElementById('exit-x');
+  var exitSkip = document.getElementById('exit-skip');
+  var exitCta  = document.getElementById('exit-cta');
+  var shown    = false;
+
+  try { if (sessionStorage.getItem('lt_exit')) shown = true; } catch(e) {}
+
+  function showExit() {
+    if (shown) return;
+    shown = true;
+    try { sessionStorage.setItem('lt_exit','1'); } catch(e) {}
+    gtag('event', 'exit_intent_shown', { event_category:'engagement', trigger_lang:curLang });
+    overlay.classList.add('visible');
+    setTimeout(function() { exitX.focus(); }, 50);
+  }
+
+  function closeExit(reason) {
+    overlay.classList.remove('visible');
+    gtag('event', 'exit_intent_dismiss', { event_category:'engagement', reason:reason || 'close' });
+  }
+
+  exitX.addEventListener('click', function() { closeExit('x_button'); });
+  exitSkip.addEventListener('click', function() { closeExit('skip_button'); });
+  exitCta.addEventListener('click', function() {
+    gtag('event', 'cta_click', {
+      event_category: 'conversion',
+      cta_section: 'exit_intent',
+      cta_label: 'exit_cta',
+      language: curLang
+    });
+  });
+
+  overlay.addEventListener('click', function(ev) {
+    if (ev.target === overlay) closeExit('backdrop');
+  });
+
+  document.addEventListener('keydown', function(ev) {
+    if (ev.key === 'Escape' && overlay.classList.contains('visible')) closeExit('escape');
+  });
+
+  /* TRIGGER 1: Desktop — mouseleave */
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 20) showExit();
+  });
+
+  /* TRIGGER 2: Mobile — scroll-up rapido */
+  var lastScrollY = window.scrollY;
+  window.addEventListener('scroll', function() {
+    var y = window.scrollY;
+    if (lastScrollY - y > 80 && y > 300) showExit();
+    lastScrollY = y;
+  }, { passive:true });
+
+  /* TRIGGER 3: Mobile — inattività 45s */
+  var inTimer;
+  function resetInactivity() {
+    clearTimeout(inTimer);
+    inTimer = setTimeout(showExit, 45000);
+  }
+  ['touchstart','scroll','click','keydown'].forEach(function(ev) {
+    document.addEventListener(ev, resetInactivity, { passive:true });
+  });
+  resetInactivity();
+})();
 </script>
 </body>
 </html>
