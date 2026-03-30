@@ -374,12 +374,88 @@
     .card h3 { font-size:17px; font-weight:700; margin-bottom:10px; }
     .card p  { font-size:14.5px; color:var(--muted); line-height:1.65; }
 
-    /* ── ILLUSTRATION GIF ── */
-    .illus { padding:72px 0 0; text-align:center; }
-    .illus-label { font-size:11px; color:var(--muted); letter-spacing:.09em; text-transform:uppercase; font-weight:600; margin-bottom:20px; }
-    .illus-wrap { max-width:480px; margin:0 auto; background:var(--card); border:1px solid var(--bd); border-radius:18px; overflow:hidden; }
-    .illus-gif { display:block; width:100%; height:auto; mix-blend-mode:screen; }
-    .illus-steps { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; padding:14px 16px 18px; border-top:1px solid var(--bd); }
+    /* ── HOW IT WORKS — variante A: step sinistra, animazione destra ── */
+    .how { padding:110px 0; }
+    .how-hdr { text-align:center; margin-bottom:64px; }
+    .how-hdr h2 { font-size:clamp(28px,4vw,46px); font-weight:800; letter-spacing:-.02em; }
+    .how-hdr p  { font-size:16px; color:var(--muted); margin-top:10px; }
+
+    /* griglia asimmetrica: colonna step (5/12) + colonna animazione (7/12) */
+    .how-body {
+      display:grid;
+      grid-template-columns:5fr 7fr;
+      gap:56px;
+      align-items:center;
+    }
+
+    /* colonna step — verticale, compatta */
+    .steps {
+      display:flex;
+      flex-direction:column;
+      gap:0;
+      position:relative;
+    }
+    /* linea verticale sottile che connette i numeri */
+    .steps::before {
+      content:'';
+      position:absolute;
+      top:22px; bottom:22px; left:18px;
+      width:1px;
+      background:linear-gradient(180deg, transparent, rgba(107,63,160,.3) 20%, rgba(107,63,160,.3) 80%, transparent);
+      pointer-events:none;
+    }
+
+    .step {
+      display:flex; gap:20px; align-items:flex-start;
+      padding:24px 0;
+      border-bottom:1px solid var(--bd);
+      opacity:0; transform:translateX(-18px);
+      transition:opacity .5s ease, transform .5s ease;
+    }
+    .step:first-child { padding-top:0; }
+    .step:last-child  { border-bottom:none; padding-bottom:0; }
+    .step.show { opacity:1; transform:translateX(0); }
+    .step:nth-child(2).show { transition-delay:.14s; }
+    .step:nth-child(3).show { transition-delay:.28s; }
+
+    /* numero compatto — cerchio viola */
+    .step-n {
+      width:36px; height:36px; border-radius:50%; flex-shrink:0;
+      background:rgba(107,63,160,.14); border:1px solid rgba(107,63,160,.28);
+      display:flex; align-items:center; justify-content:center;
+      font-size:13px; font-weight:800; color:var(--p2);
+      letter-spacing:-.01em; line-height:1;
+      transition:background .4s, border-color .4s, color .4s;
+      margin-top:2px;
+    }
+    .step.show .step-n {
+      background:rgba(107,63,160,.22);
+      border-color:rgba(107,63,160,.5);
+    }
+    .step-text { flex:1; min-width:0; }
+    .step h3 { font-size:16px; font-weight:700; margin-bottom:6px; }
+    .step p  { font-size:14px; color:var(--muted); line-height:1.65; }
+
+    /* colonna animazione — allineata al centro verticale */
+    .how-illus {
+      position:relative;
+    }
+    .how-illus .illus-label {
+      font-size:11px; color:var(--muted); letter-spacing:.09em;
+      text-transform:uppercase; font-weight:600; margin-bottom:16px;
+      text-align:center;
+    }
+    .how-illus .illus-wrap {
+      background:var(--card); border:1px solid var(--bd);
+      border-radius:18px; overflow:hidden;
+    }
+    .how-illus .illus-gif {
+      display:block; width:100%; height:auto; mix-blend-mode:screen;
+    }
+    .how-illus .illus-steps {
+      display:flex; justify-content:center; gap:8px; flex-wrap:wrap;
+      padding:14px 16px 18px; border-top:1px solid var(--bd);
+    }
     .illus-pill {
       display:inline-flex; align-items:center; gap:6px;
       background:rgba(107,63,160,.1); border:1px solid rgba(107,63,160,.22);
@@ -388,27 +464,6 @@
     }
     .illus-pill.green { background:rgba(151,196,89,.08); border-color:rgba(151,196,89,.22); color:#97C459; }
     .illus-pill-dot { width:6px; height:6px; border-radius:50%; background:currentColor; flex-shrink:0; }
-
-    /* ── HOW IT WORKS ── */
-    .how { padding:110px 0; }
-    .how-hdr { text-align:center; margin-bottom:72px; }
-    .how-hdr h2 { font-size:clamp(28px,4vw,46px); font-weight:800; letter-spacing:-.02em; }
-    .how-hdr p  { font-size:16px; color:var(--muted); margin-top:10px; }
-
-    /* steps grid — desktop */
-    .steps {
-      display:grid; grid-template-columns:repeat(3,1fr); gap:40px;
-      position:relative;
-    }
-
-    .step { opacity:0; transform:translateY(28px); transition:opacity .55s ease, transform .55s ease; }
-    .step.show { opacity:1; transform:translateY(0); }
-    .step:nth-child(2).show { transition-delay:.14s; }
-    .step:nth-child(3).show { transition-delay:.28s; }
-    .step-n { font-size:clamp(54px,7vw,86px); font-weight:800; color:var(--dim); line-height:1; margin-bottom:18px; letter-spacing:-.03em; transition:color .4s ease; }
-    .step.show .step-n { color:rgba(107,63,160,.48); }
-    .step h3 { font-size:18px; font-weight:700; margin-bottom:10px; }
-    .step p  { font-size:14.5px; color:var(--muted); line-height:1.65; }
 
     /* ── JOIN ── */
     .join { padding:80px 0 110px; }
@@ -565,14 +620,12 @@
     /* ── RESPONSIVE ── */
     @media (max-width:820px) {
       .cards { grid-template-columns:1fr; }
-      .steps { grid-template-columns:1fr; gap:0; }
-      /* su mobile: nasconde connettore orizzontale e aggiunge separatore verticale tra step */
+      /* how: stack verticale — animazione prima (order:-1), step sotto */
+      .how-body { grid-template-columns:1fr; gap:40px; }
+      .how-body > .how-illus { order:-1; }
+      .steps { flex-direction:column; }
       .steps::before { display:none; }
-      .step { padding-bottom:40px; }
-      .step:not(:last-child) {
-        border-bottom:1px solid var(--bd);
-        margin-bottom:40px;
-      }
+      .step { transform:none; }
       .perks { flex-direction:column; align-items:center; gap:14px; }
       .join-box { padding:52px 24px; }
       .foot-row { flex-direction:column; align-items:flex-start; }
@@ -651,7 +704,7 @@
           <div class="avatar" style="background:linear-gradient(135deg,#6B9FD0,#3F60A0);">S</div>
           <div class="avatar" style="background:linear-gradient(135deg,#D06B9B,#A03F6B);">L</div>
         </div>
-        <span class="proof-text"><strong id="sp-count">27</strong> <span data-k="proof_txt">persone gi&agrave; in lista beta</span></span>
+        <span class="proof-text"><strong id="sp-count">47</strong> <span data-k="proof_txt">persone gi&agrave; in lista beta</span></span>
       </div>
     </div>
   </div>
@@ -731,46 +784,56 @@
       <h2 data-k="how_h">Come funziona</h2>
       <p data-k="how_s">Tre passi. Zero complessit&agrave;.</p>
     </div>
-    <div class="steps" id="stepsEl">
-      <div class="step">
-        <div class="step-n" aria-hidden="true">01</div>
-        <h3 data-k="s1h">Ti siedi normalmente</h3>
-        <p data-k="s1b">Posiziona LeanTil sulla tua sedia e segui le istruzioni.</p>
-      </div>
-      <div class="step">
-        <div class="step-n" aria-hidden="true">02</div>
-        <h3 data-k="s2h">Rileva la postura</h3>
-        <p data-k="s2b">Il cuscino rileva in tempo reale come distribuisci il peso sulla seduta mentre l'app traccia i tuoi progressi settimana dopo settimana, così vedi con i tuoi occhi se stai migliorando.</p>
-      </div>
-      <div class="step">
-        <div class="step-n" aria-hidden="true">03</div>
-        <h3 data-k="s3h">Feedback visivo</h3>
-        <p data-k="s3b">Quando rileva una postura scorretta prolungata, LeanTil ti manda un segnale senza distrarti.</p>
-      </div>
-    </div>
+    <div class="how-body">
 
-    <!-- ILLUSTRATION GIF — chiude visivamente la sezione -->
-    <div class="illus rv">
-      <p class="illus-label" data-k="illus_label">Come LeanTil percepisce la postura</p>
-      <div class="illus-wrap">
-        <img src="seduta.gif" alt="Animazione: persona seduta con postura scorretta rilevata da LeanTil" class="illus-gif" loading="lazy" decoding="async" width="480" height="360" />
-        <div class="illus-steps" role="list">
-          <span class="illus-pill" role="listitem">
-            <span class="illus-pill-dot" aria-hidden="true"></span>
-            <span data-k="pill1">Rileva l&rsquo;incurvamento</span>
-          </span>
-          <span class="illus-pill" role="listitem">
-            <span class="illus-pill-dot" aria-hidden="true"></span>
-            <span data-k="pill2">LeanTil ti avverte</span>
-          </span>
-          <span class="illus-pill green" role="listitem">
-            <span class="illus-pill-dot" aria-hidden="true"></span>
-            <span data-k="pill3">Torni in posizione</span>
-          </span>
+      <!-- colonna sinistra: step verticali -->
+      <div class="steps" id="stepsEl">
+        <div class="step">
+          <div class="step-n" aria-hidden="true">01</div>
+          <div class="step-text">
+            <h3 data-k="s1h">Ti siedi normalmente</h3>
+            <p data-k="s1b">Posiziona LeanTil sulla tua sedia e segui le istruzioni.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n" aria-hidden="true">02</div>
+          <div class="step-text">
+            <h3 data-k="s2h">Rileva la postura</h3>
+            <p data-k="s2b">Il cuscino rileva in tempo reale come distribuisci il peso sulla seduta mentre l'app traccia i tuoi progressi settimana dopo settimana, così vedi con i tuoi occhi se stai migliorando.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n" aria-hidden="true">03</div>
+          <div class="step-text">
+            <h3 data-k="s3h">Feedback visivo</h3>
+            <p data-k="s3b">Quando rileva una postura scorretta prolungata, LeanTil ti manda un segnale senza distrarti.</p>
+          </div>
         </div>
       </div>
-    </div>
 
+      <!-- colonna destra: animazione -->
+      <div class="how-illus rv">
+        <p class="illus-label" data-k="illus_label">Come LeanTil percepisce la postura</p>
+        <div class="illus-wrap">
+          <img src="seduta.gif" alt="Animazione: persona seduta con postura scorretta rilevata da LeanTil" class="illus-gif" loading="lazy" decoding="async" width="480" height="360" />
+          <div class="illus-steps" role="list">
+            <span class="illus-pill" role="listitem">
+              <span class="illus-pill-dot" aria-hidden="true"></span>
+              <span data-k="pill1">Rileva l&rsquo;incurvamento</span>
+            </span>
+            <span class="illus-pill" role="listitem">
+              <span class="illus-pill-dot" aria-hidden="true"></span>
+              <span data-k="pill2">LeanTil ti avverte</span>
+            </span>
+            <span class="illus-pill green" role="listitem">
+              <span class="illus-pill-dot" aria-hidden="true"></span>
+              <span data-k="pill3">Torni in posizione</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 <section class="join">
