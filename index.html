@@ -2,11 +2,10 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="YVZbBCamjiLI6ncumYzjKJkOF_lixvA3lncrnZtN26I" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ══ SEO PRIMARIO ══ -->
-  <title>LeanTil — Cuscino Smart per la Postura | Beta gratuita</title>
+  <title>LeanTil – La tua schiena ti ringrazia alle 18:00</title>
   <meta name="description" content="LeanTil è il cuscino intelligente che rileva la tua postura in tempo reale e ti riporta in posizione senza interrompere il lavoro. Unisciti alla beta." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.leantil.com/" />
@@ -16,25 +15,6 @@
   <link rel="alternate" hreflang="en" href="https://www.leantil.com/en/" />
   <link rel="alternate" hreflang="x-default" href="https://www.leantil.com/" />
 
-  <!-- Meta Pixel — caricato solo dopo consenso -->
-  <script>
-  window._pixelPending = true;
-  function initMetaPixel() {
-    if (!window._pixelPending) return;
-    window._pixelPending = false;
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentElement.insertBefore(t,s)}
-    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'TUO_PIXEL_ID');
-    fbq('track', 'PageView');
-  }
-  </script>
-  
-  <!-- SITEMAP -->
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  
   <!-- ══ OPEN GRAPH ══ -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://www.leantil.com/" />
@@ -1149,9 +1129,7 @@ document.getElementById('langBtn').addEventListener('click', function() {
     var v = localStorage.getItem('lt_ck');
     if (v !== null) {
       document.getElementById('ck').classList.add('hide');
-      if (v === '1') {
-        gtag('consent', 'update', { analytics_storage:'granted' });
-        initMetaPixel(); //
+      if (v === '1') gtag('consent', 'update', { analytics_storage:'granted' });
     }
   } catch(e) {}
 })();
@@ -1162,7 +1140,6 @@ function hideCk(v) {
   if (v === 1) {
     gtag('consent', 'update', { analytics_storage:'granted' });
     gtag('event', 'cookie_accept');
-    initMetaPixel(); 
   } else {
     gtag('event', 'cookie_reject');
   }
