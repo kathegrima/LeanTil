@@ -1,1 +1,365 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Postura corretta alla scrivania: la guida completa | LeanTil</title>
+  <meta name="description" content="Come regolare sedia, monitor e tastiera per una postura corretta alla scrivania. Guida pratica per developer, freelance e remote worker." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.leantil.com/blog/postura-corretta-scrivania.html" />
+
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://www.leantil.com/blog/postura-corretta-scrivania.html" />
+  <meta property="og:title"       content="Postura corretta alla scrivania: la guida completa" />
+  <meta property="og:description" content="Come regolare sedia, monitor e tastiera per una postura corretta alla scrivania. Guida pratica per chi lavora 6+ ore al computer." />
+  <meta property="og:image"       content="https://www.leantil.com/og-image.png" />
+  <meta property="og:site_name"   content="LeanTil" />
+  <meta property="article:published_time" content="2026-04-01T09:00:00+02:00" />
+  <meta property="article:author" content="Giuseppe" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Postura corretta alla scrivania: la guida completa",
+    "description": "Come regolare sedia, monitor e tastiera per una postura corretta alla scrivania. Guida pratica per developer, freelance e remote worker.",
+    "image": "https://www.leantil.com/og-image.png",
+    "author": { "@type": "Person", "name": "Giuseppe" },
+    "publisher": { "@type": "Organization", "name": "LeanTil", "url": "https://www.leantil.com/" },
+    "datePublished": "2026-04-01T09:00:00+02:00",
+    "dateModified": "2026-04-01T09:00:00+02:00",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.leantil.com/blog/postura-corretta-scrivania.html" }
+  }
+  </script>
+
+  <link rel="icon" href="https://www.leantil.com/leantil-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#0A0A0C; --card:#141416; --bd:rgba(255,255,255,.07); --bd2:rgba(255,255,255,.13);
+      --tx:#F0F0F2; --muted:#8A8A96; --dim:#58585F;
+      --p1:#6B3FA0; --p2:#9B6FD0; --glow:rgba(107,63,160,.4);
+      --grad:linear-gradient(135deg,#6B3FA0 0%,#9B6FD0 100%);
+      --f:'Plus Jakarta Sans',system-ui,sans-serif; --r:14px;
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--tx); font-family:var(--f); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+    a { color:var(--p2); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    img { display:block; max-width:100%; }
+    .W { max-width:1080px; margin:0 auto; padding:0 28px; }
+    .W-content { max-width:720px; margin:0 auto; padding:0 28px; }
+
+    #hdr { position:sticky; top:0; z-index:200; background:rgba(10,10,12,.9); backdrop-filter:blur(20px); border-bottom:1px solid var(--bd); }
+    .hdr-row { display:flex; align-items:center; justify-content:space-between; height:66px; }
+    .logo img { height:38px; width:auto; object-fit:contain; }
+    .btn-sm { display:inline-flex; align-items:center; background:var(--grad); color:#fff; font-family:var(--f); font-size:14px; font-weight:700; padding:10px 22px; border-radius:100px; border:none; cursor:pointer; transition:box-shadow .2s,transform .15s; text-decoration:none; }
+    .btn-sm:hover { transform:translateY(-1px); box-shadow:0 4px 22px var(--glow); text-decoration:none; }
+
+    .breadcrumb { padding:20px 0 0; font-size:13px; color:var(--dim); }
+    .breadcrumb a { color:var(--dim); }
+    .breadcrumb a:hover { color:var(--p2); }
+    .breadcrumb span { margin:0 6px; }
+
+    .art-hero { padding:48px 0 56px; }
+    .art-meta { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
+    .art-tag { display:inline-block; background:rgba(107,63,160,.14); border:1px solid rgba(107,63,160,.32); border-radius:100px; padding:4px 14px; font-size:12px; font-weight:700; color:var(--p2); }
+    .art-date,.art-read { font-size:13px; color:var(--dim); }
+    .art-hero h1 { font-size:clamp(30px,5vw,52px); font-weight:800; line-height:1.1; letter-spacing:-.025em; margin-bottom:20px; }
+    .art-hero .lead { font-size:clamp(16px,2vw,19px); color:var(--muted); line-height:1.65; max-width:620px; margin-bottom:36px; }
+    .author-row { display:flex; align-items:center; gap:12px; }
+    .author-av { width:40px; height:40px; border-radius:50%; overflow:hidden; background:var(--grad); flex-shrink:0; }
+    .author-av img { width:100%; height:100%; object-fit:cover; }
+    .author-info { font-size:13px; }
+    .author-info strong { display:block; color:var(--tx); font-weight:600; }
+    .author-info span { color:var(--dim); }
+
+    .art-body { padding-bottom:80px; }
+    .art-body h2 { font-size:clamp(22px,3vw,30px); font-weight:800; letter-spacing:-.02em; margin:56px 0 18px; line-height:1.2; }
+    .art-body h3 { font-size:19px; font-weight:700; margin:36px 0 12px; color:var(--tx); }
+    .art-body p { font-size:16px; color:var(--muted); line-height:1.8; margin-bottom:20px; }
+    .art-body p strong { color:var(--tx); font-weight:600; }
+    .art-body ul,.art-body ol { margin:0 0 24px 0; padding-left:0; list-style:none; }
+    .art-body ul li,.art-body ol li { position:relative; padding:6px 0 6px 26px; font-size:16px; color:var(--muted); line-height:1.7; border-bottom:1px solid var(--bd); }
+    .art-body ul li:last-child,.art-body ol li:last-child { border-bottom:none; }
+    .art-body ul li::before { content:''; position:absolute; left:0; top:15px; width:7px; height:7px; border-radius:50%; background:var(--p2); }
+    .art-body ol { counter-reset:ol-counter; }
+    .art-body ol li { counter-increment:ol-counter; }
+    .art-body ol li::before { content:counter(ol-counter); position:absolute; left:0; top:6px; font-size:12px; font-weight:800; color:var(--p2); }
+    .art-body li strong { color:var(--tx); }
+
+    /* CHECK CARD — checklist visiva */
+    .check-card { background:var(--card); border:1px solid var(--bd); border-radius:var(--r); padding:24px 28px; margin:32px 0; }
+    .check-card h4 { font-size:14px; font-weight:700; color:var(--p2); text-transform:uppercase; letter-spacing:.07em; margin-bottom:16px; }
+    .check-item { display:flex; align-items:flex-start; gap:12px; padding:10px 0; border-bottom:1px solid var(--bd); }
+    .check-item:last-child { border-bottom:none; }
+    .check-ico { width:20px; height:20px; border-radius:50%; background:rgba(107,63,160,.2); border:1px solid rgba(107,63,160,.4); flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+    .check-ico svg { width:10px; height:10px; stroke:var(--p2); fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .check-text { font-size:14px; color:var(--muted); line-height:1.6; }
+    .check-text strong { color:var(--tx); display:block; margin-bottom:2px; }
+
+    /* ANGOLI TABLE */
+    .angle-table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; }
+    .angle-table th { text-align:left; padding:10px 14px; background:rgba(107,63,160,.1); border:1px solid var(--bd); color:var(--p2); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+    .angle-table td { padding:12px 14px; border:1px solid var(--bd); color:var(--muted); vertical-align:top; }
+    .angle-table tr:nth-child(even) td { background:rgba(255,255,255,.02); }
+    .angle-table td strong { color:var(--tx); }
+
+    .callout { background:var(--card); border:1px solid rgba(107,63,160,.3); border-left:3px solid var(--p2); border-radius:0 var(--r) var(--r) 0; padding:20px 24px; margin:32px 0; }
+    .callout p { margin:0; font-size:15px; color:var(--muted); line-height:1.7; }
+    .callout p strong { color:var(--tx); }
+
+    .cta-box { background:var(--card); border:1px solid var(--bd2); border-radius:20px; padding:40px 36px; text-align:center; margin:56px 0; position:relative; overflow:hidden; }
+    .cta-box::before { content:''; position:absolute; top:-60px; left:50%; transform:translateX(-50%); width:400px; height:240px; border-radius:50%; background:radial-gradient(ellipse,rgba(107,63,160,.12) 0%,transparent 65%); pointer-events:none; }
+    .cta-box h3 { font-size:24px; font-weight:800; margin-bottom:10px; position:relative; }
+    .cta-box p { font-size:15px; color:var(--muted); margin-bottom:24px; position:relative; }
+    .btn-lg { display:inline-flex; align-items:center; background:var(--grad); color:#fff; font-family:var(--f); font-size:16px; font-weight:700; padding:14px 34px; border-radius:100px; border:none; cursor:pointer; box-shadow:0 0 28px var(--glow); transition:box-shadow .25s,transform .2s; text-decoration:none; }
+    .btn-lg:hover { transform:translateY(-2px); box-shadow:0 6px 40px var(--glow); text-decoration:none; }
+    .cta-note { font-size:12px; color:var(--dim); margin-top:12px; position:relative; }
+
+    .related { border-top:1px solid var(--bd); padding:56px 0; }
+    .related h2 { font-size:22px; font-weight:800; margin-bottom:24px; }
+    .related-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .related-card { background:var(--card); border:1px solid var(--bd); border-radius:var(--r); padding:24px; transition:border-color .2s,transform .2s; text-decoration:none; display:block; }
+    .related-card:hover { border-color:rgba(107,63,160,.5); transform:translateY(-3px); text-decoration:none; }
+    .related-card .rc-tag { font-size:11px; font-weight:700; color:var(--p2); text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px; }
+    .related-card h3 { font-size:16px; font-weight:700; color:var(--tx); line-height:1.4; margin-bottom:8px; }
+    .related-card p { font-size:13px; color:var(--muted); line-height:1.6; margin:0; }
+
+    footer { border-top:1px solid var(--bd); padding:40px 0 32px; }
+    .foot-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .foot-logo img { height:auto; max-height:28px; max-width:110px; object-fit:contain; opacity:.8; }
+    .foot-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .foot-links a { color:var(--dim); font-size:13px; transition:color .2s; }
+    .foot-links a:hover { color:var(--tx); text-decoration:none; }
+    .foot-copy { font-size:12px; color:var(--dim); margin-top:24px; text-align:center; }
+
+    @media (max-width:680px) {
+      .related-grid { grid-template-columns:1fr; }
+      .cta-box { padding:32px 20px; }
+      .hdr-row { height:58px; }
+      .angle-table { font-size:13px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="W hdr-row">
+    <a href="https://www.leantil.com/" class="logo" aria-label="LeanTil home">
+      <img src="https://www.leantil.com/LeanTil_white_logo.png" alt="LeanTil" width="120" height="40" />
+    </a>
+    <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-sm">Entra nella beta →</a>
+  </div>
+</header>
+
+<main>
+  <div class="W-content">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://www.leantil.com/">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="https://www.leantil.com/blog/">Blog</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Postura corretta alla scrivania</span>
+    </nav>
+
+    <header class="art-hero">
+      <div class="art-meta">
+        <span class="art-tag">Ergonomia</span>
+        <span class="art-date">1 aprile 2026</span>
+        <span class="art-date">·</span>
+        <span class="art-read">10 min di lettura</span>
+      </div>
+      <h1>Postura corretta alla scrivania: la guida completa</h1>
+      <p class="lead">Sedia, monitor, tastiera, piedi, polsi: ogni elemento della tua postazione influenza la tua postura. Questa guida ti mostra come regolare tutto correttamente, con angoli precisi e checklist pratica.</p>
+      <div class="author-row">
+        <div class="author-av">
+          <img src="https://www.leantil.com/foto-giuseppe.jpg" alt="Giuseppe" />
+        </div>
+        <div class="author-info">
+          <strong>Giuseppe</strong>
+          <span>Co-Founder, LeanTil — ex settore automotive ergonomics</span>
+        </div>
+      </div>
+    </header>
+
+  </div>
+
+  <div class="W-content art-body">
+
+    <p>Ho lavorato per anni sull'ergonomia dei sistemi di seduta nel settore automotive. La differenza tra una seduta che supporta il corpo e una che lo logora non è una questione di prezzo: è una questione di <strong>regolazione corretta</strong>. E la maggior parte delle persone non la fa, spesso perché nessuno gliel'ha mai mostrato con precisione.</p>
+
+    <p>Questa guida è basata sui principi dell'ergonomia che ho applicato in ambito industriale, adattati alla realtà della scrivania casalinga o d'ufficio. Troverai angoli, misure e una checklist da usare subito.</p>
+
+    <h2>I fondamentali: la postura neutra</h2>
+
+    <p>Il concetto chiave è <strong>postura neutra</strong>: la posizione in cui la colonna vertebrale mantiene le sue curve naturali (lordosi lombare e cervicale, cifosi dorsale) senza sforzo muscolare eccessivo. Non è una posizione rigida — è il punto di equilibrio da cui il corpo può muoversi senza affaticarsi.</p>
+
+    <div class="callout">
+      <p><strong>Importante:</strong> nessuna postura è "giusta" per sempre. Il corpo ha bisogno di variare. L'obiettivo non è stare perfettamente immobili, ma partire da una posizione neutra e variare intorno ad essa. La postura peggiore è sempre quella che mantieni troppo a lungo.</p>
+    </div>
+
+    <h2>La sedia: il punto di partenza</h2>
+
+    <p>La sedia è il fondamento di tutto. Anche il monitor più ben posizionato non compensa una sedia mal regolata.</p>
+
+    <table class="angle-table" aria-label="Angoli corretti per la sedia">
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Angolo / misura corretta</th>
+          <th>Come verificarlo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Altezza seduta</strong></td>
+          <td>Piedi a terra, cosce parallele al pavimento, angolo al ginocchio 90°</td>
+          <td>Appoggia i piedi piatti sul pavimento senza sollevare le cosce</td>
+        </tr>
+        <tr>
+          <td><strong>Profondità seduta</strong></td>
+          <td>2-3 dita di spazio tra il bordo della seduta e il retro del ginocchio</td>
+          <td>Siediti a fondo: non dovresti sentire pressione sotto il ginocchio</td>
+        </tr>
+        <tr>
+          <td><strong>Supporto lombare</strong></td>
+          <td>Deve toccare la zona lombare (L4-L5), non il centro della schiena</td>
+          <td>Il supporto è nella parte bassa della schiena, non nelle scapole</td>
+        </tr>
+        <tr>
+          <td><strong>Angolo schienale</strong></td>
+          <td>100-110° (leggermente reclinato, non verticale)</td>
+          <td>Uno schienale a 90° esatto aumenta la pressione discale</td>
+        </tr>
+        <tr>
+          <td><strong>Braccioli</strong></td>
+          <td>All'altezza dei gomiti, spalle rilassate</td>
+          <td>Le spalle non devono essere sollevate né le braccia ciondolanti</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Se non hai una sedia regolabile</h3>
+    <p>Un cuscino lombare da €15-20 aggiunge il supporto lombare mancante. Se i piedi non toccono terra, un poggiapiedi (o anche una risma di carta) risolve il problema in 30 secondi. Non servono sedie da €800 per stare bene — servono le regolazioni giuste.</p>
+
+    <h2>Il monitor: altezza e distanza</h2>
+
+    <p>La posizione del monitor determina la postura del collo. E la testa pesa circa 5 kg: ogni grado di inclinazione in avanti moltiplica il carico sui muscoli cervicali.</p>
+
+    <ul>
+      <li><strong>Altezza:</strong> il bordo superiore dello schermo deve essere all'altezza degli occhi, o leggermente sotto. Mai sopra.</li>
+      <li><strong>Distanza:</strong> 50-70 cm dagli occhi (circa un braccio teso). Se devi avvicinarti per leggere, aumenta la dimensione del testo, non la tua posizione.</li>
+      <li><strong>Inclinazione:</strong> leggermente inclinato verso il basso (5-10°), non verso di te. Riduce i riflessi e mantiene il collo in posizione neutra.</li>
+      <li><strong>Laptop:</strong> lo schermo è sempre troppo basso. Usa uno stand + tastiera esterna. È l'unico modo. Uno stand da laptop costa 20-30€ e cambia tutto.</li>
+    </ul>
+
+    <h2>Tastiera e mouse: i polsi contano</h2>
+
+    <p>Il tunnel carpale e le tendiniti non vengono solo da movimenti ripetitivi — vengono anche da posture scorrette dei polsi mantenute per ore.</p>
+
+    <ul>
+      <li><strong>Tastiera:</strong> i polsi devono essere dritti, non piegati verso l'alto (estensione) né verso il basso. I gomiti a circa 90°, vicini al corpo.</li>
+      <li><strong>Mouse:</strong> alla stessa altezza della tastiera, abbastanza vicino da non dover allungare il braccio. Il braccio deve muoversi, non solo il polso.</li>
+      <li><strong>Tastiera ergonomica:</strong> se hai dolori ai polsi, vale la pena considerarla. Le tastiere split o a forma di V mantengono i polsi in una posizione più neutra.</li>
+    </ul>
+
+    <h2>Checklist postazione ergonomica</h2>
+
+    <div class="check-card">
+      <h4>Verifica la tua postazione</h4>
+      <div class="check-item">
+        <div class="check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text"><strong>Piedi a terra o su poggiapiedi</strong> Nessuna pressione sotto le cosce, cosce parallele al pavimento</div>
+      </div>
+      <div class="check-item">
+        <div class="check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text"><strong>Angolo al ginocchio circa 90°</strong> 2-3 dita di spazio tra il bordo della seduta e il retro del ginocchio</div>
+      </div>
+      <div class="check-item">
+        <div class="check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text"><strong>Supporto lombare attivo</strong> La parte bassa della schiena è supportata, non si incurva verso l'esterno</div>
+      </div>
+      <div class="check-item">
+        <div class="check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text"><strong>Bordo superiore monitor all'altezza degli occhi</strong> Non devi alzare né abbassare il mento per guardare lo schermo</div>
+      </div>
+      <div class="check-item">
+        <div class="check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text"><strong>Monitor a 50-70 cm dagli occhi</strong> Un braccio teso è la misura indicativa</div>
+      </div>
+      <div class="check-item">
+        <div class="check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text"><strong>Spalle rilassate, gomiti a ~90°</strong> I braccioli (se presenti) supportano senza sollevare le spalle</div>
+      </div>
+      <div class="check-item">
+        <div class="check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="check-text"><strong>Polsi dritti sulla tastiera</strong> Nessuna flessione né estensione del polso durante la digitazione</div>
+      </div>
+    </div>
+
+    <h2>Il problema che nessuna checklist risolve</h2>
+
+    <p>Puoi regolare tutto perfettamente alle 9 di mattina. Alle 11, quando sei in deep focus su un bug complesso o su una scadenza, ti sei già incurvato senza accorgertene. Il corpo segue la mente, e quando la mente è altrove, la postura viene abbandonata.</p>
+
+    <p>Questo è il limite fondamentale di qualsiasi guida posturale: <strong>sapere non è sufficiente</strong>. Serve un sistema che monitora la postura in tempo reale e ti riporta in posizione quando ti sei allontanato da essa — senza interrompere il lavoro.</p>
+
+    <p>È il problema che abbiamo cercato di risolvere con LeanTil: un cuscino con sensori che rileva continuamente come distribuisci il peso sulla seduta, e ti manda un segnale visivo discreto quando la postura diventa scorretta. Non una regola da ricordare — un feedback continuo, automatico, silenzioso.</p>
+
+    <div class="cta-box">
+      <h3>Hai regolato la postazione. E ora?</h3>
+      <p>LeanTil monitora che tu la mantenga durante le 8 ore di lavoro, senza distrarti. Beta gratuita, posti limitati.</p>
+      <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-lg">Entra nella beta gratuita →</a>
+      <p class="cta-note">3 domande, 2 minuti. Nessun costo.</p>
+    </div>
+
+    <h2>Frequenza di revisione della postazione</h2>
+
+    <p>La postazione corretta oggi potrebbe non esserlo tra sei mesi se cambi sedia, scrivania o monitor. Revisiona la tua configurazione ogni volta che cambi qualcosa nell'ambiente di lavoro, e in ogni caso una volta all'anno. Impiega 10 minuti e vale la pena.</p>
+
+  </div>
+
+  <div class="W-content">
+    <div class="related">
+      <h2>Altri articoli</h2>
+      <div class="related-grid">
+        <a href="mal-di-schiena-smart-working.html" class="related-card">
+          <p class="rc-tag">Salute & Postura</p>
+          <h3>Mal di schiena in smart working: cause, rimedi e come prevenirlo</h3>
+          <p>Perché lo smart working peggiora il mal di schiena e cosa puoi fare concretamente.</p>
+        </a>
+        <a href="cuscino-posturale-vs-sedia-ergonomica.html" class="related-card">
+          <p class="rc-tag">Confronto</p>
+          <h3>Cuscino posturale o sedia ergonomica: quale scegliere?</h3>
+          <p>Due approcci diversi allo stesso problema. Ti aiutiamo a capire quale fa per te.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="W">
+    <div class="foot-row">
+      <div class="foot-logo">
+        <a href="https://www.leantil.com/"><img src="https://www.leantil.com/LeanTil_white_logo.png" alt="LeanTil" /></a>
+      </div>
+      <nav class="foot-links" aria-label="Footer links">
+        <a href="https://www.leantil.com/">Home</a>
+        <a href="https://www.leantil.com/blog/">Blog</a>
+        <a href="mailto:info@leantil.com">info@leantil.com</a>
+        <a href="https://www.leantil.com/privacy.html">Privacy</a>
+      </nav>
+    </div>
+    <p class="foot-copy">© 2026 LeanTil</p>
+  </div>
+</footer>
+
+</body>
+</html>
