@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LeanTil — Prenota la tua</title>
+  <title>LeanTil — Ordina ora</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" href="https://www.leantil.com/leantil-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -251,6 +251,16 @@
       margin-top:12px; line-height:1.6;
     }
 
+    /* ── NO CHARGE NOTICE (sopra CTA) ── */
+    .no-charge-notice {
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      background:rgba(255,255,255,.04); border:1px solid var(--bd2);
+      border-radius:10px; padding:12px 18px;
+      margin-bottom:16px; text-align:center;
+    }
+    .no-charge-notice svg { width:15px; height:15px; stroke:var(--muted); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+    .no-charge-notice p { font-size:13px; color:var(--muted); line-height:1.5; }
+
     /* ── SPOTS INDICATOR ── */
     .spots-box {
       background:rgba(93,187,138,.06); border:1px solid rgba(93,187,138,.18);
@@ -350,12 +360,12 @@
     <div class="proof-bar">
       <div class="proof-item">
         <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        <span data-k="proof1">32 persone già in lista</span>
+        <span data-k="proof1">Oltre 30 persone già in lista</span>
       </div>
       <span class="proof-dot" aria-hidden="true"></span>
       <div class="proof-item">
         <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        <span data-k="proof2">Team italiano, prodotto reale</span>
+        <span data-k="proof2">Team italiano</span>
       </div>
       <span class="proof-dot" aria-hidden="true"></span>
       <div class="proof-item">
@@ -367,7 +377,7 @@
     <!-- SPOTS INDICATOR -->
     <div class="spots-box">
       <span class="spots-icon" aria-hidden="true">🎯</span>
-      <p class="spots-text" data-k="spots"><strong>Primi 30 ordini:</strong> prezzo fondatori riservato. Dopo, il prezzo salirà.</p>
+      <p class="spots-text" data-k="spots"><strong>Primi 30 ordini:</strong> prezzo early adopter riservato. Dopo, il prezzo salirà.</p>
     </div>
 
     <!-- PRICING CARD -->
@@ -384,10 +394,10 @@
 
         <div class="price-block">
           <span class="price-currency" style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">€</span>
-          <span class="price-current" id="priceMain">199</span>
-          <span class="price-original" id="priceOld">€249</span>
+          <span class="price-current" id="priceMain">89</span>
+          <span class="price-original" id="priceOld">€139</span>
         </div>
-        <p class="price-note" data-k="price_note"><strong data-k="price_note_strong">Prezzo fondatori</strong> — <span data-k="price_note_rest">riservato ai primi 30 ordini. Una volta esauriti, il prezzo tornerà a €249.</span></p>
+        <p class="price-note" data-k="price_note"><strong data-k="price_note_strong">Prezzo early adopter</strong> — <span data-k="price_note_rest">riservato ai primi 30 ordini. Una volta esauriti, il prezzo tornerà a €139.</span></p>
       </div>
 
       <div class="card-sep"></div>
@@ -409,15 +419,19 @@
           </li>
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><span data-k="inc4">Supporto diretto del team</span> <small data-k="inc4b"> — non un bot, persone vere</small></div>
+            <div><span data-k="inc4">Supporto diretto del team</span></div>
           </li>
         </ul>
 
+        <div class="no-charge-notice">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p data-k="no_charge">Nessun addebito immediato — ti contatteremo per confermare i dettagli di pagamento.</p>
+        </div>
+
         <a href="https://tally.so/r/wg9plm" target="_blank" rel="noopener" class="cta-btn" id="main-cta">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <span data-k="cta_text">Continua e prenota il tuo posto</span>
+          <span data-k="cta_text">Ordina adesso</span>
         </a>
-        <p class="cta-sub" data-k="cta_sub">Nessun addebito immediato · Ti contatteremo per confermare</p>
       </div>
     </div>
 
@@ -441,36 +455,36 @@
           <span data-k="fq1">Quando ricevo LeanTil?</span>
           <svg class="mchev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="minifaq-body"><p data-k="fa1">LeanTil è in fase di sviluppo avanzato. Dopo la prenotazione ti contatteremo con i dettagli sulla data di consegna stimata. Paghi solo quando tutto è pronto e confermato.</p></div>
+        <div class="minifaq-body"><p data-k="fa1">Dopo l'ordine ti contatteremo con la data di spedizione stimata e tutti i dettagli per la consegna.</p></div>
       </div>
 
       <div class="minifaq-item">
         <button class="minifaq-btn" aria-expanded="false">
-          <span data-k="fq2">Si adatta alla mia sedia?</span>
+          <span data-k="fq2">Funziona con qualsiasi tipo di sedia?</span>
           <svg class="mchev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="minifaq-body"><p data-k="fa2">Sì. LeanTil è progettato per adattarsi a qualsiasi sedia da ufficio, gaming o domestica, senza modifiche alla postazione.</p></div>
+        <div class="minifaq-body"><p data-k="fa2">Sì. LeanTil è compatibile con sedie da ufficio, gaming e domestiche, senza nessuna modifica alla tua postazione.</p></div>
       </div>
 
       <div class="minifaq-item">
         <button class="minifaq-btn" aria-expanded="false">
-          <span data-k="fq3">Come funziona la prenotazione?</span>
+          <span data-k="fq3">Come funziona l'ordine?</span>
           <svg class="mchev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="minifaq-body"><p data-k="fa3">Compili il form con alcune domande. Nessun addebito immediato: ti contatteremo per confermare la disponibilità e i dettagli di pagamento prima di procedere.</p></div>
+        <div class="minifaq-body"><p data-k="fa3">Compili il form con alcune domande. Nessun addebito immediato: ti contatteremo per confermare i dettagli di pagamento.</p></div>
       </div>
 
     </div>
 
     <!-- FOOTER NOTE -->
     <p class="foot-note" data-k="foot_note">
-      Hai domande? Scrivici a <a href="mailto:info@leantil.com">info@leantil.com</a> — rispondiamo entro 48h. &nbsp;|&nbsp; <a href="https://www.leantil.com/privacy.html">Privacy Policy</a>
+      Hai domande? Scrivici a <a href="/cdn-cgi/l/email-protection#244d4a424b644841454a504d480a474b49"><span class="__cf_email__" data-cfemail="6900070f0629050c08071d0005470a0604">[email&#160;protected]</span></a> — rispondiamo entro 48h. &nbsp;|&nbsp; <a href="https://www.leantil.com/privacy.html">Privacy Policy</a>
     </p>
 
   </div>
 </main>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ══ COPY IT / EN ══ */
 var C = {
   it: {
@@ -478,65 +492,65 @@ var C = {
     eyebrow:'Prenotazione early adopter',
     headline:'La tua schiena non può <em>aspettare</em> ancora',
     sub:'Ore di lavoro alla scrivania lasciano il segno. LeanTil ti aiuta a correggere la postura in silenzio, ogni giorno, senza pensarci.',
-    proof1:'32 persone già in lista',
-    proof2:'Team italiano, prodotto reale',
+    proof1:'Oltre 30 persone già in lista',
+    proof2:'Team italiano',
     proof3:'Rimborso garantito',
-    spots:'<strong>Primi 30 ordini:</strong> prezzo fondatori riservato. Dopo, il prezzo salirà.',
+    spots:'<strong>Primi 30 ordini:</strong> prezzo early adopter riservato. Dopo, il prezzo salirà.',
     ea_label:'Early adopter',
     prod_name:'LeanTil',
     prod_title:'Cuscino smart per la postura',
     prod_desc:'Si adatta a qualsiasi sedia. Monitora come stai seduto in tempo reale e ti avvisa, in silenzio, quando è il momento di correggerti.',
-    price_note_strong:'Prezzo fondatori',
-    price_note_rest:'riservato ai primi 30 ordini. Una volta esauriti, il prezzo tornerà a €249.',
+    price_note_strong:'Prezzo early adopter',
+    price_note_rest:'riservato ai primi 30 ordini. Una volta esauriti, il prezzo tornerà a €139.',
     inc_label:'Cosa è incluso',
     inc1:'Cuscino LeanTil', inc1b:' — monitora la tua postura in tempo reale, senza che tu debba fare nulla',
     inc2:'App con dashboard personale', inc2b:' — vedi i tuoi progressi settimana dopo settimana',
     inc3:'Accesso prioritario agli aggiornamenti', inc3b:' — sei tra i primi a ricevere nuove funzionalità',
-    inc4:'Supporto diretto del team', inc4b:' — non un bot, persone vere',
-    cta_text:'Continua e prenota il tuo posto',
-    cta_sub:'Nessun addebito immediato · Ti contatteremo per confermare',
+    inc4:'Supporto diretto del team',
+    no_charge:'Nessun addebito immediato — ti contatteremo per confermare i dettagli di pagamento.',
+    cta_text:'Ordina adesso',
     guar_title:'Garanzia soddisfatti o rimborsati',
     guar_desc:'Se LeanTil non soddisfa le tue aspettative, ti rimborsiamo. Senza domande, senza procedure complicate. Il rischio è nostro, non tuo.',
     faq_title:'Hai dubbi?',
     fq1:'Quando ricevo LeanTil?',
-    fa1:'LeanTil è in fase di sviluppo avanzato. Dopo la prenotazione ti contatteremo con i dettagli sulla data di consegna stimata. Paghi solo quando tutto è pronto e confermato.',
-    fq2:'Si adatta alla mia sedia?',
-    fa2:'Sì. LeanTil è progettato per adattarsi a qualsiasi sedia da ufficio, gaming o domestica, senza modifiche alla postazione.',
-    fq3:'Come funziona la prenotazione?',
-    fa3:'Compili il form con alcune domande. Nessun addebito immediato: ti contatteremo per confermare la disponibilità e i dettagli di pagamento prima di procedere.',
+    fa1:'Dopo l\'ordine ti contatteremo con la data di spedizione stimata e tutti i dettagli per la consegna.',
+    fq2:'Funziona con qualsiasi tipo di sedia?',
+    fa2:'Sì. LeanTil è compatibile con sedie da ufficio, gaming e domestiche, senza nessuna modifica alla tua postazione.',
+    fq3:'Come funziona l\'ordine?',
+    fa3:'Compili il form con alcune domande. Nessun addebito immediato: ti contatteremo per confermare i dettagli di pagamento.',
     foot_note:'Hai domande? Scrivici a <a href="mailto:info@leantil.com">info@leantil.com</a> — rispondiamo entro 48h. &nbsp;|&nbsp; <a href="https://www.leantil.com/privacy.html">Privacy Policy</a>'
   },
   en: {
     lang:'IT',
-    eyebrow:'Early adopter reservation',
+    eyebrow:'Early adopter order',
     headline:'Your back can\'t <em>wait</em> any longer',
     sub:'Hours at a desk take a toll. LeanTil helps you correct your posture silently, every day, without thinking about it.',
-    proof1:'32 people already on the list',
-    proof2:'Italian team, real product',
+    proof1:'Over 30 people already on the list',
+    proof2:'Italian team',
     proof3:'Money-back guarantee',
-    spots:'<strong>First 30 orders:</strong> founder price reserved. After that, the price will go up.',
+    spots:'<strong>First 30 orders:</strong> early adopter price reserved. After that, the price will go up.',
     ea_label:'Early adopter',
     prod_name:'LeanTil',
     prod_title:'Smart posture cushion',
     prod_desc:'Fits any chair. Monitors how you sit in real time and silently alerts you when it\'s time to correct your posture.',
-    price_note_strong:'Founder price',
-    price_note_rest:'reserved for the first 30 orders. Once they\'re gone, the price returns to €249.',
+    price_note_strong:'Early adopter price',
+    price_note_rest:'reserved for the first 30 orders. Once they\'re gone, the price returns to €139.',
     inc_label:'What\'s included',
     inc1:'LeanTil cushion', inc1b:' — monitors your posture in real time, without you doing anything',
     inc2:'App with personal dashboard', inc2b:' — see your progress week by week',
     inc3:'Priority access to updates', inc3b:' — be the first to receive new features',
-    inc4:'Direct team support', inc4b:' — not a bot, real people',
-    cta_text:'Continue and reserve your spot',
-    cta_sub:'No immediate charge · We\'ll contact you to confirm',
+    inc4:'Direct team support',
+    no_charge:'No immediate charge — we\'ll contact you to confirm payment details.',
+    cta_text:'Order now',
     guar_title:'Money-back guarantee',
     guar_desc:'If LeanTil doesn\'t meet your expectations, we\'ll refund you. No questions, no hassle. The risk is ours, not yours.',
     faq_title:'Any questions?',
     fq1:'When will I receive LeanTil?',
-    fa1:'LeanTil is in advanced development. After your reservation, we\'ll reach out with estimated delivery details. You only pay when everything is ready and confirmed.',
-    fq2:'Does it fit my chair?',
-    fa2:'Yes. LeanTil is designed to fit any office, gaming, or home chair with no modifications to your setup.',
-    fq3:'How does the reservation work?',
-    fa3:'Fill out a short form. No immediate charge — we\'ll contact you to confirm availability and payment details before proceeding.',
+    fa1:'After your order, we\'ll contact you with the estimated shipping date and all delivery details.',
+    fq2:'Does it work with any type of chair?',
+    fa2:'Yes. LeanTil is compatible with office, gaming, and home chairs, with no modifications to your setup.',
+    fq3:'How does the order work?',
+    fa3:'Fill out a short form. No immediate charge — we\'ll contact you to confirm payment details.',
     foot_note:'Questions? Write to <a href="mailto:info@leantil.com">info@leantil.com</a> — we reply within 48h. &nbsp;|&nbsp; <a href="https://www.leantil.com/privacy.html">Privacy Policy</a>'
   }
 };
@@ -566,19 +580,23 @@ document.getElementById('langBtn').addEventListener('click', function() {
   } catch(e) {}
 })();
 
-/* ── GA4: page_view pricing ── */
-gtag('event','pricing_page_view',{event_category:'funnel',language:curLang});
+/* ── GA4: pricing_page_view ── */
+gtag('event','pricing_page_view',{
+  event_category:'pricing_funnel',
+  language:curLang,
+  referrer: document.referrer || 'direct'
+});
 
-/* ── GA4: CTA click → Tally ── */
+/* ── GA4: pricing_cta_order_now (click → Tally) ── */
 document.getElementById('main-cta').addEventListener('click', function() {
-  gtag('event','cta_click_tally',{
-    event_category:'conversion',
-    cta_section:'pricing_card',
+  gtag('event','pricing_cta_order_now',{
+    event_category:'pricing_funnel',
+    price_shown: '89',
     language:curLang
   });
 });
 
-/* ── GA4: scroll depth ── */
+/* ── GA4: pricing_scroll_depth ── */
 (function() {
   var done = {};
   window.addEventListener('scroll', function() {
@@ -586,13 +604,33 @@ document.getElementById('main-cta').addEventListener('click', function() {
     [25,50,75,100].forEach(function(m) {
       if (pct >= m && !done[m]) {
         done[m] = true;
-        gtag('event','scroll_depth',{event_category:'engagement',depth_percent:m,page:'pricing'});
+        gtag('event','pricing_scroll_depth',{event_category:'pricing_engagement',depth_percent:m});
       }
     });
   }, { passive:true });
 })();
 
-/* ── Mini FAQ ── */
+/* ── GA4: pricing_time_on_page ── */
+[15,30,60,120].forEach(function(s) {
+  setTimeout(function() {
+    gtag('event','pricing_time_on_page',{event_category:'pricing_engagement',seconds:s});
+  }, s * 1000);
+});
+
+/* ── GA4: pricing_guarantee_visible (sezione garanzia vista) ── */
+(function() {
+  var el = document.querySelector('.guarantee');
+  if (!el || !('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      gtag('event','pricing_guarantee_visible',{event_category:'pricing_engagement'});
+      obs.disconnect();
+    }
+  }, { threshold:0.5 });
+  obs.observe(el);
+})();
+
+/* ── GA4: pricing_faq_open ── */
 document.querySelectorAll('.minifaq-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
     var item = this.closest('.minifaq-item');
@@ -604,7 +642,7 @@ document.querySelectorAll('.minifaq-btn').forEach(function(btn) {
     if (!isOpen) {
       item.classList.add('open');
       this.setAttribute('aria-expanded','true');
-      gtag('event','faq_open',{event_category:'engagement',page:'pricing',faq_key:btn.querySelector('[data-k]')?.getAttribute('data-k')});
+      gtag('event','pricing_faq_open',{event_category:'pricing_engagement',faq_key:btn.querySelector('[data-k]')?.getAttribute('data-k')});
     }
   });
 });
