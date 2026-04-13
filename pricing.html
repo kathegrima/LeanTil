@@ -3,25 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LeanTil — Ordina ora</title>
-  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- ══ SEO PRIMARIO ══ -->
+  <title>LeanTil | Cuscino Smart per la Postura</title>
+  <meta name="description" content="LeanTil è il cuscino intelligente che rileva la tua postura in tempo reale e ti riporta in posizione senza interrompere il lavoro. Unisciti alla beta." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.leantil.com/" />
+
+ <!-- ══ OPEN GRAPH ══ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.leantil.com/" />
+  <meta property="og:title"       content="LeanTil – La tua schiena ti ringrazia alle 18:00" />
+  <meta property="og:description" content="Il cuscino intelligente che rileva la tua postura e ti riporta in posizione, in silenzio. Unisciti alla beta gratuita." />
+  <meta property="og:image"       content="https://www.leantil.com/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="it_IT" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name"   content="LeanTil" />
+
+   
   <link rel="icon" href="https://www.leantil.com/leantil-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- GA4 — stessa config della landing -->
+   <!-- ══ GA4 + CONSENT MODE v2 ══ -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
-    gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',wait_for_update:500});
-    gtag('js',new Date());
+    gtag('consent', 'default', { analytics_storage:'denied', ad_storage:'denied', wait_for_update:500 });
+    gtag('js', new Date());
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1WJG24H9T"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5921KF5XT9"></script>
   <script>
-    gtag('config','G-S1WJG24H9T',{anonymize_ip:true,send_page_view:true});
+    gtag('config', 'G-5921KF5XT9', { anonymize_ip:true, send_page_view:true });
   </script>
-
+  
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 
@@ -336,7 +354,7 @@
 <!-- HEADER -->
 <header id="hdr">
   <div class="hdr-row">
-    <a href="/" class="logo" aria-label="LeanTil home">
+    <a href="https://www.leantil.com/" class="logo" aria-label="LeanTil home">
       <img src="https://www.leantil.com/LeanTil_white_logo.png" alt="LeanTil" width="120" height="40" />
     </a>
     <div class="hdr-r">
@@ -356,7 +374,7 @@
       <p class="hook-sub" data-k="sub">Ore di lavoro alla scrivania lasciano il segno. LeanTil ti aiuta a correggere la postura in silenzio, ogni giorno, senza pensarci.</p>
     </div>
 
-    <!-- PROOF BAR -->
+    <!-- PROOF BAR 
     <div class="proof-bar">
       <div class="proof-item">
         <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -372,7 +390,8 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
         <span data-k="proof3">Rimborso garantito</span>
       </div>
-    </div>
+    </div> 
+    -->
 
     <!-- SPOTS INDICATOR -->
     <div class="spots-box">
@@ -394,10 +413,10 @@
 
         <div class="price-block">
           <span class="price-currency" style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">€</span>
-          <span class="price-current" id="priceMain">89</span>
-          <span class="price-original" id="priceOld">€139</span>
+          <span class="price-current" id="priceMain">139</span>
+          <span class="price-original" id="priceOld">€159</span>
         </div>
-        <p class="price-note" data-k="price_note"><strong data-k="price_note_strong">Prezzo early adopter</strong> — <span data-k="price_note_rest">riservato ai primi 30 ordini. Una volta esauriti, il prezzo tornerà a €139.</span></p>
+        <p class="price-note" data-k="price_note"><strong data-k="price_note_strong">Prezzo early adopter</strong> — <span data-k="price_note_rest">riservato ai primi 30 ordini. Una volta esauriti, il prezzo tornerà a €159.</span></p>
       </div>
 
       <div class="card-sep"></div>
@@ -478,7 +497,7 @@
 
     <!-- FOOTER NOTE -->
     <p class="foot-note" data-k="foot_note">
-      Hai domande? Scrivici a <a href="/cdn-cgi/l/email-protection#244d4a424b644841454a504d480a474b49"><span class="__cf_email__" data-cfemail="6900070f0629050c08071d0005470a0604">[email&#160;protected]</span></a> — rispondiamo entro 48h. &nbsp;|&nbsp; <a href="https://www.leantil.com/privacy.html">Privacy Policy</a>
+      Hai domande? Scrivici a info@leantil.com </span></a> — rispondiamo entro 48h. &nbsp;|&nbsp; <a href="https://www.leantil.com/privacy.html">Privacy Policy</a>
     </p>
 
   </div>
@@ -501,7 +520,7 @@ var C = {
     prod_title:'Cuscino smart per la postura',
     prod_desc:'Si adatta a qualsiasi sedia. Monitora come stai seduto in tempo reale e ti avvisa, in silenzio, quando è il momento di correggerti.',
     price_note_strong:'Prezzo early adopter',
-    price_note_rest:'riservato ai primi 30 ordini. Una volta esauriti, il prezzo tornerà a €139.',
+    price_note_rest:'riservato ai primi 30 ordini. Una volta esauriti, il prezzo tornerà a €159.',
     inc_label:'Cosa è incluso',
     inc1:'Cuscino LeanTil', inc1b:' — monitora la tua postura in tempo reale, senza che tu debba fare nulla',
     inc2:'App con dashboard personale', inc2b:' — vedi i tuoi progressi settimana dopo settimana',
@@ -534,7 +553,7 @@ var C = {
     prod_title:'Smart posture cushion',
     prod_desc:'Fits any chair. Monitors how you sit in real time and silently alerts you when it\'s time to correct your posture.',
     price_note_strong:'Early adopter price',
-    price_note_rest:'reserved for the first 30 orders. Once they\'re gone, the price returns to €139.',
+    price_note_rest:'reserved for the first 30 orders. Once they\'re gone, the price returns to €159.',
     inc_label:'What\'s included',
     inc1:'LeanTil cushion', inc1b:' — monitors your posture in real time, without you doing anything',
     inc2:'App with personal dashboard', inc2b:' — see your progress week by week',
@@ -591,7 +610,7 @@ gtag('event','pricing_page_view',{
 document.getElementById('main-cta').addEventListener('click', function() {
   gtag('event','pricing_cta_order_now',{
     event_category:'pricing_funnel',
-    price_shown: '89',
+    price_shown: '139',
     language:curLang
   });
 });
