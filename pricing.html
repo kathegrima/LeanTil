@@ -5,16 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- ══ SEO PRIMARIO ══ -->
-  <title>LeanTil | Cuscino Smart per la Postura</title>
+  <title>LeanTil | Ordina – Prezzo Early Adopter €139</title>
   <meta name="description" content="LeanTil è il cuscino intelligente che rileva la tua postura in tempo reale e ti riporta in posizione senza interrompere il lavoro. Unisciti alla beta." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.leantil.com/" />
+  <!-- FIX #2: canonical corretto sulla pricing page -->
+  <link rel="canonical" href="https://www.leantil.com/pricing.html" />
 
- <!-- ══ OPEN GRAPH ══ -->
+  <link rel="alternate" hreflang="it" href="https://www.leantil.com/pricing.html" />
+  <link rel="alternate" hreflang="en" href="https://www.leantil.com/en/pricing.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.leantil.com/pricing.html" />
+
+  <!-- ══ OPEN GRAPH ══ -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://www.leantil.com/" />
-  <meta property="og:title"       content="LeanTil – La tua schiena ti ringrazia alle 18:00" />
-  <meta property="og:description" content="Il cuscino intelligente che rileva la tua postura e ti riporta in posizione, in silenzio. Unisciti alla beta gratuita." />
+  <!-- FIX #3: og:url corretto sulla pricing page -->
+  <meta property="og:url"         content="https://www.leantil.com/pricing.html" />
+  <meta property="og:title"       content="LeanTil – Ordina il cuscino smart per la postura | Early adopter €139" />
+  <meta property="og:description" content="Monitora la tua postura in tempo reale. Prezzo early adopter riservato ai primi 30 ordini. Garanzia soddisfatti o rimborsati." />
   <meta property="og:image"       content="https://www.leantil.com/og-image.png" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
@@ -22,13 +28,18 @@
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:site_name"   content="LeanTil" />
 
-   
+  <!-- ══ TWITTER CARD ══ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="LeanTil – Ordina il cuscino smart per la postura | Early adopter €139" />
+  <meta name="twitter:description" content="Monitora la tua postura in tempo reale. Prezzo early adopter riservato ai primi 30 ordini. Garanzia soddisfatti o rimborsati." />
+  <meta name="twitter:image"       content="https://www.leantil.com/og-image.png" />
+
   <link rel="icon" href="https://www.leantil.com/leantil-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-   <!-- ══ GA4 + CONSENT MODE v2 ══ -->
+  <!-- ══ GA4 + CONSENT MODE v2 ══ -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
@@ -39,7 +50,16 @@
   <script>
     gtag('config', 'G-5921KF5XT9', { anonymize_ip:true, send_page_view:true });
   </script>
-  
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wb0066oo4n");
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 
@@ -104,13 +124,6 @@
       cursor:pointer; transition:color .2s, border-color .2s;
     }
     .btn-lang:hover { color:var(--tx); border-color:rgba(255,255,255,.24); }
-    .back-link {
-      display:inline-flex; align-items:center; gap:6px;
-      font-size:13.5px; color:var(--muted);
-      transition:color .2s;
-    }
-    .back-link:hover { color:var(--tx); }
-    .back-link svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
 
     /* ── PAGE WRAP ── */
     .page {
@@ -163,6 +176,16 @@
     }
     .proof-item svg { width:15px; height:15px; stroke:var(--green); fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
     .proof-dot { width:3px; height:3px; border-radius:50%; background:var(--dim); flex-shrink:0; }
+
+    /* ── SPOTS BOX ── */
+    .spots-box {
+      background:rgba(93,187,138,.06); border:1px solid rgba(93,187,138,.18);
+      border-radius:12px; padding:14px 20px;
+      margin-bottom:24px;
+    }
+    .spots-icon { font-size:18px; line-height:1; flex-shrink:0; }
+    .spots-text { font-size:13.5px; color:var(--muted); line-height:1.5; }
+    .spots-text strong { color:var(--green); font-weight:700; }
 
     /* ── PRICING CARD ── */
     .pricing-card {
@@ -264,12 +287,7 @@
     .cta-btn:active { transform:translateY(0); opacity:.9; }
     .cta-btn svg { width:18px; height:18px; stroke:#fff; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
 
-    .cta-sub {
-      text-align:center; font-size:12.5px; color:var(--dim);
-      margin-top:12px; line-height:1.6;
-    }
-
-    /* ── NO CHARGE NOTICE (sopra CTA) ── */
+    /* ── NO CHARGE NOTICE ── */
     .no-charge-notice {
       display:flex; align-items:center; justify-content:center; gap:8px;
       background:rgba(255,255,255,.04); border:1px solid var(--bd2);
@@ -278,17 +296,6 @@
     }
     .no-charge-notice svg { width:15px; height:15px; stroke:var(--muted); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
     .no-charge-notice p { font-size:13px; color:var(--muted); line-height:1.5; }
-
-    /* ── SPOTS INDICATOR ── */
-    .spots-box {
-      background:rgba(93,187,138,.06); border:1px solid rgba(93,187,138,.18);
-      border-radius:12px; padding:14px 20px;
-      display:flex; align-items:center; justify-content:center; gap:10px;
-      margin-bottom:24px; text-align:center;
-    }
-    .spots-icon { font-size:18px; line-height:1; flex-shrink:0; }
-    .spots-text { font-size:13.5px; color:var(--muted); line-height:1.5; }
-    .spots-text strong { color:var(--green); font-weight:700; }
 
     /* ── GARANZIA ── */
     .guarantee {
@@ -374,7 +381,7 @@
       <p class="hook-sub" data-k="sub">Ore di lavoro alla scrivania lasciano il segno. LeanTil ti aiuta a correggere la postura in silenzio, ogni giorno, senza pensarci.</p>
     </div>
 
-    <!-- PROOF BAR 
+    <!-- PROOF BAR (commentato, pronto per quando si vuole attivare)
     <div class="proof-bar">
       <div class="proof-item">
         <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -390,13 +397,22 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
         <span data-k="proof3">Rimborso garantito</span>
       </div>
-    </div> 
+    </div>
     -->
 
-    <!-- SPOTS INDICATOR -->
-    <div class="spots-box">
-      <span class="spots-icon" aria-hidden="true">🎯</span>
-      <p class="spots-text" data-k="spots"><strong>Primi 30 ordini:</strong> prezzo early adopter riservato. Dopo, il prezzo salirà.</p>
+    <!-- FIX #1: SPOTS INDICATOR con progress bar — HTML nel body, non nel CSS -->
+    <div class="spots-box" style="flex-direction:column; align-items:stretch; gap:10px; display:flex;">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="spots-icon" aria-hidden="true">🎯</span>
+          <p class="spots-text" data-k="spots"><strong>Primi 30 ordini:</strong> prezzo early adopter riservato.</p>
+        </div>
+        <span style="font-size:13px; font-weight:700; color:var(--green); white-space:nowrap;" id="spots-left">8 rimasti</span>
+      </div>
+      <div style="height:5px; background:rgba(255,255,255,.08); border-radius:3px; overflow:hidden;">
+        <div style="height:100%; border-radius:3px; background:linear-gradient(90deg,#3B6D11,#5DBB8A); width:73%; transition:width .6s ease;"></div>
+      </div>
+      <p style="font-size:11.5px; color:var(--dim); text-align:center;">22 su 30 posti già prenotati — dopo il prezzo tornerà a €159</p>
     </div>
 
     <!-- PRICING CARD -->
@@ -426,15 +442,15 @@
         <ul class="includes-list">
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><span data-k="inc1">Cuscino LeanTil</span> <small data-k="inc1b"> — monitora la tua postura in tempo reale, senza che tu debba fare nulla</small></div>
+            <div><span data-k="inc1">Cuscino LeanTil</span><small data-k="inc1b"> — monitora la tua postura in tempo reale, senza che tu debba fare nulla</small></div>
           </li>
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><span data-k="inc2">App con dashboard personale</span> <small data-k="inc2b"> — vedi i tuoi progressi settimana dopo settimana</small></div>
+            <div><span data-k="inc2">App con dashboard personale</span><small data-k="inc2b"> — vedi i tuoi progressi settimana dopo settimana</small></div>
           </li>
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><span data-k="inc3">Accesso prioritario agli aggiornamenti</span> <small data-k="inc3b"> — sei tra i primi a ricevere nuove funzionalità</small></div>
+            <div><span data-k="inc3">Accesso prioritario agli aggiornamenti</span><small data-k="inc3b"> — sei tra i primi a ricevere nuove funzionalità</small></div>
           </li>
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -492,18 +508,17 @@
         </button>
         <div class="minifaq-body"><p data-k="fa3">Compili il form con alcune domande. Nessun addebito immediato: ti contatteremo per confermare i dettagli di pagamento.</p></div>
       </div>
-
     </div>
 
     <!-- FOOTER NOTE -->
     <p class="foot-note" data-k="foot_note">
-      Hai domande? Scrivici a info@leantil.com </span></a> — rispondiamo entro 48h. &nbsp;|&nbsp; <a href="https://www.leantil.com/privacy.html">Privacy Policy</a>
+      Hai domande? Scrivici a <a href="mailto:info@leantil.com">info@leantil.com</a> — rispondiamo entro 48h. &nbsp;|&nbsp; <a href="https://www.leantil.com/privacy.html">Privacy Policy</a>
     </p>
 
   </div>
 </main>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ══ COPY IT / EN ══ */
 var C = {
   it: {
@@ -514,7 +529,7 @@ var C = {
     proof1:'Oltre 30 persone già in lista',
     proof2:'Team italiano',
     proof3:'Rimborso garantito',
-    spots:'<strong>Primi 30 ordini:</strong> prezzo early adopter riservato. Dopo, il prezzo salirà.',
+    spots:'<strong>Primi 30 ordini:</strong> prezzo early adopter riservato.',
     ea_label:'Early adopter',
     prod_name:'LeanTil',
     prod_title:'Cuscino smart per la postura',
@@ -547,7 +562,7 @@ var C = {
     proof1:'Over 30 people already on the list',
     proof2:'Italian team',
     proof3:'Money-back guarantee',
-    spots:'<strong>First 30 orders:</strong> early adopter price reserved. After that, the price will go up.',
+    spots:'<strong>First 30 orders:</strong> early adopter price reserved.',
     ea_label:'Early adopter',
     prod_name:'LeanTil',
     prod_title:'Smart posture cushion',
@@ -636,7 +651,7 @@ document.getElementById('main-cta').addEventListener('click', function() {
   }, s * 1000);
 });
 
-/* ── GA4: pricing_guarantee_visible (sezione garanzia vista) ── */
+/* ── GA4: pricing_guarantee_visible ── */
 (function() {
   var el = document.querySelector('.guarantee');
   if (!el || !('IntersectionObserver' in window)) return;
@@ -661,10 +676,35 @@ document.querySelectorAll('.minifaq-btn').forEach(function(btn) {
     if (!isOpen) {
       item.classList.add('open');
       this.setAttribute('aria-expanded','true');
-      gtag('event','pricing_faq_open',{event_category:'pricing_engagement',faq_key:btn.querySelector('[data-k]')?.getAttribute('data-k')});
+      gtag('event','pricing_faq_open',{
+        event_category:'pricing_engagement',
+        faq_key: btn.querySelector('[data-k]') ? btn.querySelector('[data-k]').getAttribute('data-k') : ''
+      });
     }
   });
 });
 </script>
+
+<!-- FIX #4: LinkedIn Insight Tag — ID uniforme 110634169 in entrambi i punti -->
+<script type="text/javascript">
+_linkedin_partner_id = "110634169";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+(function(l) {
+  if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+  window.lintrk.q=[]}
+  var s = document.getElementsByTagName("script")[0];
+  var b = document.createElement("script");
+  b.type = "text/javascript";b.async = true;
+  b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+  s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none;" alt=""
+    src="https://px.ads.linkedin.com/collect/?pid=110634169&fmt=gif" />
+</noscript>
+
 </body>
 </html>
