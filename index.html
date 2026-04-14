@@ -1068,20 +1068,26 @@ function resetCookies() {
 /* ══ GA4 — CTA click verso pricing (Step 1 del funnel) ══ */
 document.querySelectorAll('a[href*="pricing"]').forEach(function(el) {
   el.addEventListener('click', function() {
-    var secEl = this.closest('section') || this.closest('div');
+    var secEl = this.closest('section') || this.closest('div') || this.closest('header') || this.closest('footer');
     var sec = 'unknown';
+
     if (secEl) {
       if (secEl.id === 'hdr' || this.closest('#hdr')) sec = 'header';
       else if (secEl.classList.contains('hero')) sec = 'hero';
       else if (secEl.classList.contains('join')) sec = 'join';
       else if (secEl.classList.contains('micro-cta-strip')) sec = 'micro_cta';
-      else sec = secEl.className.replace(/\brv\b/g,'').trim().split(/\s+/)[0];
+      else if (this.closest('footer')) sec = 'footer';
+      else sec = (secEl.className || 'unknown').replace(/\brv\b/g,'').trim().split(/\s+/)[0] || 'unknown';
     }
-    gtag('event', 'cta_click_pricing', {
+
+    gtag('event', 'pricing_cta_click', {
       event_category: 'funnel',
       cta_section: sec,
-      cta_label: this.getAttribute('data-k') || 'cta',
-      language: curLang
+      cta_label: this.getAttribute('data-k') || this.id || 'cta',
+      cta_text: (this.textContent || '').trim(),
+      page_path: window.location.pathname,
+      language: curLang,
+      transport_type: 'beacon'
     });
   });
 });
