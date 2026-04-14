@@ -623,14 +623,20 @@ gtag('event','pricing_page_view',{
   referrer: document.referrer || 'direct'
 });
 
-/* ── GA4: pricing_cta_order_now (click → Tally) ── */
-document.getElementById('main-cta').addEventListener('click', function() {
-  gtag('event','pricing_cta_order_now',{
-    event_category:'pricing_funnel',
-    price_shown: '139',
-    language:curLang
+/* ── GA4: pricing_tally_start_click (click → Tally) ── */
+var mainCta = document.getElementById('main-cta');
+if (mainCta) {
+  mainCta.addEventListener('click', function() {
+    gtag('event', 'pricing_tally_start_click', {
+      event_category: 'pricing_funnel',
+      price_shown: '139',
+      cta_text: (this.textContent || '').trim(),
+      page_path: window.location.pathname,
+      language: curLang,
+      transport_type: 'beacon'
+    });
   });
-});
+}
 
 /* ── GA4: pricing_scroll_depth ── */
 (function() {
