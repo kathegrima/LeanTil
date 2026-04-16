@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it"> 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -630,7 +630,7 @@
   </div>
 </div>
 
-<!-- RESEARCH CREDIBILITY STRIP -->
+<!-- RESEARCH CREDIBILITY STRIP 
 <div class="research-strip rv">
   <div class="W">
     <div class="research-inner">
@@ -641,7 +641,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
   
 <!-- PROBLEM + BENEFIT CARDS -->
 <section class="problem">
@@ -1011,9 +1011,7 @@ function setLang(l) {
 }
 
 document.getElementById('langBtn').addEventListener('click', function() {
-  var next = curLang === 'it' ? 'en' : 'it';
-  gtag('event', 'language_switch', { event_category:'engagement', new_lang:next });
-  setLang(next);
+  window.location.href = 'en/';
 });
 
 /* ══ COOKIE ══ */
