@@ -497,38 +497,24 @@
     .foot-links svg { width:14px; height:14px; flex-shrink:0; }
     .foot-copy { font-size:12.5px; color:var(--dim); margin-top:28px; text-align:center; }
 
+    /* ── RESEARCH STRIP ── */
+    .research-strip { padding:0 0 72px; }
+    .research-inner {
+      background:rgba(107,63,160,.07); border:1px solid rgba(107,63,160,.2);
+      border-radius:16px; padding:24px 32px;
+      display:flex; align-items:center; gap:18px; max-width:760px; margin:0 auto;
+    }
+    .research-ico { font-size:24px; flex-shrink:0; line-height:1; }
+    .research-claim { font-size:14.5px; font-weight:600; color:var(--tx); line-height:1.6; margin-bottom:5px; }
+    .research-src { font-size:11.5px; color:var(--dim); letter-spacing:.05em; }
+    @media(max-width:540px){
+      .research-inner { padding:16px 18px; gap:12px; }
+      .research-claim { font-size:13.5px; }
+    }
+    
     /* ── SCROLL REVEAL ── */
     .rv { opacity:0; transform:translateY(26px); transition:opacity .65s ease, transform .65s ease; }
     .rv.on { opacity:1; transform:translateY(0); }
-
-    /* ── EXIT INTENT MODAL ── */
-    #exit-overlay {
-      position:fixed; inset:0; z-index:9999;
-      background:rgba(0,0,0,.78);
-      backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
-      display:flex; align-items:center; justify-content:center;
-      opacity:0; pointer-events:none; transition:opacity .25s ease;
-    }
-    #exit-overlay.visible { opacity:1; pointer-events:all; }
-    .exit-modal {
-      background:#1A1A1E; border:1px solid var(--bd2); border-radius:22px;
-      padding:48px 44px 40px; max-width:420px; width:calc(100% - 40px);
-      text-align:center; position:relative;
-      transform:translateY(20px); transition:transform .3s ease;
-    }
-    #exit-overlay.visible .exit-modal { transform:translateY(0); }
-    .exit-close {
-      position:absolute; top:16px; right:18px; background:none; border:none;
-      color:var(--muted); font-size:22px; cursor:pointer; line-height:1;
-      font-family:var(--f); transition:color .15s;
-    }
-    .exit-close:hover { color:var(--tx); }
-    .exit-icon { font-size:36px; margin-bottom:16px; line-height:1; }
-    .exit-modal h3 { font-size:22px; font-weight:800; color:var(--tx); margin-bottom:10px; line-height:1.2; }
-    .exit-modal p  { font-size:14.5px; color:var(--muted); line-height:1.65; margin-bottom:28px; }
-    .exit-modal .btn-lg { font-size:15px; padding:14px 32px; }
-    .exit-skip { display:block; margin-top:14px; font-size:13px; color:var(--dim); cursor:pointer; transition:color .15s; background:none; border:none; font-family:var(--f); }
-    .exit-skip:hover { color:var(--muted); }
 
     /* ── RESPONSIVE ── */
     @media (max-width:820px) {
@@ -573,18 +559,6 @@
   </div>
 </div>
 
-<!-- EXIT INTENT OVERLAY — rimane su Tally (email collection) -->
-<div id="exit-overlay" role="dialog" aria-modal="true" aria-labelledby="exit-title">
-  <div class="exit-modal">
-    <button class="exit-close" id="exit-x" aria-label="Chiudi">&#215;</button>
-    <div class="exit-icon" aria-hidden="true">&#127919;</div>
-    <h3 id="exit-title" data-k="exit_h">Aspetta: rimani aggiornato</h3>
-    <p data-k="exit_p">Lascia la mail e ti avvisiamo prima degli altri. Zero spam.</p>
-    <a href="https://tally.so/r/jaMJGx" target="_blank" rel="noopener" class="btn-lg" id="exit-cta" data-k="exit_cta">Avvisami &#8594;</a>
-    <button class="exit-skip" id="exit-skip" data-k="exit_skip">No grazie, continuo a guardare</button>
-  </div>
-</div>
-
 <!-- HEADER -->
 <header id="hdr">
   <div class="W hdr-row">
@@ -593,7 +567,7 @@
     </a>
     <div class="hdr-r">
       <button class="btn-lang" id="langBtn" aria-label="Cambia lingua">EN</button>
-      <a href="pricing.html" class="btn-sm" data-k="hcta">Ordina adesso &#8594;</a>
+      <a href="pricing.html" class="btn-sm" data-k="hcta">Ordina adesso</a>
     </div>
   </div>
 </header>
@@ -603,22 +577,20 @@
   <div class="W">
     <div class="badge">
       <span class="dot" aria-hidden="true"></span>
-      <span data-k="badge">Disponibile ora &nbsp;&middot;&nbsp; Provalo ora</span>
+      <span data-k="badge">Disponibile ora &nbsp;&middot;&nbsp; Posti limitati</span>
     </div>
     <h1 data-k="h1">La tua schiena ti ringrazia alle 18:00</h1>
     <p class="hero-sub" data-k="sub">LeanTil ti tiene in posizione tutto il giorno, senza che tu debba pensarci.</p>
     <div class="cta-group">
-      <a href="pricing.html" class="btn-lg" id="hero-cta" data-k="hero_cta">Ordina adesso &#8594;</a>
-      <!--
-      <div class="social-proof" aria-label="Persone in lista">
+      <a href="pricing.html" class="btn-lg" id="hero-cta" data-k="hero_cta">Prenota il tuo posto</a>
+      <div class="social-proof" aria-label="Persone in beta">
         <div class="avatar-stack" aria-hidden="true">
           <div class="avatar" style="background:linear-gradient(135deg,#9B6FD0,#6B3FA0);">M</div>
           <div class="avatar" style="background:linear-gradient(135deg,#6B9FD0,#3F60A0);">S</div>
           <div class="avatar" style="background:linear-gradient(135deg,#D06B9B,#A03F6B);">L</div>
         </div>
-        <span class="proof-text"><strong id="sp-count">34</strong> <span data-k="proof_txt">persone gi&agrave; in lista</span></span>
+        <span class="proof-text"><strong id="sp-count">34</strong> <span data-k="proof_txt">persone stanno gi&agrave; testando LeanTil in beta</span></span>
       </div>
-      -->
     </div>
   </div>
 </section>
@@ -653,10 +625,24 @@
       <span class="forwho-chip" data-k="fw2">✍️ Freelance &amp; remote worker</span>
       <span class="forwho-chip" data-k="fw3">🏢 Chi lavora 6+ ore alla scrivania</span>
       <span class="forwho-chip" data-k="fw4">🎮 Gamer e creator</span>
+      <span class="forwho-chip" data-k="fw5">🎁 Regalo per chi ami</span>
     </div>
   </div>
 </div>
 
+<!-- RESEARCH CREDIBILITY STRIP -->
+<div class="research-strip rv">
+  <div class="W">
+    <div class="research-inner">
+      <div class="research-ico" aria-hidden="true">🔬</div>
+      <div>
+        <p class="research-claim" data-k="research_claim">Lavorare con la testa inclinata in avanti aumenta il carico sulla colonna cervicale fino a 5 volte rispetto alla postura corretta — l'equivalente di 27 kg sul collo.</p>
+        <p class="research-src" data-k="research_src">Hansraj K.K. — Surgical Technology International (2014), citato da NIH PubMed</p>
+      </div>
+    </div>
+  </div>
+</div>
+  
 <!-- PROBLEM + BENEFIT CARDS -->
 <section class="problem">
   <div class="W">
@@ -774,7 +760,7 @@
           <span data-k="p4">Rimborso garantito</span>
         </li>
       </ul>
-      <a href="pricing.html" class="btn-lg" data-k="jcta">Ordina adesso &#8594;</a>
+      <a href="pricing.html" class="btn-lg" data-k="jcta">Voglio il mio LeanTil</a>
     </div>
   </div>
 </section>
@@ -809,9 +795,7 @@
 <!-- MICRO-CTA -->
 <div class="micro-cta-strip rv">
   <div class="W">
-    <a href="pricing.html" class="micro-cta-link" data-k="micro_cta">
-      Ordina adesso &#8594;
-    </a>
+    <a href="pricing.html" class="micro-cta-link" data-k="micro_cta">Prenota il tuo posto</a>
   </div>
 </div>
 
@@ -896,12 +880,12 @@ var C = {
   it: {
     ck_txt:'Raccogliamo dati anonimi di navigazione tramite Google Analytics. <a href="privacy.html">Privacy Policy</a>',
     ck_no:'Rifiuta', ck_yes:'Accetta',
-    hcta:'Ordina adesso \u2192',
+    hcta:'Ordina adesso ',
     badge:'Disponibile ora \u00a0\u00b7\u00a0 Posti limitati',
     h1:'La tua schiena ti ringrazia alle 18:00',
     sub:'LeanTil ti tiene in posizione tutto il giorno, senza che tu debba pensarci.',
-    hero_cta:'Ordina adesso \u2192',
-    proof_txt:'persone gi\u00e0 in lista',
+    hero_cta:'Prenota il tuo posto',
+    proof_txt:'persone stanno gi\u00e0 testando LeanTil in beta',
     render_eyebrow:'Il prodotto',
     render_title:'Cuscino intelligente per la postura',
     forwho_title:'Per chi \u00e8 pensato',
@@ -909,6 +893,10 @@ var C = {
     fw2:'✍️ Freelance &amp; remote worker',
     fw3:'🏢 Chi lavora 6+ ore alla scrivania',
     fw4:'🎮 Gamer e creator',
+    fw5:'🎁 Regalo per chi ami',
+    research_claim:'Lavorare con la testa inclinata in avanti aumenta il carico sulla colonna cervicale fino a 5 volte rispetto alla postura corretta \u2014 l\u2019equivalente di 27 kg sul collo.',
+    research_src:'Hansraj K.K. \u2014 Surgical Technology International (2014), citato da NIH PubMed',
+    illus_label:'Come LeanTil percepisce la postura',
     illus_label:'Come LeanTil percepisce la postura',
     pill1:'Rileva l\u2019incurvamento',
     pill2:'LeanTil ti avverte',
@@ -928,9 +916,9 @@ var C = {
     p2:'Dashboard con i tuoi progressi',
     p3:'Si adatta a qualsiasi sedia',
     p4:'Rimborso garantito',
-    jcta:'Ordina adesso \u2192',
+    jcta:'Voglio il mio LeanTil',
     founders_title:'Chi c\u2019\u00e8 dietro LeanTil',
-    micro_cta:'Ordina adesso \u2192',
+    micro_cta:'Prenota il tuo posto',
     founder_strong_1:'Caterina, Founder',
     founder_p_1:'Stare ore davanti allo schermo senza muoversi \u00e8 diventato normale. Il risultato? Schiena a pezzi. Durante il COVID mi sono trovata esattamente in questa situazione e ho capito che non poteva essere la normalit\u00e0. Da l\u00ec \u00e8 nata LeanTil. Parliamone su <a href="https://www.linkedin.com/in/caterina-grimaldi/" target="_blank" rel="noopener">LinkedIn</a>.',
     founder_strong_2:'Giuseppe, Co-Founder',
@@ -946,18 +934,18 @@ var C = {
     nav_pricing:'Pricing',
     exit_h:'Aspetta \u2014 rimani aggiornato',
     exit_p:'Posti limitati. Lascia la mail e ti avvisiamo prima degli altri. Zero spam.',
-    exit_cta:'Avvisami \u2192',
+    exit_cta:'Avvisami ',
     exit_skip:'No grazie, continuo a guardare'
   },
   en: {
     ck_txt:'We collect anonymous browsing data via Google Analytics. <a href="privacy.html">Privacy Policy</a>',
     ck_no:'Decline', ck_yes:'Accept',
-    hcta:'Order now \u2192',
-    badge:'Available now \u00a0\u00b7\u00a0 Try now',
+    hcta:'Order now',
+    badge:'Available now \u00a0\u00b7\u00a0 Limited spots',
     h1:'Your back thanks you at 6 PM',
     sub:'LeanTil keeps you in position all day, without you having to think about it.',
-    hero_cta:'Order now \u2192',
-    proof_txt:'people already on the list',
+    hero_cta:'Reserve your spot',
+    proof_txt:'people are already beta-testing LeanTil',
     render_eyebrow:'The product',
     render_title:'Intelligent posture cushion',
     forwho_title:'Who it\'s for',
@@ -965,6 +953,9 @@ var C = {
     fw2:'✍️ Freelancers &amp; remote workers',
     fw3:'🏢 Anyone working 6+ hours at a desk',
     fw4:'🎮 Gamers &amp; creators',
+    fw5:'🎁 A gift for someone you care about',
+    research_claim:'Working with your head tilted forward increases the load on the cervical spine up to 5 times compared to correct posture \u2014 the equivalent of 27 kg on your neck.',
+    research_src:'Hansraj K.K. \u2014 Surgical Technology International (2014), cited by NIH PubMed',
     illus_label:'How LeanTil detects posture',
     pill1:'Detects the slouch',
     pill2:'LeanTil alerts you',
@@ -984,9 +975,9 @@ var C = {
     p2:'Dashboard with your progress',
     p3:'Fits any chair',
     p4:'Money-back guarantee',
-    jcta:'Order now \u2192',
+    jcta:'I want my LeanTil',
     founders_title:'The people behind LeanTil',
-    micro_cta:'Order now \u2192',
+    micro_cta:'Reserve your spot',
     founder_strong_1:'Caterina, Founder',
     founder_p_1:'Spending hours in front of a screen without moving has become normal. The result? A wrecked back. During COVID, I found myself in that exact situation and realized it shouldn\'t be the norm. That\'s how LeanTil was born. Stay in touch on <a href="https://www.linkedin.com/in/caterina-grimaldi/" target="_blank" rel="noopener">LinkedIn</a>.',
     founder_strong_2:'Giuseppe, Co-Founder',
@@ -1001,7 +992,7 @@ var C = {
     nav_pricing:'Pricing',
     exit_h:'Wait \u2014 stay in the loop',
     exit_p:'Limited spots. Drop your email and we\'ll notify you first. No spam.',
-    exit_cta:'Notify me \u2192',
+    exit_cta:'Notify me ',
     exit_skip:'No thanks, I\'ll keep looking'
   }
 };
@@ -1277,64 +1268,6 @@ if (sg && 'IntersectionObserver' in window) {
   document.querySelectorAll('.step').forEach(function(s) { s.classList.add('show'); });
 }
 
-/* ══ EXIT INTENT ══ */
-(function() {
-  var overlay  = document.getElementById('exit-overlay');
-  var exitX    = document.getElementById('exit-x');
-  var exitSkip = document.getElementById('exit-skip');
-  var exitCta  = document.getElementById('exit-cta');
-  var shown    = false;
-
-  try { if (sessionStorage.getItem('lt_exit')) shown = true; } catch(e) {}
-
-  function showExit() {
-    if (shown) return;
-    shown = true;
-    try { sessionStorage.setItem('lt_exit','1'); } catch(e) {}
-    gtag('event', 'exit_intent_shown', { event_category:'engagement', trigger_lang:curLang });
-    overlay.classList.add('visible');
-    setTimeout(function() { exitX.focus(); }, 50);
-  }
-
-  function closeExit(reason) {
-    overlay.classList.remove('visible');
-    gtag('event', 'exit_intent_dismiss', { event_category:'engagement', reason:reason || 'close' });
-  }
-
-  exitX.addEventListener('click', function() { closeExit('x_button'); });
-  exitSkip.addEventListener('click', function() { closeExit('skip_button'); });
-  exitCta.addEventListener('click', function() {
-    gtag('event', 'exit_intent_cta_click', { event_category:'engagement', language:curLang });
-  });
-
-  overlay.addEventListener('click', function(ev) {
-    if (ev.target === overlay) closeExit('backdrop');
-  });
-  document.addEventListener('keydown', function(ev) {
-    if (ev.key === 'Escape' && overlay.classList.contains('visible')) closeExit('escape');
-  });
-
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 20) showExit();
-  });
-
-  var lastScrollY = window.scrollY;
-  window.addEventListener('scroll', function() {
-    var y = window.scrollY;
-    if (lastScrollY - y > 80 && y > 300) showExit();
-    lastScrollY = y;
-  }, { passive:true });
-
-  var inTimer;
-  function resetInactivity() {
-    clearTimeout(inTimer);
-    inTimer = setTimeout(showExit, 45000);
-  }
-  ['touchstart','scroll','click','keydown'].forEach(function(ev) {
-    document.addEventListener(ev, resetInactivity, { passive:true });
-  });
-  resetInactivity();
-})();
 </script>
 
 <!-- LinkedIn Insight Tag -->
