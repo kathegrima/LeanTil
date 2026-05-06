@@ -634,6 +634,37 @@
       font-size: 0.9rem;
       color: var(--muted);
     }
+
+    .blog-preview-item {
+      display: block;
+      padding: 16px 16px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--bd);
+      background: rgba(20,20,22,.9);
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      text-decoration: none;      /* evita sottolineatura blu */
+      color: inherit;             /* niente blu di default */
+    }
+    
+    .blog-preview-item h3 {
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+      font-weight: 600;           /* non troppo bold */
+    }
+    
+    .blog-preview-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    
+    /* opzionale: colore titolo simile ai link del box */
+    .blog-preview-item h3 {
+      color: var(--p2);
+    }
+    
+    .blog-preview-item:hover h3 {
+      color: #fff;
+    }
     
     .blog-preview-item:hover {
       border-color: rgba(155,111,208,.7);
