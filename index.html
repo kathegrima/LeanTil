@@ -588,6 +588,64 @@
         gap: 24px;
       }
     }
+
+      /* ── BLOG PREVIEW ── */
+
+    .blog-preview {
+      padding: 56px 0 52px;
+    }
+    
+    .blog-preview-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    
+    .blog-preview-header h2 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+    
+    .blog-preview-header p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    
+    .blog-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    
+    .blog-preview-item {
+      display: block;
+      padding: 16px 16px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--bd);
+      background: rgba(20,20,22,.9);
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    
+    .blog-preview-item h3 {
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+    }
+    
+    .blog-preview-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    
+    .blog-preview-item:hover {
+      border-color: rgba(155,111,208,.7);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0,0,0,.5);
+    }
+    
+    @media (max-width: 820px) {
+      .blog-preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
     
     /* ── FOOTER ── */
     footer { border-top:1px solid var(--bd); padding:48px 0 36px; }
@@ -1018,6 +1076,30 @@
         </li>
       </ul>
     </aside>
+  </div>
+</section>
+  
+<!-- BLOG PREVIEW -->
+<section class="blog-preview">
+  <div class="W">
+    <div class="blog-preview-header">
+      <h2>Dal blog LeanTil</h2>
+      <p>Approfondimenti pratici su postura, ergonomia e smart working.</p>
+    </div>
+    <div class="blog-preview-grid">
+      <a href="blog/postura-corretta-scrivania.html" class="blog-preview-item">
+        <h3>Postura corretta alla scrivania</h3>
+        <p>Regole base e checklist per sistemare la tua postazione.</p>
+      </a>
+      <a href="blog/esercizi-postura-scrivania.html" class="blog-preview-item">
+        <h3>Esercizi per migliorare la postura</h3>
+        <p>Movimenti semplici da fare in pausa, anche in ufficio.</p>
+      </a>
+      <a href="blog/mal-di-schiena-smart-working.html" class="blog-preview-item">
+        <h3>Mal di schiena in smart working</h3>
+        <p>Cosa lo causa davvero e come ridurlo con piccoli cambi.</p>
+      </a>
+    </div>
   </div>
 </section>
   
