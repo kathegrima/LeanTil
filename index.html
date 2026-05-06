@@ -591,32 +591,32 @@
 
       /* ── BLOG PREVIEW ── */
 
-    .blog-preview {
+    . {
       padding: 56px 0 52px;
     }
     
-    .blog-preview-header {
+    .-header {
       text-align: center;
       margin-bottom: 24px;
     }
     
-    .blog-preview-header h2 {
+    .-header h2 {
       font-size: 1.4rem;
       margin-bottom: 6px;
     }
     
-    .blog-preview-header p {
+    .-header p {
       font-size: 0.95rem;
       color: var(--muted);
     }
     
-    .blog-preview-grid {
+    .-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
     
-    .blog-preview-item {
+    .-item {
       display: block;
       padding: 16px 16px 14px;
       border-radius: 14px;
@@ -625,24 +625,24 @@
       transition: border-color .2s, transform .2s, box-shadow .2s;
     }
     
-    .blog-preview-item h3 {
+    .-item h3 {
       font-size: 0.98rem;
       margin-bottom: 6px;
     }
     
-    .blog-preview-item p {
+    .-item p {
       font-size: 0.9rem;
       color: var(--muted);
     }
     
-    .blog-preview-item:hover {
+    .-item:hover {
       border-color: rgba(155,111,208,.7);
       transform: translateY(-2px);
       box-shadow: 0 10px 32px rgba(0,0,0,.5);
     }
     
     @media (max-width: 820px) {
-      .blog-preview-grid {
+      .-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -1080,28 +1080,20 @@
 </section>
   
 <!-- BLOG PREVIEW -->
-<section class="blog-preview">
-  <div class="W">
-    <div class="blog-preview-header">
-      <h2>Dal blog LeanTil</h2>
-      <p>Approfondimenti pratici su postura, ergonomia e smart working.</p>
-    </div>
-    <div class="blog-preview-grid">
-      <a href="blog/postura-corretta-scrivania.html" class="blog-preview-item">
-        <h3>Postura corretta alla scrivania</h3>
-        <p>Regole base e checklist per sistemare la tua postazione.</p>
-      </a>
-      <a href="blog/esercizi-postura-scrivania.html" class="blog-preview-item">
-        <h3>Esercizi per migliorare la postura</h3>
-        <p>Movimenti semplici da fare in pausa, anche in ufficio.</p>
-      </a>
-      <a href="blog/mal-di-schiena-smart-working.html" class="blog-preview-item">
-        <h3>Mal di schiena in smart working</h3>
-        <p>Cosa lo causa davvero e come ridurlo con piccoli cambi.</p>
-      </a>
-    </div>
-  </div>
-</section>
+<div class="blog-preview-grid">
+  <a href="blog/mal-di-testa-postura-scrivania.html" class="blog-preview-item">
+    <h3>Mal di testa e postura alla scrivania</h3>
+    <p>Come una postura scorretta può scatenare tensioni e mal di testa.</p>
+  </a>
+  <a href="blog/postura-gamer-schiena-salva.html" class="blog-preview-item">
+    <h3>Postura per gamer e creator</h3>
+    <p>Cosa cambia quando passi molte ore davanti allo schermo giocando o creando.</p>
+  </a>
+  <a href="blog/postura-gravidanza-schiena.html" class="blog-preview-item">
+    <h3>Postura e schiena in gravidanza</h3>
+    <p>Accorgimenti pratici per ridurre il carico sulla colonna durante la gravidanza.</p>
+  </a>
+</div>
   
 <!-- FOOTER -->
 <footer>
