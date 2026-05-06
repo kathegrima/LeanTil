@@ -505,19 +505,66 @@
     .faq-item.open .faq-body[hidden] { display:block; }
 
     /* ── SEO TEXT SECTION ── */
-    .seo-content {
+   .seo-content {
+      padding: 72px 24px 60px;
+      border-top: 1px solid var(--bd);
+      border-bottom: 1px solid var(--bd);
+      background: rgba(20, 20, 22, .7);
+    }
+    
+    .seo-content .W {
       max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 24px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
+    }
+    
+    .seo-eyebrow {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 10px;
     }
     
     .seo-content h2 {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       margin-bottom: 16px;
       color: var(--tx);
+    }
+    
+    .seo-content p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    
+    .seo-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 18px;
+    }
+    
+    .seo-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    
+    .seo-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--p2);
+    }
+    
+    .seo-content a {
+      color: var(--p2);
+    }
+    .seo-content a:hover {
+      color: #fff;
     }
     
     /* ── FOOTER ── */
@@ -906,16 +953,20 @@
 <!-- SEO TEXT SECTION -->
 <section class="seo-content">
   <div class="W">
+    <p class="seo-eyebrow">Postura e tecnologia</p>
     <h2>Come LeanTil aiuta a migliorare la postura</h2>
+
     <p>
       Mantenere una postura corretta alla scrivania è difficile quando passi molte ore seduto davanti al computer.
       Senza un feedback continuo, il corpo tende a incurvarsi e a scaricare troppo peso su schiena e cervicale.
     </p>
-    <p>
-      LeanTil è un cuscino posturale smart con sensori che rilevano come distribuisci il peso sulla seduta.
-      Quando rimani in una postura scorretta per troppo tempo, ricevi un segnale che ti ricorda di
-      tornare in posizione, senza interrompere il flusso di lavoro.
-    </p>
+
+    <ul class="seo-list">
+      <li>Rileva in tempo reale come distribuisci il peso sulla seduta.</li>
+      <li>Ti avvisa in modo discreto quando resti incurvato troppo a lungo.</li>
+      <li>Ti aiuta a creare abitudini posturali più sane, senza cambiare routine.</li>
+    </ul>
+
     <p>
       Se vuoi approfondire come impostare una postazione ergonomica completa, leggi la nostra
       <a href="blog/postura-corretta-scrivania.html">guida completa alla postura corretta alla scrivania</a>
