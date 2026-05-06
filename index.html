@@ -506,14 +506,24 @@
 
     /* ── SEO TEXT SECTION ── */
    .seo-content {
-      padding: 72px 24px 60px;
       border-top: 1px solid var(--bd);
-      border-bottom: 1px solid var(--bd);
-      background: rgba(20, 20, 22, .7);
+      padding: 72px 0 72px;
+      background: radial-gradient(ellipse at top, rgba(107,63,160,.18) 0, transparent 55%);
     }
     
-    .seo-content .W {
-      max-width: 800px;
+    .seo-layout {
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      align-items: flex-start;
+    }
+    
+    .seo-copy p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
     }
     
     .seo-eyebrow {
@@ -524,47 +534,59 @@
       margin-bottom: 10px;
     }
     
-    .seo-content h2 {
+    .seo-copy h2 {
       font-size: 1.6rem;
       margin-bottom: 16px;
-      color: var(--tx);
     }
     
-    .seo-content p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-    
-    .seo-list {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 18px;
-    }
-    
-    .seo-list li {
-      position: relative;
-      padding-left: 18px;
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 6px;
-    }
-    
-    .seo-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
+    .seo-copy a {
       color: var(--p2);
     }
-    
-    .seo-content a {
-      color: var(--p2);
-    }
-    .seo-content a:hover {
+    .seo-copy a:hover {
       color: #fff;
+    }
+    
+    /* card destra */
+    .seo-card {
+      border-radius: 18px;
+      background: var(--card);
+      border: 1px solid var(--bd2);
+      padding: 20px 20px 18px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.45);
+    }
+    
+    .seo-card-title {
+      font-size: 0.85rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 10px;
+    }
+    
+    .seo-card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .seo-card li {
+      margin-bottom: 8px;
+    }
+    
+    .seo-card a {
+      font-size: 0.9rem;
+      color: var(--p2);
+    }
+    .seo-card a:hover {
+      color: #fff;
+    }
+    
+    /* mobile */
+    @media (max-width: 820px) {
+      .seo-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
     }
     
     /* ── FOOTER ── */
@@ -952,28 +974,50 @@
 
 <!-- SEO TEXT SECTION -->
 <section class="seo-content">
-  <div class="W">
-    <p class="seo-eyebrow">Postura e tecnologia</p>
-    <h2>Come LeanTil aiuta a migliorare la postura</h2>
+  <div class="W seo-layout">
+    <div class="seo-copy">
+      <p class="seo-eyebrow">Postura alla scrivania</p>
+      <h2>Perché LeanTil ti aiuta davvero a migliorare la postura</h2>
 
-    <p>
-      Mantenere una postura corretta alla scrivania è difficile quando passi molte ore seduto davanti al computer.
-      Senza un feedback continuo, il corpo tende a incurvarsi e a scaricare troppo peso su schiena e cervicale.
-    </p>
+      <p>
+        Quando lavori molte ore seduto è normale scivolare in posizioni scorrette, anche se conosci la teoria
+        della postura corretta. Il problema è la mancanza di un feedback costante mentre sei concentrato su altro.
+      </p>
 
-    <ul class="seo-list">
-      <li>Rileva in tempo reale come distribuisci il peso sulla seduta.</li>
-      <li>Ti avvisa in modo discreto quando resti incurvato troppo a lungo.</li>
-      <li>Ti aiuta a creare abitudini posturali più sane, senza cambiare routine.</li>
-    </ul>
+      <p>
+        LeanTil aggiunge proprio questo pezzo mancante: un cuscino posturale smart che monitora la tua posizione
+        sulla sedia e ti avvisa in modo discreto quando ti incurvi troppo a lungo.
+      </p>
 
-    <p>
-      Se vuoi approfondire come impostare una postazione ergonomica completa, leggi la nostra
-      <a href="blog/postura-corretta-scrivania.html">guida completa alla postura corretta alla scrivania</a>
-      e gli
-      <a href="blog/esercizi-postura-scrivania.html">esercizi per migliorare la postura seduto</a>
-      nel blog LeanTil.
-    </p>
+      <p>
+        Se vuoi approfondire come impostare una postazione ergonomica completa, leggi la nostra
+        <a href="blog/postura-corretta-scrivania.html">guida completa alla postura corretta alla scrivania</a>
+        e gli
+        <a href="blog/esercizi-postura-scrivania.html">esercizi per migliorare la postura seduto</a>
+        nel blog LeanTil.
+      </p>
+    </div>
+
+    <aside class="seo-card">
+      <p class="seo-card-title">Da dove partire</p>
+      <ul>
+        <li>
+          <a href="blog/postura-corretta-scrivania.html">
+            Postura corretta alla scrivania: checklist pratica
+          </a>
+        </li>
+        <li>
+          <a href="blog/esercizi-postura-scrivania.html">
+            7 esercizi rapidi per migliorare la postura seduto
+          </a>
+        </li>
+        <li>
+          <a href="blog/mal-di-schiena-smart-working.html">
+            Mal di schiena in smart working: cause e rimedi
+          </a>
+        </li>
+      </ul>
+    </aside>
   </div>
 </section>
   
