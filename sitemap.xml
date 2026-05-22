@@ -12,6 +12,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.leantil.com/en/"/>
   </url>
 
+  <!-- TEAM PAGE -->
+  <url>
+    <loc>https://www.leantil.com/team.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2026-05-21</lastmod>
+  </url>
+        
   <!-- PRICING IT -->
   <url>
     <loc>https://www.leantil.com/pricing.html</loc>
