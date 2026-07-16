@@ -1,1 +1,906 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeanScore | Calculate your team's postural risk - LeanTil</title>
+  <meta name="description" content="Find out how much it costs your company to ignore posture. LeanScore calculates the hidden cost and your personal risk index in 2 minutes." />
+  <link rel="icon" href="https://www.leantil.com/leantil-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:    #0A0A0C;
+      --card:  #141416;
+      --card2: #1A1A1E;
+      --bd:    rgba(255,255,255,.07);
+      --bd2:   rgba(255,255,255,.13);
+      --tx:    #F0F0F2;
+      --muted: #8A8A96;
+      --dim:   #58585F;
+      --p1:    #6B3FA0;
+      --p2:    #9B6FD0;
+      --glow:  rgba(107,63,160,.4);
+      --grad:  linear-gradient(135deg,#6B3FA0 0%,#9B6FD0 100%);
+      --green: #4CAF7D;
+      --yellow:#E6A817;
+      --orange:#E06820;
+      --red:   #D03030;
+      --f:     'Plus Jakarta Sans', system-ui, sans-serif;
+      --r:     14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--tx);
+      font-family: var(--f); font-size: 16px; line-height: 1.65;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh;
+    }
+    a { text-decoration: none; color: var(--p2); }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    #hdr {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(10,10,12,.92);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--bd);
+    }
+    .hdr-row {
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+      display: flex; align-items: center; justify-content: space-between; height: 66px;
+    }
+    .logo img { height: 38px; width: auto; display: block; }
+    .btn-sm {
+      display: inline-flex; align-items: center;
+      background: var(--grad); color: #fff;
+      font-family: var(--f); font-size: 14px; font-weight: 700;
+      padding: 10px 22px; border-radius: 100px; border: none; cursor: pointer;
+      transition: box-shadow .2s, transform .15s; text-decoration: none;
+    }
+    .btn-sm:hover { transform: translateY(-1px); box-shadow: 0 4px 22px var(--glow); text-decoration: none; }
+
+    /* MAIN */
+    .quiz-wrap { max-width: 680px; margin: 0 auto; padding: 64px 24px 100px; }
+
+    /* PAGE HEADER */
+    .page-header { text-align: center; margin-bottom: 52px; }
+    .page-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(107,63,160,.14); border: 1px solid rgba(107,63,160,.32);
+      border-radius: 100px; padding: 5px 16px;
+      font-size: 12px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--p2); margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-size: clamp(30px,5vw,50px); font-weight: 800;
+      letter-spacing: -.026em; line-height: 1.08; margin-bottom: 14px;
+    }
+    .page-header h1 span {
+      background: var(--grad); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .page-header p { font-size: 16px; color: var(--muted); max-width: 460px; margin: 0 auto; }
+
+    /* SWITCHER */
+    .switcher {
+      display: flex; background: var(--card); border: 1px solid var(--bd2);
+      border-radius: 100px; padding: 4px; gap: 4px; margin-bottom: 48px;
+    }
+    .sw-btn {
+      flex: 1; padding: 12px 20px; border-radius: 100px; border: none;
+      font-family: var(--f); font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: all .25s; color: var(--muted);
+      background: transparent; display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .sw-btn.active { background: var(--grad); color: #fff; box-shadow: 0 4px 20px var(--glow); }
+    .sw-btn:not(.active):hover { color: var(--tx); background: rgba(255,255,255,.05); }
+
+    /* PROGRESS */
+    .progress-wrap { margin-bottom: 36px; display: none; }
+    .progress-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .progress-label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+    .progress-count { font-size: 13px; font-weight: 700; color: var(--p2); }
+    .progress-track { height: 4px; background: rgba(255,255,255,.07); border-radius: 100px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--grad); border-radius: 100px; transition: width .45s cubic-bezier(.4,0,.2,1); width: 0%; }
+
+    /* QUESTION STAGE - simple fade only */
+    .q-stage { }
+    .q-card {
+      background: var(--card); border: 1px solid var(--bd2);
+      border-radius: 20px; padding: 40px 36px 36px;
+      opacity: 0; transition: opacity .25s ease;
+    }
+    .q-card.visible { opacity: 1; }
+
+    .q-batch-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--p2); margin-bottom: 12px; display: block;
+    }
+    .q-text {
+      font-size: clamp(17px,2.5vw,21px); font-weight: 700;
+      letter-spacing: -.01em; line-height: 1.35; margin-bottom: 28px; color: var(--tx);
+    }
+    .q-sub { font-size: 13.5px; color: var(--muted); margin-top: -18px; margin-bottom: 22px; line-height: 1.6; }
+
+    /* OPTIONS */
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .opt-btn {
+      width: 100%; text-align: left; padding: 14px 18px;
+      background: var(--card2); border: 1px solid var(--bd2);
+      border-radius: var(--r); font-family: var(--f); font-size: 15px;
+      font-weight: 500; color: var(--tx); cursor: pointer;
+      display: flex; align-items: center; gap: 12px;
+      transition: border-color .18s, background .18s;
+    }
+    .opt-btn:hover { border-color: rgba(107,63,160,.5); background: rgba(107,63,160,.08); }
+    .opt-btn.selected { border-color: var(--p2); background: rgba(107,63,160,.14); color: #fff; }
+    .opt-radio {
+      width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--bd2);
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: border-color .18s;
+    }
+    .opt-btn.selected .opt-radio { border-color: var(--p2); }
+    .opt-radio-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--p2);
+      opacity: 0; transform: scale(0); transition: opacity .18s, transform .18s;
+    }
+    .opt-btn.selected .opt-radio-dot { opacity: 1; transform: scale(1); }
+    .opt-label { flex: 1; }
+
+    /* INPUTS */
+    .text-input {
+      width: 100%; padding: 14px 18px;
+      background: var(--card2); border: 1px solid var(--bd2);
+      border-radius: var(--r); font-family: var(--f); font-size: 15px;
+      color: var(--tx); outline: none; transition: border-color .2s;
+    }
+    .text-input:focus { border-color: var(--p2); }
+    .text-input::placeholder { color: var(--dim); }
+    .input-group { display: flex; flex-direction: column; gap: 14px; }
+    .input-label { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 6px; display: block; }
+    .styled-select {
+      width: 100%; padding: 14px 18px;
+      background: var(--card2); border: 1px solid var(--bd2);
+      border-radius: var(--r); font-family: var(--f); font-size: 15px;
+      color: var(--tx); outline: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238A8A96' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      cursor: pointer; transition: border-color .2s;
+    }
+    .styled-select:focus { border-color: var(--p2); }
+    .styled-select option { background: #1A1A1E; }
+    .optional-tag {
+      font-size: 11px; font-weight: 600; color: var(--dim);
+      background: rgba(255,255,255,.05); border: 1px solid var(--bd);
+      border-radius: 100px; padding: 2px 10px; margin-left: 8px; vertical-align: middle;
+    }
+
+    /* NAV */
+    .q-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; gap: 12px; }
+    .btn-back {
+      padding: 12px 24px; border-radius: 100px; border: 1px solid var(--bd2);
+      background: transparent; color: var(--muted); font-family: var(--f);
+      font-size: 14px; font-weight: 600; cursor: pointer; transition: all .2s;
+    }
+    .btn-back:hover { color: var(--tx); border-color: rgba(255,255,255,.24); }
+    .btn-back:disabled { opacity: 0; pointer-events: none; }
+    .btn-next {
+      padding: 13px 32px; border-radius: 100px; border: none;
+      background: var(--grad); color: #fff; font-family: var(--f);
+      font-size: 15px; font-weight: 700; cursor: pointer;
+      transition: box-shadow .2s, transform .15s, opacity .2s;
+      box-shadow: 0 4px 20px var(--glow);
+    }
+    .btn-next:hover { transform: translateY(-1px); box-shadow: 0 6px 28px var(--glow); }
+    .btn-next:disabled { opacity: .32; pointer-events: none; box-shadow: none; transform: none; }
+
+    /* LOADING */
+    .loading-card { display: none; text-align: center; padding: 80px 40px; background: var(--card); border: 1px solid var(--bd2); border-radius: 20px; }
+    .loading-card.active { display: block; }
+    .spinner { width: 48px; height: 48px; border-radius: 50%; border: 3px solid rgba(107,63,160,.2); border-top-color: var(--p2); animation: spin .8s linear infinite; margin: 0 auto 24px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+    .loading-step { font-size: 13px; color: var(--dim); opacity: 0; transition: opacity .4s; padding: 3px 0; }
+    .loading-step.show { opacity: 1; }
+
+    /* RESULT */
+    .result-card { display: none; background: var(--card); border: 1px solid var(--bd2); border-radius: 20px; overflow: hidden; }
+    .result-card.active { display: block; }
+
+    /* RESULT HERO - ring + number side by side */
+    .result-hero { padding: 48px 40px 36px; text-align: center; position: relative; overflow: hidden; }
+    .result-hero::before {
+      content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 500px; height: 400px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(107,63,160,.13) 0%, transparent 65%); pointer-events: none;
+    }
+    .result-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--p2); margin-bottom: 32px; }
+
+    /* Ring: number centred cleanly, band label below the SVG */
+    .score-ring-wrap { width: 200px; height: 200px; position: relative; margin: 0 auto 12px; }
+    .score-ring-svg { transform: rotate(-90deg); display: block; }
+    .score-ring-track { fill: none; stroke: rgba(255,255,255,.07); stroke-width: 12; }
+    .score-ring-fill  { fill: none; stroke-width: 12; stroke-linecap: round; stroke-dasharray: 565; stroke-dashoffset: 565; transition: stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1); }
+    /* Number sits centred inside the SVG using absolute */
+    .score-center {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      pointer-events: none;
+    }
+    .score-big {
+      font-size: 54px; font-weight: 800; letter-spacing: -.04em; line-height: 1;
+      color: var(--tx);  /* always white/light, readable on dark bg */
+    }
+    .score-small { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+    /* Band label sits BELOW the ring */
+    .score-band-label {
+      font-size: 14px; font-weight: 700; margin-bottom: 24px;
+      letter-spacing: .01em;
+    }
+
+    .result-title { font-size: clamp(19px,2.8vw,26px); font-weight: 800; letter-spacing: -.02em; margin-bottom: 10px; }
+    .result-desc  { font-size: 15px; color: var(--muted); max-width: 460px; margin: 0 auto; line-height: 1.7; }
+
+    .roi-numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 40px 32px; }
+    .roi-box { background: rgba(255,255,255,.03); border: 1px solid var(--bd); border-radius: 14px; padding: 20px 18px; text-align: center; }
+    .roi-box.highlight { border-color: rgba(107,63,160,.4); background: rgba(107,63,160,.08); }
+    .roi-num { font-size: clamp(20px,3vw,28px); font-weight: 800; letter-spacing: -.03em; color: var(--tx); display: block; margin-bottom: 6px; }
+    .roi-box.highlight .roi-num { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .roi-lbl { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+
+    .result-recs { padding: 0 40px 32px; }
+    .recs-title { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); margin-bottom: 14px; }
+    .rec-item { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--bd); }
+    .rec-item:last-child { border-bottom: none; }
+    .rec-ico { width: 32px; height: 32px; border-radius: 8px; background: rgba(107,63,160,.14); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 15px; margin-top: 2px; }
+    .rec-txt strong { font-size: 14px; font-weight: 700; display: block; margin-bottom: 3px; }
+    .rec-txt p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+    .result-cta { padding: 28px 40px 40px; border-top: 1px solid var(--bd); text-align: center; }
+    .result-cta h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .result-cta p { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+    .btn-lg {
+      display: inline-flex; align-items: center; background: var(--grad); color: #fff;
+      text-decoration: none; font-family: var(--f); font-size: 16px; font-weight: 700;
+      padding: 15px 36px; border-radius: 100px; border: none; cursor: pointer;
+      box-shadow: 0 0 36px var(--glow); transition: box-shadow .25s, transform .2s;
+    }
+    .btn-lg:hover { transform: translateY(-2px); box-shadow: 0 6px 48px var(--glow); text-decoration: none; }
+    .result-note { font-size: 12.5px; color: var(--dim); margin-top: 14px; }
+    .result-restart { margin-top: 16px; background: none; border: none; color: var(--muted); font-family: var(--f); font-size: 13px; cursor: pointer; text-decoration: underline; transition: color .2s; display: block; margin-left: auto; margin-right: auto; }
+    .result-restart:hover { color: var(--tx); }
+
+    /* Band colours for the label only */
+    .band-green  { color: var(--green); }
+    .band-yellow { color: var(--yellow); }
+    .band-orange { color: var(--orange); }
+    .band-red    { color: var(--red); }
+
+    /* START CARD */
+    .start-card { background: var(--card); border: 1px solid var(--bd2); border-radius: 20px; padding: 56px 40px; text-align: center; }
+    .start-emoji { font-size: 52px; margin-bottom: 20px; }
+    .start-title { font-size: clamp(18px,2.5vw,24px); font-weight: 700; margin-bottom: 12px; }
+    .start-desc  { font-size: 14px; color: var(--muted); margin-bottom: 32px; line-height: 1.65; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .start-note  { font-size: 12px; color: var(--dim); margin-top: 16px; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--bd); padding: 32px 28px; text-align: center; font-size: 12.5px; color: var(--dim); }
+    footer a { color: var(--muted); }
+
+    @media (max-width: 600px) {
+      .hdr-row { padding: 0 20px; }
+      .quiz-wrap { padding: 48px 16px 80px; }
+      .q-card { padding: 28px 20px 24px; }
+      .result-hero { padding: 36px 20px 24px; }
+      .roi-numbers { padding: 0 20px 24px; grid-template-columns: 1fr; }
+      .result-recs { padding: 0 20px 24px; }
+      .result-cta  { padding: 24px 20px 32px; }
+      .start-card  { padding: 40px 24px; }
+      .score-big   { font-size: 44px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="hdr-row">
+    <a href="https://www.leantil.com/" class="logo" aria-label="LeanTil home">
+      <img src="LeanTil_white_logo.png" alt="LeanTil" width="120" height="40" />
+    </a>
+    <a href="pilot.html" class="btn-sm">Talk to us</a>
+  </div>
+</header>
+
+<main class="quiz-wrap">
+
+  <div class="page-header">
+    <div class="page-eyebrow">LeanScore</div>
+    <h1>What does it really cost<br><span>to ignore posture?</span></h1>
+    <p>2 minutes of questions. A concrete number to bring to a meeting, or just for yourself.</p>
+  </div>
+
+  <div class="switcher" role="tablist">
+    <button class="sw-btn active" id="sw-b2b" role="tab" aria-selected="true"  onclick="switchMode('b2b')">I'm a company</button>
+    <button class="sw-btn"        id="sw-b2c" role="tab" aria-selected="false" onclick="switchMode('b2c')">I'm an individual</button>
+  </div>
+
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-meta">
+      <span class="progress-label" id="progressLabel">Step 1</span>
+      <span class="progress-count" id="progressCount">0%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div class="q-stage" id="qStage"></div>
+
+  <div class="loading-card" id="loadingCard">
+    <div class="spinner"></div>
+    <p class="loading-text">Calculating your LeanScore...</p>
+    <p class="loading-step" id="ls1">Analyzing hours of exposure</p>
+    <p class="loading-step" id="ls2">Estimating the hidden cost</p>
+    <p class="loading-step" id="ls3">Comparing with industry averages</p>
+    <p class="loading-step" id="ls4">Report ready</p>
+  </div>
+
+  <div class="result-card" id="resultCard"></div>
+
+</main>
+
+<footer>
+  <a href="https://www.leantil.com/">Back to the LeanTil website</a> &nbsp;&middot;&nbsp;
+  <a href="https://www.leantil.com/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+  &copy; 2026 LeanTil
+</footer>
+
+<script>
+/* ── CONFIG ── */
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqUp5PSeeTQcROvQUbFwpgTKdezURocACRlxzmDuUkCC1Pp-tDpFC4MTnmBvuF4Aeb/exec';
+
+/* ── QUESTIONS ── */
+const Q_B2B = [
+  { id:'b2b_nome',    batch:'Who you are',  text:'What is your name?', type:'text', placeholder:'Full name', required:true },
+  { id:'b2b_ruolo',   batch:'Who you are',  text:'What is your role?', type:'select', required:true,
+    options:[{value:'hr',label:'HR / People Manager'},{value:'facility',label:'Facility Manager'},{value:'founder_ceo',label:'Founder / CEO'},{value:'direzione',label:'General Management'},{value:'altro',label:'Other'}] },
+  { id:'b2b_settore', batch:'Who you are',  text:'What industry is your company in?', type:'select', required:true,
+    options:[{value:'tech',label:'Tech / Software'},{value:'consulenza',label:'Consulting / Professional services'},{value:'finance',label:'Finance / Insurance'},{value:'manifattura',label:'Manufacturing / Industry'},{value:'retail',label:'Retail / E-commerce'},{value:'media',label:'Media / Communications'},{value:'healthcare',label:'Healthcare'},{value:'pubblica_amm',label:'Public Administration'},{value:'altro',label:'Other'}] },
+  { id:'b2b_team_size', batch:'Your team', text:'How many people work at your company?', type:'options', required:true,
+    options:[{value:'5',label:'1-10 people',score:5},{value:'30',label:'11-50 people',score:30},{value:'125',label:'51-200 people',score:125},{value:'300',label:'More than 200',score:300}] },
+  { id:'b2b_ore_sedute', batch:'Your team', text:'On average, how many hours a day do your employees spend sitting at their desk?', type:'options', required:true,
+    options:[{value:'3',label:'Less than 4 hours',score:3},{value:'5',label:'4-6 hours',score:5},{value:'7',label:'6-8 hours',score:7},{value:'9',label:'More than 8 hours',score:9}] },
+  { id:'b2b_giorni_malattia', batch:'Your team', text:'How many sick days per year do you estimate are due to back pain or musculoskeletal disorders?',
+    sub:"If you don't have this data, use the industry average (8 days/year per employee, source INAIL).", type:'options', required:true,
+    options:[{value:'8',label:"I don't know, use the INAIL average (8 days)",score:8},{value:'3',label:'Less than 5 days',score:3},{value:'6',label:'5-8 days',score:6},{value:'10',label:'9-14 days',score:10},{value:'18',label:'More than 14 days',score:18}] },
+  
+  { id:'b2b_welfare', batch:'Current situation', text:'Do you already have an active welfare plan?', type:'options', required:true,
+    options:[{value:'strutturato',label:'Yes, structured and measured'},{value:'generico',label:'Yes, but generic / poorly monitored'},{value:'no',label:'No, not yet'}] },
+  { id:'b2b_contact', batch:'Send your report', text:'Where would you like to receive your LeanScore report?',
+    sub:'Your data is stored securely. The LeanTil team may contact you if you wish.', type:'contact_b2b', required:true }
+];
+
+const Q_B2C = [
+  { id:'b2c_ore', batch:'Your habits', text:'How many hours a day do you spend sitting (work + free time)?', type:'options', required:true,
+    options:[{value:'3',label:'Less than 4 hours',score:10},{value:'5',label:'4-6 hours',score:25},{value:'7',label:'6-8 hours',score:40},{value:'9',label:'More than 8 hours',score:55}] },
+  { id:'b2c_consapevolezza', batch:'Your habits', text:'Do you ever notice yourself slouching or sitting crooked on your chair?', type:'options', required:true,
+    options:[{value:'mai',label:'Never, I always sit properly',score:0},{value:'a_volte',label:'Sometimes',score:15},{value:'spesso',label:'Often',score:28},{value:'quasi_sempre',label:'Almost always',score:40}] },
+  { id:'b2c_dolori', batch:'How you feel', text:'Do you have recurring pain in your back, neck, or shoulders?', type:'options', required:true,
+    options:[{value:'mai',label:'Never',score:0},{value:'occasionale',label:'Occasionally',score:12},{value:'spesso',label:'Often',score:28},{value:'tutti_giorni',label:'Every day',score:45}] },
+  { id:'b2c_fine_giornata', batch:'How you feel', text:'At the end of the day, how do you feel physically?', type:'options', required:true,
+    options:[{value:'in_forma',label:'As fit as in the morning',score:0},{value:'stanco',label:'A bit tired',score:8},{value:'dolorante',label:'In pain',score:20},{value:'esausto',label:'Exhausted',score:32}] },
+  { id:'b2c_dove_lavori', batch:'Your context', text:'Where do you mainly work?', type:'options', required:true,
+    options:[{value:'ufficio',label:'Office',score:0},{value:'casa',label:'From home (remote work)',score:5},{value:'entrambi',label:'Half and half',score:3},{value:'altro',label:'Other',score:0}] },
+  { id:'b2c_tentativi', batch:'Your context', text:'Have you already tried solutions to improve your posture?',
+    sub:'Ergonomic chair, exercises, physiotherapy...', type:'options', required:true,
+    options:[{value:'uso_ancora',label:'Yes, and I still use them',score:-8},{value:'ho_smesso',label:'Yes, but I stopped',score:10},{value:'mai',label:'Not yet',score:0}] },
+  { id:'b2c_contact', batch:'Your result', text:'Would you like to leave your email?',
+    sub:'Optional. The result is already visible here; the email is only needed if you want to be contacted.', type:'contact_b2c', required:false }
+];
+
+/* ── STATE ── */
+let mode        = 'b2b';
+let questions   = Q_B2B;
+let current     = 0;
+let answers     = {};
+let quizStarted = false;
+let busy        = false;
+
+/* ── SWITCH MODE ── */
+function switchMode(m) {
+  if (quizStarted) return;
+  mode      = m;
+  questions = m === 'b2b' ? Q_B2B : Q_B2C;
+  answers   = {};
+  document.getElementById('sw-b2b').classList.toggle('active', m === 'b2b');
+  document.getElementById('sw-b2c').classList.toggle('active', m === 'b2c');
+  document.getElementById('sw-b2b').setAttribute('aria-selected', String(m === 'b2b'));
+  document.getElementById('sw-b2c').setAttribute('aria-selected', String(m === 'b2c'));
+  const t = document.getElementById('startTitle');
+  const d = document.getElementById('startDesc');
+  if (t) t.textContent = m === 'b2b' ? 'How much does poor posture cost your team?' : 'Discover your postural risk index';
+  if (d) d.textContent = m === 'b2b' ? 'Answer 8 quick questions. Get the estimated hidden cost right away.' : 'Answer 7 quick questions. Get your LeanScore and 3 personalized tips.';
+}
+
+/* ── START SCREEN ── */
+function renderStartScreen() {
+  const stage = document.getElementById('qStage');
+  stage.innerHTML = `
+    <div class="start-card">
+      <div class="start-emoji">&#x1F4CA;</div>
+      <p class="start-title" id="startTitle">How much does poor posture cost your team?</p>
+      <p class="start-desc"  id="startDesc">Answer 8 quick questions. Get the estimated hidden cost right away.</p>
+      <button class="btn-lg" id="startBtn">Start LeanScore</button>
+      <p class="start-note">No registration required to see the result</p>
+    </div>`;
+  document.getElementById('startBtn').addEventListener('click', startQuiz);
+}
+
+/* ── START QUIZ ── */
+function startQuiz() {
+  quizStarted = true;
+  current     = 0;
+  document.getElementById('progressWrap').style.display = 'block';
+  showQuestion(0);
+  updateProgress();
+}
+
+/* ── SHOW QUESTION (simple fade) ── */
+function showQuestion(idx) {
+  const stage   = document.getElementById('qStage');
+  const oldCard = stage.querySelector('.q-card');
+
+  // Build new card (hidden)
+  const newCard = buildCard(idx);
+  stage.appendChild(newCard);
+
+  if (oldCard) {
+    // Fade out old, then fade in new
+    oldCard.style.opacity = '0';
+    setTimeout(() => {
+      oldCard.remove();
+      newCard.classList.add('visible');
+    }, 220);
+  } else {
+    // First card, just fade in
+    setTimeout(() => newCard.classList.add('visible'), 30);
+  }
+
+  updateNextState(idx);
+}
+
+/* ── BUILD CARD ── */
+function buildCard(idx) {
+  const q    = questions[idx];
+  const card = document.createElement('div');
+  card.className = 'q-card';
+
+  let html = `<span class="q-batch-label">${q.batch}</span>`;
+  html += `<p class="q-text">${q.text}${!q.required ? ' <span class="optional-tag">optional</span>' : ''}</p>`;
+  if (q.sub) html += `<p class="q-sub">${q.sub}</p>`;
+
+  if (q.type === 'options') {
+    html += `<div class="options">`;
+    q.options.forEach(opt => {
+      const sel = answers[q.id] === opt.value;
+      html += `<button class="opt-btn${sel ? ' selected' : ''}" data-qid="${q.id}" data-val="${opt.value}">
+        <span class="opt-radio"><span class="opt-radio-dot"></span></span>
+        <span class="opt-label">${opt.label}</span>
+      </button>`;
+    });
+    html += `</div>`;
+  } else if (q.type === 'text') {
+    html += `<input class="text-input" id="fi-${idx}" type="text" placeholder="${q.placeholder || ''}" value="${answers[q.id] || ''}" autocomplete="off" />`;
+  } else if (q.type === 'select') {
+    html += `<select class="styled-select" id="fi-${idx}">
+      <option value="">Select</option>`;
+    q.options.forEach(o => {
+      html += `<option value="${o.value}"${answers[q.id] === o.value ? ' selected' : ''}>${o.label}</option>`;
+    });
+    html += `</select>`;
+  } else if (q.type === 'contact_b2b') {
+    const a = answers[q.id] || {};
+    html += `<div class="input-group">
+      <div><label class="input-label" for="c-email">Company email *</label>
+        <input class="text-input" id="c-email" type="email" placeholder="name@company.com" value="${a.email||''}" autocomplete="email" /></div>
+      <div><label class="input-label" for="c-azienda">Company name *</label>
+        <input class="text-input" id="c-azienda" type="text" placeholder="Acme Inc" value="${a.azienda||''}" /></div>
+      <div><label class="input-label" for="c-tel">Phone <span class="optional-tag">optional</span></label>
+        <input class="text-input" id="c-tel" type="tel" placeholder="+1 555 000 0000" value="${a.tel||''}" autocomplete="tel" /></div>
+      <div><label class="input-label" for="c-call">Would you like us to contact you? <span class="optional-tag">optional</span></label>
+        <select class="styled-select" id="c-call">
+          <option value="">No preference</option>
+          <option value="mattina"${(a.call||'')==='mattina'?' selected':''}>Yes, morning (9-12)</option>
+          <option value="pomeriggio"${(a.call||'')==='pomeriggio'?' selected':''}>Yes, afternoon (2-5pm)</option>
+          <option value="no"${(a.call||'')==='no'?' selected':''}>No, just the data</option>
+        </select></div>
+    </div>`;
+  } else if (q.type === 'contact_b2c') {
+    const a = answers[q.id] || {};
+    html += `<div class="input-group">
+      <div><label class="input-label" for="b2c-nome">Your name <span class="optional-tag">optional</span></label>
+        <input class="text-input" id="b2c-nome" type="text" placeholder="John" value="${a.nome||''}" autocomplete="given-name" /></div>
+      <div><label class="input-label" for="b2c-email">Your email <span class="optional-tag">optional</span></label>
+        <input class="text-input" id="b2c-email" type="email" placeholder="john@email.com" value="${a.email||''}" autocomplete="email" /></div>
+    </div>`;
+  }
+
+  const isLast = idx === questions.length - 1;
+  html += `<div class="q-nav">
+    <button class="btn-back" id="btnBack"${idx === 0 ? ' disabled' : ''}>Back</button>
+    <button class="btn-next" id="btnNext">${isLast ? 'Calculate my LeanScore' : 'Next'}</button>
+  </div>`;
+
+  card.innerHTML = html;
+
+  /* attach events */
+  card.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (busy) return;
+      answers[btn.dataset.qid] = btn.dataset.val;
+      card.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      updateNextState(idx);
+
+    });
+  });
+
+  const textEl = card.querySelector(`#fi-${idx}`);
+  if (textEl && q.type === 'text') {
+    textEl.addEventListener('input', () => { answers[q.id] = textEl.value; updateNextState(idx); });
+    textEl.addEventListener('keydown', e => { if (e.key === 'Enter') goNext(); });
+    setTimeout(() => textEl.focus(), 260);
+  }
+  if (textEl && q.type === 'select') {
+    textEl.addEventListener('change', () => { answers[q.id] = textEl.value; updateNextState(idx); });
+  }
+
+  if (q.type === 'contact_b2b') {
+    const sync = () => {
+      answers[q.id] = {
+        email:   (card.querySelector('#c-email')?.value   || '').trim(),
+        azienda: (card.querySelector('#c-azienda')?.value || '').trim(),
+        tel:     (card.querySelector('#c-tel')?.value     || '').trim(),
+        call:     card.querySelector('#c-call')?.value    || ''
+      };
+      updateNextState(idx);
+    };
+    card.querySelectorAll('#c-email,#c-azienda,#c-tel,#c-call').forEach(el => {
+      el.addEventListener('input',  sync);
+      el.addEventListener('change', sync);
+    });
+    setTimeout(() => card.querySelector('#c-email')?.focus(), 260);
+  }
+
+  if (q.type === 'contact_b2c') {
+    const sync = () => {
+      answers[q.id] = {
+        nome:  (card.querySelector('#b2c-nome')?.value  || '').trim(),
+        email: (card.querySelector('#b2c-email')?.value || '').trim()
+      };
+    };
+    card.querySelectorAll('#b2c-nome,#b2c-email').forEach(el => el.addEventListener('input', sync));
+  }
+
+  card.querySelector('#btnBack').addEventListener('click', goBack);
+  card.querySelector('#btnNext').addEventListener('click', goNext);
+
+  return card;
+}
+
+/* ── VALIDATION ── */
+function isAnswered(idx) {
+  const q = questions[idx];
+  const a = answers[q.id];
+  if (!q.required) return true;
+  switch (q.type) {
+    case 'options':     return !!a;
+    case 'text':        return typeof a === 'string' && a.trim().length > 1;
+    case 'select':      return !!a && a !== '';
+    case 'contact_b2b': return a && typeof a.email === 'string' && a.email.includes('@') && a.email.includes('.') && a.azienda && a.azienda.length > 1;
+    case 'contact_b2c': return true;
+    default:            return true;
+  }
+}
+
+function updateNextState(idx) {
+  const btn = document.getElementById('btnNext');
+  if (btn) btn.disabled = !isAnswered(idx);
+}
+
+/* ── NAV ── */
+function goNext() {
+  if (!isAnswered(current)) return;
+  if (current < questions.length - 1) {
+    current++;
+    showQuestion(current);
+    updateProgress();
+  } else {
+    submitQuiz();
+  }
+}
+function goBack() {
+  if (current > 0) { current--; showQuestion(current); updateProgress(); }
+}
+
+/* ── PROGRESS ── */
+function updateProgress() {
+  const pct = Math.round((current / questions.length) * 100);
+  document.getElementById('progressFill').style.width  = pct + '%';
+  document.getElementById('progressCount').textContent = pct + '%';
+  document.getElementById('progressLabel').textContent = 'Step ' + (current + 1) + ' of ' + questions.length;
+}
+
+/* ── SCORE CALC ── */
+function calcB2B() {
+  const n  = parseFloat(answers['b2b_team_size']       || 30);
+  const h  = parseFloat(answers['b2b_ore_sedute']      || 7);
+  const d  = parseFloat(answers['b2b_giorni_malattia'] || 8);
+  const c  = parseFloat(answers['b2b_costo_orario']    || 18);
+  const costoAssenza = n * d * (c * 8);
+  const costoProd    = (n * 0.70) * (h * 0.15) * 220 * c;
+  const totalCosto       = Math.round(costoAssenza + costoProd);
+  const costoPerPersona  = Math.round(totalCosto / n);
+  const risparmioStimato = Math.round(totalCosto * 0.30);
+  const roi              = Math.round(((risparmioStimato - n * 180) / (n * 180)) * 100);
+  return { totalCosto, costoPerPersona, risparmioStimato, roi };
+}
+
+function calcB2C() {
+  const ids = ['b2c_ore','b2c_consapevolezza','b2c_dolori','b2c_fine_giornata','b2c_dove_lavori','b2c_tentativi'];
+  let raw = 0;
+  ids.forEach(id => {
+    const q   = questions.find(x => x.id === id);
+    const opt = q && q.options ? q.options.find(o => o.value === answers[id]) : null;
+    if (opt) raw += (opt.score || 0);
+  });
+  return Math.max(0, Math.min(100, Math.round((raw / 165) * 100)));
+}
+
+/* ── SUBMIT ── */
+function submitQuiz() {
+  document.getElementById('qStage').innerHTML = '';
+  document.getElementById('progressWrap').style.display = 'none';
+  document.getElementById('loadingCard').classList.add('active');
+  ['ls1','ls2','ls3','ls4'].forEach((id, i) => {
+    setTimeout(() => { const el = document.getElementById(id); if (el) el.classList.add('show'); }, i * 500 + 300);
+  });
+
+  const scoreData = mode === 'b2b' ? calcB2B() : { score: calcB2C() };
+
+  // Build flat payload for Apps Script
+  const contact_b2b = answers['b2b_contact'] || {};
+  const contact_b2c = answers['b2c_contact'] || {};
+  const payload = {
+    mode,
+    timestamp:   new Date().toISOString(),
+    // B2B profiling
+    nome:        answers['b2b_nome']    || contact_b2c.nome || '',
+    ruolo:       answers['b2b_ruolo']   || '',
+    settore:     answers['b2b_settore'] || '',
+    azienda:     contact_b2b.azienda   || '',
+    email:       contact_b2b.email     || contact_b2c.email || '',
+    tel:         contact_b2b.tel       || '',
+    call_pref:   contact_b2b.call      || '',
+    // B2B answers
+    team_size:   answers['b2b_team_size']        || '',
+    ore_sedute:  answers['b2b_ore_sedute']       || answers['b2c_ore'] || '',
+    giorni_mal:  answers['b2b_giorni_malattia']  || '',
+    costo_ora:   answers['b2b_costo_orario']     || '',
+    welfare:     answers['b2b_welfare']          || '',
+    // B2C answers
+    consapevolezza:  answers['b2c_consapevolezza']  || '',
+    dolori:          answers['b2c_dolori']           || '',
+    fine_giornata:   answers['b2c_fine_giornata']    || '',
+    dove_lavori:     answers['b2c_dove_lavori']      || '',
+    tentativi:       answers['b2c_tentativi']        || '',
+    // Score
+    score_totale:    mode === 'b2b' ? scoreData.totalCosto      : scoreData.score,
+    costo_persona:   mode === 'b2b' ? scoreData.costoPerPersona : '',
+    risparmio:       mode === 'b2b' ? scoreData.risparmioStimato: '',
+    roi:             mode === 'b2b' ? scoreData.roi             : '',
+    page:            window.location.href
+  };
+
+  // Content-Type: text/plain avoids the CORS preflight (which Apps Script doesn't handle)
+  // The body is still valid JSON and JSON.parse works on the Apps Script side
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST', mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(payload)
+  }).catch(() => {});
+
+  setTimeout(() => {
+    document.getElementById('loadingCard').classList.remove('active');
+    showResult(scoreData);
+  }, 2600);
+}
+
+/* ── RESULT ── */
+function showResult(data) {
+  const card = document.getElementById('resultCard');
+  card.classList.add('active');
+  if (mode === 'b2b') renderB2BResult(data, card);
+  else                renderB2CResult(data.score, card);
+  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(animateNumbers, 450);
+}
+
+/* ── B2B RESULT ── */
+function renderB2BResult(data, card) {
+  const { totalCosto, costoPerPersona, risparmioStimato, roi } = data;
+  const nome = answers['b2b_nome'] || '';
+  card.innerHTML = `
+    <div class="result-hero">
+      <p class="result-label">Your company LeanScore</p>
+      <div class="score-ring-wrap">
+        <svg class="score-ring-svg" width="200" height="200" viewBox="0 0 200 200">
+          <circle class="score-ring-track" cx="100" cy="100" r="90"/>
+          <circle class="score-ring-fill" id="ringFill" cx="100" cy="100" r="90" stroke="url(#rg1)"/>
+          <defs>
+            <linearGradient id="rg1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#6B3FA0"/>
+              <stop offset="100%" stop-color="#9B6FD0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="score-center">
+          <span class="score-big" data-target="${totalCosto}" data-format="euro">0</span>
+          <span class="score-small">cost/year</span>
+        </div>
+      </div>
+      <p class="score-band-label" style="color:var(--p2)">Estimated hidden cost</p>
+      <h2 class="result-title">${nome ? nome + ', your' : 'Your'} team loses <span data-target="${costoPerPersona}" data-format="eur">0</span> per person</h2>
+      <p class="result-desc">Musculoskeletal pain, absenteeism, and reduced productivity cost your team about <strong>${fmtEuro(totalCosto)}/year</strong>. With LeanTil you could recover up to 30% of that.</p>
+    </div>
+    <div class="roi-numbers">
+      <div class="roi-box"><span class="roi-num" data-target="${costoPerPersona}" data-format="eur">0</span><span class="roi-lbl">Cost per employee/year</span></div>
+      <div class="roi-box"><span class="roi-num" data-target="${totalCosto}"      data-format="eur">0</span><span class="roi-lbl">Total team cost/year</span></div>
+      <div class="roi-box highlight"><span class="roi-num" data-target="${risparmioStimato}" data-format="eur">0</span><span class="roi-lbl">Potential savings with LeanTil (-30%)</span></div>
+      <div class="roi-box highlight"><span class="roi-num"><span data-target="${Math.min(roi,999)}" data-format="num">0</span>%</span><span class="roi-lbl">Estimated ROI in year one</span></div>
+    </div>
+    <div class="result-recs">
+      <p class="recs-title">Suggested next steps</p>
+      <div class="rec-item"><div class="rec-ico">&#x1F3AF;</div><div class="rec-txt"><strong>Start a pilot with a small team</strong><p>No commitment, no chairs to replace. Just 10-15 people are enough to get real data within 4 weeks.</p></div></div>
+      <div class="rec-item"><div class="rec-ico">&#x1F4CA;</div><div class="rec-txt"><strong>Bring this report to your next meeting</strong><p>The estimated hidden cost is the number to show management or the CFO to approve the pilot.</p></div></div>
+      <div class="rec-item"><div class="rec-ico">&#x1F512;</div><div class="rec-txt"><strong>Zero commitment before the pilot</strong><p>No contract, no capex on furniture. Decide only after seeing your team's real data.</p></div></div>
+    </div>
+    <div class="result-cta">
+      <h3>Want to see it work in your office?</h3>
+      <p>Talk directly with the LeanTil team.</p>
+      <a href="pilot.html" class="btn-lg">Start the free pilot</a>
+      <p class="result-note">Or write to us at <a href="mailto:info@leantil.com">info@leantil.com</a></p>
+      <button class="result-restart" onclick="restartQuiz()">Redo the calculation</button>
+    </div>`;
+  setTimeout(() => {
+    const r = document.getElementById('ringFill');
+    if (r) r.style.strokeDashoffset = 565 * 0.08;
+  }, 400);
+}
+
+/* ── B2C RESULT ── */
+function renderB2CResult(score, card) {
+  let band, bandClass, title, desc, recs;
+  if (score <= 25) {
+    band='Good posture'; bandClass='band-green';
+    title='You\'re doing better than most';
+    desc='Your postural lifestyle is above average. A little support helps maintain progress over time.';
+    recs=[{ico:'&#x1F331;',t:'Keep up the routine',d:'Keep up your current habits. Few people score under 25 points.'},{ico:'&#x23F0;',t:'Watch out in the afternoon',d:'Postural risk increases after 2pm, when focus drops.'},{ico:'&#x1FA91;',t:'LeanTil as a preventive ally',d:'Even people with good posture benefit from real-time feedback during long sessions.'}];
+  } else if (score <= 50) {
+    band='Moderate risk'; bandClass='band-yellow';
+    title='A few signs not to ignore';
+    desc='Some habits are working against you. Without intervention, it tends to worsen during long sessions.';
+    recs=[{ico:'&#x1F514;',t:'Start with micro-breaks',d:'Every 50 minutes, stand up for 2 minutes. A timer is enough.'},{ico:'&#x1F4A1;',t:'Visual feedback makes the difference',d:"The problem with posture is you don't notice it. A discreet signal can change habits within weeks."},{ico:'&#x1FA91;',t:"You don't need a new chair",d:'LeanTil adapts to any chair you already have.'}];
+  } else if (score <= 72) {
+    band='High risk'; bandClass='band-orange';
+    title='Your body is asking for help';
+    desc='Pain and chronic fatigue have already started affecting your day. The right time to act is now.';
+    recs=[{ico:'&#x26A0;&#xFE0F;',t:"Don't wait for it to get worse",d:"Postural problems don't resolve on their own, they tend to become chronic."},{ico:'&#x1F3AF;',t:'Real-time feedback',d:'LeanTil alerts you the exact moment your posture becomes incorrect.'},{ico:'&#x1F4C9;',t:'Impact on productivity',d:'Prolonged poor posture reduces cerebral oxygenation.'}];
+  } else {
+    band='Critical risk'; bandClass='band-red';
+    title='A concrete intervention is needed';
+    desc='Your score indicates significant postural load and symptoms already present. Ignoring it risks turning discomfort into a chronic problem.';
+    recs=[{ico:'&#x1F6A8;',t:'Act before it becomes chronic',d:'With a score above 72, the risk of developing lasting musculoskeletal problems is high.'},{ico:'&#x1FA7A;',t:'Consider a physiotherapy consultation',d:"If you have pain every day, a physiotherapist can assess whether there's already a structural issue."},{ico:'&#x1FA91;',t:'LeanTil as daily support',d:'A device that gives you real-time signals acts exactly where needed, every day.'}];
+  }
+  const cols = {'band-green':['#4CAF7D','#6FCF97'],'band-yellow':['#E6A817','#F6D860'],'band-orange':['#E06820','#F9A55A'],'band-red':['#D03030','#FC8181']};
+  const [c1,c2] = cols[bandClass];
+
+  card.innerHTML = `
+    <div class="result-hero">
+      <p class="result-label">Your personal LeanScore</p>
+      <div class="score-ring-wrap">
+        <svg class="score-ring-svg" width="200" height="200" viewBox="0 0 200 200">
+          <circle class="score-ring-track" cx="100" cy="100" r="90"/>
+          <circle class="score-ring-fill" id="ringFill" cx="100" cy="100" r="90" stroke="url(#rg2)"/>
+          <defs>
+            <linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="${c1}"/>
+              <stop offset="100%" stop-color="${c2}"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="score-center">
+          <span class="score-big" style="color:var(--tx)" data-target="${score}" data-format="num">0</span>
+          <span class="score-small">out of 100</span>
+        </div>
+      </div>
+      <p class="score-band-label ${bandClass}">${band}</p>
+      <h2 class="result-title">${title}</h2>
+      <p class="result-desc">${desc}</p>
+    </div>
+    <div class="result-recs">
+      <p class="recs-title">Your 3 personalized tips</p>
+      ${recs.map(r => `<div class="rec-item"><div class="rec-ico">${r.ico}</div><div class="rec-txt"><strong>${r.t}</strong><p>${r.d}</p></div></div>`).join('')}
+    </div>
+    <div class="result-cta">
+      <h3>Fix your posture without changing your chair</h3>
+      <p>LeanTil works on any chair you already have, at the office or at home.</p>
+      <a href="pricing.html" class="btn-lg">Discover LeanTil for you</a>
+      <p class="result-note">Have a team? <a href="leanscore.html?mode=b2b">Calculate the company LeanScore</a></p>
+      <button class="result-restart" onclick="restartQuiz()">Redo the quiz</button>
+    </div>`;
+
+  setTimeout(() => {
+    const r = document.getElementById('ringFill');
+    if (r) r.style.strokeDashoffset = 565 * (1 - score / 100);
+  }, 400);
+}
+
+/* ── NUMBER ANIMATION ── */
+function fmtNum(n)  { return Math.round(n).toLocaleString('en-US'); }
+function fmtEuro(n) {
+  if (n >= 1000000) return 'euro' + (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000)    return 'euro' + Math.round(n/1000) + 'K';
+  return 'euro' + n;
+}
+
+function animateNumbers() {
+  document.querySelectorAll('[data-target]').forEach(el => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const fmt    = el.getAttribute('data-format');
+    const dur    = 1600;
+    const t0     = performance.now();
+    function step(now) {
+      const p    = Math.min((now - t0) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val  = Math.round(target * ease);
+      if      (fmt === 'euro') el.textContent = '\u20AC' + (val >= 1000 ? Math.round(val/1000)+'K' : val);
+      else if (fmt === 'eur')  el.textContent = '\u20AC' + fmtNum(val);
+      else                     el.textContent = fmtNum(val);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+}
+
+/* ── RESTART ── */
+function restartQuiz() {
+  quizStarted = false;
+  busy        = false;
+  current     = 0;
+  answers     = {};
+  document.getElementById('resultCard').classList.remove('active');
+  document.getElementById('resultCard').innerHTML = '';
+  document.getElementById('loadingCard').classList.remove('active');
+  document.querySelectorAll('.loading-step').forEach(s => s.classList.remove('show'));
+  document.getElementById('progressWrap').style.display = 'none';
+  document.getElementById('progressFill').style.width   = '0%';
+  renderStartScreen();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ── INIT ── */
+(function() {
+  const p = new URLSearchParams(window.location.search);
+  if (p.get('mode') === 'b2c') switchMode('b2c');
+  renderStartScreen();
+})();
+</script>
+</body>
+</html>
